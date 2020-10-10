@@ -18,7 +18,7 @@ namespace ClinicManagementSystem.Model
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <returns>True if credentials exists; otherwise false</returns>
-        public bool AuthenticateUser(string username, string password)
+        public static bool AuthenticateUser(string username, string password)
         {
             var connection = DbConnection.GetConnection();
             int count;
