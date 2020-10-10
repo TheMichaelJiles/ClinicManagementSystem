@@ -10,7 +10,7 @@ namespace ClinicManagementSystem.DB
 {
 	public class NurseDAL
 	{
-		private const string GetNurseQuery = "CALL GetNurse('@username')";
+		private const string GetNurseQuery = "CALL GetNurse(@username)";
 
 		public static Nurse GetNurse(string username)
 		{
@@ -25,25 +25,25 @@ namespace ClinicManagementSystem.DB
 				{
 					cmd.Parameters.Add("@username", MySqlDbType.VarChar);
 					cmd.Parameters["@username"].Value = username;
-					setupNurse(nurse, cmd);
+					setupNurse(ref nurse, cmd);
 				}
 			}
 
 			return nurse;
 		}
 
-		private static void setupNurse(Nurse nurse, MySqlCommand cmd)
+		private static void setupNurse(ref Nurse nurse, MySqlCommand cmd)
 		{
 			using (MySqlDataReader reader = cmd.ExecuteReader())
 			{
-				int isAdminOrdinal = reader.GetOrdinal("");
-				int nurseIDOrdinal = reader.GetOrdinal("");
-				int bioIDOrdinal = reader.GetOrdinal("");
-				int usernameOrdinal = reader.GetOrdinal("");
-				int fnameOrdinal = reader.GetOrdinal("");
-				int lnameOrdinal = reader.GetOrdinal("");
-				int dobOrdinal = reader.GetOrdinal("");
-				int phoneNumberOrdinal = reader.GetOrdinal("");
+				int isAdminOrdinal = reader.GetOrdinal("isAdmin");
+				int nurseIDOrdinal = reader.GetOrdinal("nurseID");
+				int bioIDOrdinal = reader.GetOrdinal("bioID");
+				int usernameOrdinal = reader.GetOrdinal("username");
+				int fnameOrdinal = reader.GetOrdinal("fname");
+				int lnameOrdinal = reader.GetOrdinal("lname");
+				int dobOrdinal = reader.GetOrdinal("DOB");
+				int phoneNumberOrdinal = reader.GetOrdinal("phone#");
 
 				while (reader.Read())
 				{

@@ -21,6 +21,12 @@ namespace ClinicManagementSystem.View
 
 		#endregion
 
+		#region Properties
+
+		public Nurse Nurse { get; private set; }
+
+		#endregion
+
 		public LoginPage()
 		{
 			InitializeComponent();
@@ -53,9 +59,7 @@ namespace ClinicManagementSystem.View
 			}
 			else
 			{
-				var main = new MainPage();
-				main.CurrentUser = NurseDAL.GetNurse(this.usernameTextBox.Text);
-				Application.Run(main);
+				this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
 			}
 
 			this.Close();

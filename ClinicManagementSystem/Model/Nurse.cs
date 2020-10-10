@@ -13,5 +13,11 @@ namespace ClinicManagementSystem.Model
 		public Bio Bio { get; set; }
 		public bool IsAdmin { get; set; }
 		public Address Address { get; set; }
+
+		public Nurse()
+		{
+			this.Bio = new Bio();
+			this.Address = new Address();
+		}
 	}
 }

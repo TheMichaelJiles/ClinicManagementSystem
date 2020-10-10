@@ -24,6 +24,20 @@ namespace ClinicManagementSystem.View
 		public MainPage()
 		{
 			InitializeComponent();
+
+			this.showLoginPage();
+		}
+
+		#endregion
+
+		#region Private Helpers
+
+		private void showLoginPage()
+		{
+			var loginPage = new LoginPage();
+			loginPage.ShowDialog();
+			this.CurrentUser = loginPage.Nurse;
+			// TODO update main page with signed in nurse
 		}
 
 		#endregion
