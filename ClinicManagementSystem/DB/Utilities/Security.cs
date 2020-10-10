@@ -10,6 +10,7 @@ namespace ClinicManagementSystem.Model
 {
     public class Security
     {
+
         private const string GetCredentials = "SELECT Count(*) FROM User WHERE username = @username AND password = @password";
 
         /// <summary>

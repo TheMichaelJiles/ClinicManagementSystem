@@ -24,7 +24,14 @@ namespace ClinicManagementSystem.View
 		public MainPage()
 		{
 			InitializeComponent();
+		}
 
+		#endregion
+
+		#region Events
+
+		private void mainPage_OnLoad(object sender, EventArgs e)
+		{
 			this.showLoginPage();
 		}
 
@@ -36,10 +43,30 @@ namespace ClinicManagementSystem.View
 		{
 			var loginPage = new LoginPage();
 			loginPage.ShowDialog();
-			this.CurrentUser = loginPage.Nurse;
-			// TODO update main page with signed in nurse
+			this.handlePostLogin(loginPage);
+		}
+
+		private void handlePostLogin(LoginPage loginPage)
+		{
+			if (loginPage.Nurse != null)
+			{
+				this.CurrentUser = loginPage.Nurse;
+				this.setupStatusStrip();
+			}
+			else
+			{
+				this.Close();
+			}
+		}
+
+		private void setupStatusStrip()
+		{
+			this.currentUserToolStripStatusLbl.Text = "User: " + this.CurrentUser.Username + " - " + 
+													  this.CurrentUser.Bio.FirstName + " " + 
+													  this.CurrentUser.Bio.LastName;
 		}
 
 		#endregion
+
 	}
 }

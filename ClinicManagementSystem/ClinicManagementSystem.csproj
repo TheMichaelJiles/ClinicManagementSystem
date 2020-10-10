@@ -115,12 +115,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\NurseDAL.cs" />
+    <Compile Include="DB\Utilities\DbDefault.cs" />
+    <Compile Include="DB\ModelDAL\NurseDAL.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Bio.cs" />
-    <Compile Include="DB\DbConnection.cs" />
+    <Compile Include="DB\Utilities\DbConnection.cs" />
     <Compile Include="Model\Nurse.cs" />
-    <Compile Include="DB\Security.cs" />
+    <Compile Include="DB\Utilities\Security.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\LoginPage.cs">
@@ -144,6 +145,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>

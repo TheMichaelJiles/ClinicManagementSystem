@@ -47,7 +47,7 @@
 			this.loginButton.Location = new System.Drawing.Point(30, 227);
 			this.loginButton.Name = "loginButton";
 			this.loginButton.Size = new System.Drawing.Size(111, 32);
-			this.loginButton.TabIndex = 0;
+			this.loginButton.TabIndex = 3;
 			this.loginButton.Text = "Login";
 			this.loginButton.UseVisualStyleBackColor = false;
 			this.loginButton.Click += new System.EventHandler(this.loginButton_OnClick);
@@ -59,7 +59,7 @@
 			this.passwordTextBox.Location = new System.Drawing.Point(30, 169);
 			this.passwordTextBox.Name = "passwordTextBox";
 			this.passwordTextBox.Size = new System.Drawing.Size(255, 31);
-			this.passwordTextBox.TabIndex = 1;
+			this.passwordTextBox.TabIndex = 2;
 			// 
 			// usernameTextBox
 			// 
@@ -68,7 +68,7 @@
 			this.usernameTextBox.Location = new System.Drawing.Point(30, 103);
 			this.usernameTextBox.Name = "usernameTextBox";
 			this.usernameTextBox.Size = new System.Drawing.Size(255, 31);
-			this.usernameTextBox.TabIndex = 2;
+			this.usernameTextBox.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -112,7 +112,7 @@
 			this.adminLoginLabel.Location = new System.Drawing.Point(203, 235);
 			this.adminLoginLabel.Name = "adminLoginLabel";
 			this.adminLoginLabel.Size = new System.Drawing.Size(82, 16);
-			this.adminLoginLabel.TabIndex = 6;
+			this.adminLoginLabel.TabIndex = 4;
 			this.adminLoginLabel.Text = "Admin login";
 			this.adminLoginLabel.Click += new System.EventHandler(this.adminLabel_OnClick);
 			// 

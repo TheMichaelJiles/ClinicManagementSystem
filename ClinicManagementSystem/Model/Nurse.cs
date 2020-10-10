@@ -10,14 +10,9 @@ namespace ClinicManagementSystem.Model
 	{
 		public string ID { get; set; }
 		public string Username { get; set; }
-		public Bio Bio { get; set; }
+		public Bio Bio { get; set; } = new Bio();
 		public bool IsAdmin { get; set; }
-		public Address Address { get; set; }
+		public Address Address { get; set; } = new Address();
 
-		public Nurse()
-		{
-			this.Bio = new Bio();
-			this.Address = new Address();
-		}
 	}
 }

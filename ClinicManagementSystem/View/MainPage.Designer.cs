@@ -28,19 +28,46 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
+			this.currentUserToolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.statusStrip.SuspendLayout();
 			this.SuspendLayout();
+			// 
+			// statusStrip
+			// 
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentUserToolStripStatusLbl});
+			this.statusStrip.Location = new System.Drawing.Point(0, 588);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new System.Drawing.Size(1029, 22);
+			this.statusStrip.TabIndex = 0;
+			// 
+			// currentUserToolStripStatusLbl
+			// 
+			this.currentUserToolStripStatusLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.currentUserToolStripStatusLbl.Name = "currentUserToolStripStatusLbl";
+			this.currentUserToolStripStatusLbl.Size = new System.Drawing.Size(150, 17);
+			this.currentUserToolStripStatusLbl.Text = "nwilli27 - Nolan Williams";
 			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1029, 610);
+			this.Controls.Add(this.statusStrip);
 			this.Name = "MainPage";
 			this.Text = "MainPage";
+			this.Load += new System.EventHandler(this.mainPage_OnLoad);
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
+
+		private System.Windows.Forms.StatusStrip statusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel currentUserToolStripStatusLbl;
 	}
 }
