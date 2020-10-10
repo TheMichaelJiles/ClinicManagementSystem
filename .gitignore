@@ -2,3 +2,7 @@
 ClinicManagementSystem/bin/x64/Debug/
 
 *.cache
+
+*.dll
+
+ClinicManagementSystem/obj/x64/Debug/

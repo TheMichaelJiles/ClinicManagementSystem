@@ -39,11 +39,11 @@
 			// 
 			// loginButton
 			// 
-			this.loginButton.BackColor = System.Drawing.Color.DarkCyan;
+			this.loginButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.loginButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.loginButton.ForeColor = System.Drawing.SystemColors.Control;
+			this.loginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.loginButton.Location = new System.Drawing.Point(30, 227);
 			this.loginButton.Name = "loginButton";
 			this.loginButton.Size = new System.Drawing.Size(111, 32);
@@ -54,7 +54,7 @@
 			// 
 			// passwordTextBox
 			// 
-			this.passwordTextBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
+			this.passwordTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.passwordTextBox.Location = new System.Drawing.Point(30, 169);
 			this.passwordTextBox.Name = "passwordTextBox";
@@ -63,7 +63,7 @@
 			// 
 			// usernameTextBox
 			// 
-			this.usernameTextBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
+			this.usernameTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.usernameTextBox.Location = new System.Drawing.Point(30, 103);
 			this.usernameTextBox.Name = "usernameTextBox";
@@ -96,7 +96,7 @@
 			// 
 			this.titleLabel.AutoSize = true;
 			this.titleLabel.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.titleLabel.ForeColor = System.Drawing.SystemColors.Control;
+			this.titleLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.titleLabel.Location = new System.Drawing.Point(26, 23);
 			this.titleLabel.Name = "titleLabel";
 			this.titleLabel.Size = new System.Drawing.Size(125, 29);
@@ -108,7 +108,7 @@
 			this.adminLoginLabel.AutoSize = true;
 			this.adminLoginLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.adminLoginLabel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.adminLoginLabel.ForeColor = System.Drawing.SystemColors.Control;
+			this.adminLoginLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.adminLoginLabel.Location = new System.Drawing.Point(203, 235);
 			this.adminLoginLabel.Name = "adminLoginLabel";
 			this.adminLoginLabel.Size = new System.Drawing.Size(82, 16);
@@ -120,8 +120,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.MidnightBlue;
-			this.ClientSize = new System.Drawing.Size(321, 317);
+			this.BackColor = System.Drawing.Color.SteelBlue;
+			this.ClientSize = new System.Drawing.Size(321, 296);
 			this.Controls.Add(this.adminLoginLabel);
 			this.Controls.Add(this.titleLabel);
 			this.Controls.Add(this.label2);

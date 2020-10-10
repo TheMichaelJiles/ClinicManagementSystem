@@ -35,6 +35,18 @@ namespace ClinicManagementSystem.View
 			this.showLoginPage();
 		}
 
+		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
+		{
+			this.controlPanel.Controls.Clear();
+			this.controlPanel.Controls.Add(new RegisterPatientControl());
+		}
+
+		private void editPatientMenuItem_OnClick(object sender, EventArgs e)
+		{
+			this.controlPanel.Controls.Clear();
+			this.controlPanel.Controls.Add(new EditPatientControl());
+		}
+
 		#endregion
 
 		#region Private Helpers
@@ -67,6 +79,5 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
-
 	}
 }

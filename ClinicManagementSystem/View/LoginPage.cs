@@ -53,15 +53,7 @@ namespace ClinicManagementSystem.View
 
 		private void handleLogin()
 		{
-			if (this.IsAdminLoginPage)
-			{
-				//TODO setup Admin Main page with User
-			}
-			else
-			{
-				this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
-			}
-
+			this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
 			this.Close();
 		}
 
