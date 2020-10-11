@@ -32,18 +32,18 @@
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.currentUserToolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.navigationMenuStrip = new System.Windows.Forms.MenuStrip();
-			this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+			this.registerPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.editPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.topMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.registerPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.controlPanel = new System.Windows.Forms.Panel();
-			this.editPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.navigationMenuStrip.SuspendLayout();
-			this.menuStrip2.SuspendLayout();
+			this.topMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// statusStrip
@@ -78,46 +78,6 @@
 			this.navigationMenuStrip.Size = new System.Drawing.Size(214, 586);
 			this.navigationMenuStrip.TabIndex = 1;
 			// 
-			// menuStrip2
-			// 
-			this.menuStrip2.BackColor = System.Drawing.Color.SteelBlue;
-			this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem1,
-            this.editToolStripMenuItem1,
-            this.toolsToolStripMenuItem1,
-            this.helpToolStripMenuItem1});
-			this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip2.Name = "menuStrip2";
-			this.menuStrip2.Size = new System.Drawing.Size(1029, 24);
-			this.menuStrip2.TabIndex = 2;
-			this.menuStrip2.Text = "menuStrip2";
-			// 
-			// fileToolStripMenuItem1
-			// 
-			this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem1});
-			this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-			this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-			this.fileToolStripMenuItem1.Text = "&File";
-			// 
-			// exitToolStripMenuItem1
-			// 
-			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-			this.exitToolStripMenuItem1.Text = "E&xit";
-			// 
-			// toolsToolStripMenuItem1
-			// 
-			this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
-			this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
-			this.toolsToolStripMenuItem1.Text = "&Tools";
-			// 
-			// helpToolStripMenuItem1
-			// 
-			this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-			this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
-			this.helpToolStripMenuItem1.Text = "&Help";
-			// 
 			// registerPatientMenuItem
 			// 
 			this.registerPatientMenuItem.AutoSize = false;
@@ -129,21 +89,6 @@
 			this.registerPatientMenuItem.Text = "Register Patient";
 			this.registerPatientMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.registerPatientMenuItem.Click += new System.EventHandler(this.registerNewPatientMenuItem_OnClick);
-			// 
-			// editToolStripMenuItem1
-			// 
-			this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-			this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
-			this.editToolStripMenuItem1.Text = "&Edit";
-			// 
-			// controlPanel
-			// 
-			this.controlPanel.AutoSize = true;
-			this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.controlPanel.Location = new System.Drawing.Point(0, 24);
-			this.controlPanel.Name = "controlPanel";
-			this.controlPanel.Size = new System.Drawing.Size(815, 564);
-			this.controlPanel.TabIndex = 3;
 			// 
 			// editPatientMenuItem
 			// 
@@ -157,6 +102,61 @@
 			this.editPatientMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.editPatientMenuItem.Click += new System.EventHandler(this.editPatientMenuItem_OnClick);
 			// 
+			// topMenuStrip
+			// 
+			this.topMenuStrip.BackColor = System.Drawing.Color.SteelBlue;
+			this.topMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem1,
+            this.editToolStripMenuItem1,
+            this.toolsToolStripMenuItem1,
+            this.helpToolStripMenuItem1});
+			this.topMenuStrip.Location = new System.Drawing.Point(0, 0);
+			this.topMenuStrip.Name = "topMenuStrip";
+			this.topMenuStrip.Size = new System.Drawing.Size(1029, 24);
+			this.topMenuStrip.TabIndex = 2;
+			this.topMenuStrip.Text = "menuStrip2";
+			// 
+			// fileToolStripMenuItem1
+			// 
+			this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem1});
+			this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+			this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem1.Text = "&File";
+			// 
+			// exitToolStripMenuItem1
+			// 
+			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+			this.exitToolStripMenuItem1.Text = "E&xit";
+			// 
+			// editToolStripMenuItem1
+			// 
+			this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+			this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+			this.editToolStripMenuItem1.Text = "&Edit";
+			// 
+			// toolsToolStripMenuItem1
+			// 
+			this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+			this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+			this.toolsToolStripMenuItem1.Text = "&Tools";
+			// 
+			// helpToolStripMenuItem1
+			// 
+			this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+			this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+			this.helpToolStripMenuItem1.Text = "&Help";
+			// 
+			// controlPanel
+			// 
+			this.controlPanel.AutoSize = true;
+			this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.controlPanel.Location = new System.Drawing.Point(0, 24);
+			this.controlPanel.Name = "controlPanel";
+			this.controlPanel.Size = new System.Drawing.Size(815, 564);
+			this.controlPanel.TabIndex = 3;
+			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,7 +166,7 @@
 			this.Controls.Add(this.controlPanel);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.navigationMenuStrip);
-			this.Controls.Add(this.menuStrip2);
+			this.Controls.Add(this.topMenuStrip);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MainMenuStrip = this.navigationMenuStrip;
 			this.Name = "MainPage";
@@ -176,8 +176,8 @@
 			this.statusStrip.PerformLayout();
 			this.navigationMenuStrip.ResumeLayout(false);
 			this.navigationMenuStrip.PerformLayout();
-			this.menuStrip2.ResumeLayout(false);
-			this.menuStrip2.PerformLayout();
+			this.topMenuStrip.ResumeLayout(false);
+			this.topMenuStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -189,7 +189,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel currentUserToolStripStatusLbl;
 		private System.Windows.Forms.MenuStrip navigationMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem registerPatientMenuItem;
-		private System.Windows.Forms.MenuStrip menuStrip2;
+		private System.Windows.Forms.MenuStrip topMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;

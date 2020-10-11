@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\ModelDAL\PatientDAL.cs" />
     <Compile Include="DB\Utilities\DbDefault.cs" />
     <Compile Include="DB\ModelDAL\NurseDAL.cs" />
     <Compile Include="Model\Address.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="DB\Utilities\DbConnection.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="DB\Utilities\Security.cs" />
+    <Compile Include="Model\Patient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\EditPatientControl.cs">

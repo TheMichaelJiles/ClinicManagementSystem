@@ -39,7 +39,7 @@
 			// 
 			// loginButton
 			// 
-			this.loginButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.loginButton.BackColor = System.Drawing.Color.SteelBlue;
 			this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.loginButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,7 +74,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.SystemColors.Control;
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label1.Location = new System.Drawing.Point(28, 83);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(72, 16);
@@ -85,7 +85,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.SystemColors.Control;
+			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label2.Location = new System.Drawing.Point(28, 149);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(70, 16);
@@ -95,11 +95,11 @@
 			// titleLabel
 			// 
 			this.titleLabel.AutoSize = true;
-			this.titleLabel.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.titleLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.titleLabel.Location = new System.Drawing.Point(26, 23);
 			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(125, 29);
+			this.titleLabel.Size = new System.Drawing.Size(137, 32);
 			this.titleLabel.TabIndex = 5;
 			this.titleLabel.Text = "User Login";
 			// 
@@ -120,7 +120,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.SteelBlue;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(321, 296);
 			this.Controls.Add(this.adminLoginLabel);
 			this.Controls.Add(this.titleLabel);
@@ -130,7 +130,7 @@
 			this.Controls.Add(this.passwordTextBox);
 			this.Controls.Add(this.loginButton);
 			this.Name = "LoginPage";
-			this.Text = "LoginPage";
+			this.Text = "Login";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
