@@ -129,6 +129,7 @@
 			this.Controls.Add(this.usernameTextBox);
 			this.Controls.Add(this.passwordTextBox);
 			this.Controls.Add(this.loginButton);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "LoginPage";
 			this.Text = "Login";
 			this.ResumeLayout(false);

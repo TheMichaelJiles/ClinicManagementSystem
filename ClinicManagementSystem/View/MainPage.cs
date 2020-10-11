@@ -49,9 +49,12 @@ namespace ClinicManagementSystem.View
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.currentUserToolStripStatusLbl.Text = "User:";
-			this.controlPanel.Controls.Clear();
-			this.showLoginPage();
+			if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+			{
+				this.currentUserToolStripStatusLbl.Text = "User:";
+				this.controlPanel.Controls.Clear();
+				this.showLoginPage();
+			}
 		}
 
 		#endregion

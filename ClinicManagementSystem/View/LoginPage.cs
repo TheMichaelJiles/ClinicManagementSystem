@@ -40,6 +40,10 @@ namespace ClinicManagementSystem.View
 			{
 				this.handleLogin();
 			}
+			else
+			{
+				this.showIncorrectLoginMessage();
+			}
 		}
 
 		private void adminLabel_OnClick(object sender, EventArgs e)
@@ -51,10 +55,16 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
+		private void showIncorrectLoginMessage()
+		{
+			var msg = "The username/password you entered are incorrect." + Environment.NewLine + "Try again.";
+			MessageBox.Show(msg, "Incorrect Credentials", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+		}
+
 		private void handleLogin()
 		{
 			this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
-			this.Close();
+			this.Close(); 
 		}
 
 		private void switchToAdminLogin()
