@@ -335,7 +335,7 @@
 			this.registerPatientButton.UseVisualStyleBackColor = false;
 			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
 			// 
-			// RegisterPatientControl
+			// registerPatientControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -346,7 +346,7 @@
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label1);
-			this.Name = "RegisterPatientControl";
+			this.Name = "registerPatientControl";
 			this.Size = new System.Drawing.Size(809, 558);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

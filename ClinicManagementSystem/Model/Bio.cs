@@ -15,7 +15,8 @@ namespace ClinicManagementSystem.Model
 		public string LastName { get; set; } 
 		public DateTime DOB { get; set; }
 		public string PhoneNumber { get; set; }
-		public Address Address { get; set; }
+		public Address Address { get; set; } = new Address();
+		public string Gender { get; set; }
 
 		#endregion
 	}

@@ -35,7 +35,10 @@ namespace ClinicManagementSystem.View
 		{
 			if (this.areEntryFieldsValid())
 			{
-				PatientDAL.InsertNewPatient(this.BuildPatient());
+				var patient = this.BuildPatient();
+				PatientDAL.InsertNewPatient(patient);
+				this.resetFields();
+				this.showPatientRegisteredMessage(patient);
 			}
 		}
 
@@ -47,6 +50,27 @@ namespace ClinicManagementSystem.View
 		#endregion
 
 		#region Private Helpers
+
+		private void resetFields()
+		{
+			this.fnameTextBox.Clear();
+			this.lnameTextBox.Clear();
+			this.phoneNumberTextBox.Clear();
+			this.dateOfBirthDatePicker.ResetText();
+			this.genderComboBox.ResetText();
+
+			this.addressOneTextBox.Clear();
+			this.addressTwoTextBox.Clear();
+			this.cityTextBox.Clear();
+			this.stateTextBox.Clear();
+			this.zipTextBox.Clear();
+		}
+
+		private void showPatientRegisteredMessage(Patient patient)
+		{
+			var msg = $"The Patient {patient.Bio.FirstName} {patient.Bio.LastName} has been registerd.";
+			MessageBox.Show(msg, "Patient Registered", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+		}
 
 		private bool areEntryFieldsValid()
 		{
@@ -84,11 +108,6 @@ namespace ClinicManagementSystem.View
 				errorMsg += "Address 1 can not be empty." + Environment.NewLine;
 				isValid = false;
 			}
-			if (string.IsNullOrEmpty(this.addressTwoTextBox.Text))
-			{
-				errorMsg += "Address 2 can not be empty." + Environment.NewLine;
-				isValid = false;
-			}
 			if (string.IsNullOrEmpty(this.stateTextBox.Text))
 			{
 				errorMsg += "The State can not be empty." + Environment.NewLine;
@@ -115,15 +134,17 @@ namespace ClinicManagementSystem.View
 		{
 			var patient = new Patient();
 
-			patient.Bio = new Bio();
-			patient.Bio.Address = new Address
-			{
-				Address1 = this.addressOneTextBox.Text,
-				Address2 = this.addressTwoTextBox.Text,
-				City = this.cityTextBox.Text,
-				State = this.stateTextBox.Text,
-				Zip = Convert.ToInt32(this.zipTextBox.Text)
-			};
+			patient.Bio.PhoneNumber = this.phoneNumberTextBox.Text;
+			patient.Bio.FirstName = this.fnameTextBox.Text;
+			patient.Bio.LastName = this.lnameTextBox.Text;
+			patient.Bio.DOB = this.dateOfBirthDatePicker.Value;
+			patient.Bio.Gender = this.genderComboBox.SelectedItem.ToString();
+
+			patient.Bio.Address.Address1 = this.addressOneTextBox.Text;
+			patient.Bio.Address.Address2 = this.addressTwoTextBox.Text;
+			patient.Bio.Address.City = this.cityTextBox.Text;
+			patient.Bio.Address.State = this.stateTextBox.Text;
+			patient.Bio.Address.Zip = Convert.ToInt32(this.zipTextBox.Text);
 
 			return patient;
 		}

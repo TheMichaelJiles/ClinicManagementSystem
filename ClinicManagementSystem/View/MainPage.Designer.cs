@@ -41,6 +41,7 @@
 			this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.controlPanel = new System.Windows.Forms.Panel();
+			this.logoutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.navigationMenuStrip.SuspendLayout();
 			this.topMenuStrip.SuspendLayout();
@@ -71,7 +72,8 @@
 			this.navigationMenuStrip.Dock = System.Windows.Forms.DockStyle.Right;
 			this.navigationMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerPatientMenuItem,
-            this.editPatientMenuItem});
+            this.editPatientMenuItem,
+            this.logoutMenuItem});
 			this.navigationMenuStrip.Location = new System.Drawing.Point(815, 24);
 			this.navigationMenuStrip.Name = "navigationMenuStrip";
 			this.navigationMenuStrip.Padding = new System.Windows.Forms.Padding(6, 15, 0, 2);
@@ -157,6 +159,16 @@
 			this.controlPanel.Size = new System.Drawing.Size(815, 564);
 			this.controlPanel.TabIndex = 3;
 			// 
+			// logoutMenuItem
+			// 
+			this.logoutMenuItem.AutoSize = false;
+			this.logoutMenuItem.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 445, 0, 0);
+			this.logoutMenuItem.Name = "logoutMenuItem";
+			this.logoutMenuItem.Size = new System.Drawing.Size(195, 40);
+			this.logoutMenuItem.Text = "Logout";
+			this.logoutMenuItem.Click += new System.EventHandler(this.logoutMenuItem_OnClick);
+			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,5 +209,6 @@
 		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
 		public System.Windows.Forms.Panel controlPanel;
 		private System.Windows.Forms.ToolStripMenuItem editPatientMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem logoutMenuItem;
 	}
 }

@@ -47,6 +47,13 @@ namespace ClinicManagementSystem.View
 			this.controlPanel.Controls.Add(new EditPatientControl());
 		}
 
+		private void logoutMenuItem_OnClick(object sender, EventArgs e)
+		{
+			this.currentUserToolStripStatusLbl.Text = "User:";
+			this.controlPanel.Controls.Clear();
+			this.showLoginPage();
+		}
+
 		#endregion
 
 		#region Private Helpers
@@ -73,9 +80,7 @@ namespace ClinicManagementSystem.View
 
 		private void setupStatusStrip()
 		{
-			this.currentUserToolStripStatusLbl.Text = "User: " + this.CurrentUser.Username + " - " + 
-													  this.CurrentUser.Bio.FirstName + " " + 
-													  this.CurrentUser.Bio.LastName;
+			this.currentUserToolStripStatusLbl.Text = $"User: {this.CurrentUser.Username} - {this.CurrentUser.Bio.FirstName} {this.CurrentUser.Bio.LastName}";
 		}
 
 		#endregion

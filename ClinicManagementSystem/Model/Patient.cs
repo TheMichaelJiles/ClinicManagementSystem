@@ -12,7 +12,7 @@ namespace ClinicManagementSystem.Model
 		#region Properties
 
 		public string ID { get; set; }
-		public Bio Bio { get; set; }
+		public Bio Bio { get; set; } = new Bio();
 
 		#endregion
 	}
