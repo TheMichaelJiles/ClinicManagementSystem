@@ -31,26 +31,25 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.phoneNumberTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.lnameTextBox = new System.Windows.Forms.TextBox();
 			this.fnameTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.dateOfBirthDatePicker = new System.Windows.Forms.DateTimePicker();
-			this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.genderComboBox = new System.Windows.Forms.ComboBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.zipTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.addressOneTextBox = new System.Windows.Forms.TextBox();
-			this.zipTextBox = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.addressTwoTextBox = new System.Windows.Forms.TextBox();
-			this.stateTextBox = new System.Windows.Forms.TextBox();
 			this.cityTextBox = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label14 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
 			this.label15 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.registerUserButton = new System.Windows.Forms.Button();
+			this.stateComboBox = new System.Windows.Forms.ComboBox();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -88,13 +88,13 @@
 			// panel2
 			// 
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Controls.Add(this.phoneNumberTextBox);
 			this.panel2.Controls.Add(this.lnameTextBox);
 			this.panel2.Controls.Add(this.fnameTextBox);
 			this.panel2.Controls.Add(this.label2);
 			this.panel2.Controls.Add(this.label6);
 			this.panel2.Controls.Add(this.label3);
 			this.panel2.Controls.Add(this.dateOfBirthDatePicker);
-			this.panel2.Controls.Add(this.phoneNumberTextBox);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.label4);
 			this.panel2.Controls.Add(this.genderComboBox);
@@ -102,6 +102,16 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(722, 130);
 			this.panel2.TabIndex = 25;
+			// 
+			// phoneNumberTextBox
+			// 
+			this.phoneNumberTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.phoneNumberTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.phoneNumberTextBox.Location = new System.Drawing.Point(20, 84);
+			this.phoneNumberTextBox.Mask = "000-000-0000";
+			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
+			this.phoneNumberTextBox.TabIndex = 12;
 			// 
 			// lnameTextBox
 			// 
@@ -160,15 +170,6 @@
 			this.dateOfBirthDatePicker.Size = new System.Drawing.Size(319, 27);
 			this.dateOfBirthDatePicker.TabIndex = 5;
 			// 
-			// phoneNumberTextBox
-			// 
-			this.phoneNumberTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.phoneNumberTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.phoneNumberTextBox.Location = new System.Drawing.Point(19, 85);
-			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
-			this.phoneNumberTextBox.TabIndex = 3;
-			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
@@ -216,20 +217,30 @@
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.stateComboBox);
+			this.panel1.Controls.Add(this.zipTextBox);
 			this.panel1.Controls.Add(this.label8);
 			this.panel1.Controls.Add(this.label11);
 			this.panel1.Controls.Add(this.addressOneTextBox);
-			this.panel1.Controls.Add(this.zipTextBox);
 			this.panel1.Controls.Add(this.label7);
 			this.panel1.Controls.Add(this.label10);
 			this.panel1.Controls.Add(this.addressTwoTextBox);
-			this.panel1.Controls.Add(this.stateTextBox);
 			this.panel1.Controls.Add(this.cityTextBox);
 			this.panel1.Controls.Add(this.label9);
 			this.panel1.Location = new System.Drawing.Point(25, 238);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(722, 132);
 			this.panel1.TabIndex = 27;
+			// 
+			// zipTextBox
+			// 
+			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.zipTextBox.Location = new System.Drawing.Point(381, 88);
+			this.zipTextBox.Mask = "00000";
+			this.zipTextBox.Name = "zipTextBox";
+			this.zipTextBox.Size = new System.Drawing.Size(167, 27);
+			this.zipTextBox.TabIndex = 21;
 			// 
 			// label8
 			// 
@@ -260,16 +271,6 @@
 			this.addressOneTextBox.Size = new System.Drawing.Size(319, 27);
 			this.addressOneTextBox.TabIndex = 6;
 			// 
-			// zipTextBox
-			// 
-			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.zipTextBox.Location = new System.Drawing.Point(381, 88);
-			this.zipTextBox.MaxLength = 5;
-			this.zipTextBox.Name = "zipTextBox";
-			this.zipTextBox.Size = new System.Drawing.Size(198, 27);
-			this.zipTextBox.TabIndex = 10;
-			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
@@ -298,16 +299,6 @@
 			this.addressTwoTextBox.Name = "addressTwoTextBox";
 			this.addressTwoTextBox.Size = new System.Drawing.Size(319, 27);
 			this.addressTwoTextBox.TabIndex = 7;
-			// 
-			// stateTextBox
-			// 
-			this.stateTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.stateTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.stateTextBox.Location = new System.Drawing.Point(256, 88);
-			this.stateTextBox.MaxLength = 2;
-			this.stateTextBox.Name = "stateTextBox";
-			this.stateTextBox.Size = new System.Drawing.Size(91, 27);
-			this.stateTextBox.TabIndex = 9;
 			// 
 			// cityTextBox
 			// 
@@ -400,6 +391,67 @@
 			this.registerUserButton.Text = "Register User";
 			this.registerUserButton.UseVisualStyleBackColor = false;
 			// 
+			// stateComboBox
+			// 
+			this.stateComboBox.BackColor = System.Drawing.Color.SlateGray;
+			this.stateComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.stateComboBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.stateComboBox.FormattingEnabled = true;
+			this.stateComboBox.Items.AddRange(new object[] {
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
+			this.stateComboBox.Location = new System.Drawing.Point(253, 89);
+			this.stateComboBox.Name = "stateComboBox";
+			this.stateComboBox.Size = new System.Drawing.Size(91, 26);
+			this.stateComboBox.TabIndex = 22;
+			// 
 			// RegisterUserControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,7 +489,6 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.DateTimePicker dateOfBirthDatePicker;
-		private System.Windows.Forms.TextBox phoneNumberTextBox;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.ComboBox genderComboBox;
@@ -446,11 +497,9 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.TextBox addressOneTextBox;
-		private System.Windows.Forms.TextBox zipTextBox;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox addressTwoTextBox;
-		private System.Windows.Forms.TextBox stateTextBox;
 		private System.Windows.Forms.TextBox cityTextBox;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label14;
@@ -460,5 +509,8 @@
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Button registerUserButton;
+		private System.Windows.Forms.MaskedTextBox phoneNumberTextBox;
+		private System.Windows.Forms.MaskedTextBox zipTextBox;
+		private System.Windows.Forms.ComboBox stateComboBox;
 	}
 }

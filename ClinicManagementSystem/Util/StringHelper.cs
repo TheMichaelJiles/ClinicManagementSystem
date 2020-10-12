@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Util
 {
-	public class StringHelper
+	public static class StringHelper
 	{
 
-		public static int LeaveOnlyNumbers(string stringValue)
+		public static int LeaveOnlyNumbers(this string stringValue)
 		{
 			return Convert.ToInt32(Regex.Replace(stringValue, "[^0-9]", ""));
 		}

@@ -34,7 +34,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.lnameTextBox = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
 			this.genderComboBox = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.dateOfBirthDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -47,13 +46,14 @@
 			this.cityTextBox = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
-			this.zipTextBox = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.stateComboBox = new System.Windows.Forms.ComboBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label13 = new System.Windows.Forms.Label();
 			this.registerPatientButton = new System.Windows.Forms.Button();
-			this.stateComboBox = new System.Windows.Forms.ComboBox();
+			this.phoneNumberTextBox = new System.Windows.Forms.MaskedTextBox();
+			this.zipTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
@@ -115,15 +115,6 @@
 			this.label4.Size = new System.Drawing.Size(77, 18);
 			this.label4.TabIndex = 6;
 			this.label4.Text = "Phone #";
-			// 
-			// phoneNumberTextBox
-			// 
-			this.phoneNumberTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.phoneNumberTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.phoneNumberTextBox.Location = new System.Drawing.Point(19, 125);
-			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
-			this.phoneNumberTextBox.TabIndex = 3;
 			// 
 			// genderComboBox
 			// 
@@ -246,24 +237,14 @@
 			this.label11.TabIndex = 20;
 			this.label11.Text = "Zip";
 			// 
-			// zipTextBox
-			// 
-			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.zipTextBox.Location = new System.Drawing.Point(381, 126);
-			this.zipTextBox.MaxLength = 5;
-			this.zipTextBox.Name = "zipTextBox";
-			this.zipTextBox.Size = new System.Drawing.Size(198, 27);
-			this.zipTextBox.TabIndex = 10;
-			// 
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.zipTextBox);
 			this.panel1.Controls.Add(this.stateComboBox);
 			this.panel1.Controls.Add(this.label8);
 			this.panel1.Controls.Add(this.label11);
 			this.panel1.Controls.Add(this.addressOneTextBox);
-			this.panel1.Controls.Add(this.zipTextBox);
 			this.panel1.Controls.Add(this.label7);
 			this.panel1.Controls.Add(this.label10);
 			this.panel1.Controls.Add(this.addressTwoTextBox);
@@ -273,57 +254,6 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(722, 175);
 			this.panel1.TabIndex = 21;
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(43, 277);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(196, 25);
-			this.label12.TabIndex = 22;
-			this.label12.Text = "Address Information";
-			// 
-			// panel2
-			// 
-			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel2.Controls.Add(this.lnameTextBox);
-			this.panel2.Controls.Add(this.fnameTextBox);
-			this.panel2.Controls.Add(this.label2);
-			this.panel2.Controls.Add(this.label6);
-			this.panel2.Controls.Add(this.label3);
-			this.panel2.Controls.Add(this.dateOfBirthDatePicker);
-			this.panel2.Controls.Add(this.phoneNumberTextBox);
-			this.panel2.Controls.Add(this.label5);
-			this.panel2.Controls.Add(this.label4);
-			this.panel2.Controls.Add(this.genderComboBox);
-			this.panel2.Location = new System.Drawing.Point(25, 86);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(722, 175);
-			this.panel2.TabIndex = 23;
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(43, 71);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(201, 25);
-			this.label13.TabIndex = 24;
-			this.label13.Text = "Personal Information";
-			// 
-			// registerPatientButton
-			// 
-			this.registerPatientButton.BackColor = System.Drawing.Color.SteelBlue;
-			this.registerPatientButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.registerPatientButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.registerPatientButton.Location = new System.Drawing.Point(25, 502);
-			this.registerPatientButton.Name = "registerPatientButton";
-			this.registerPatientButton.Size = new System.Drawing.Size(218, 36);
-			this.registerPatientButton.TabIndex = 11;
-			this.registerPatientButton.Text = "Register Patient";
-			this.registerPatientButton.UseVisualStyleBackColor = false;
-			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
 			// 
 			// stateComboBox
 			// 
@@ -386,6 +316,77 @@
 			this.stateComboBox.Size = new System.Drawing.Size(91, 26);
 			this.stateComboBox.TabIndex = 21;
 			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(43, 277);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(196, 25);
+			this.label12.TabIndex = 22;
+			this.label12.Text = "Address Information";
+			// 
+			// panel2
+			// 
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Controls.Add(this.phoneNumberTextBox);
+			this.panel2.Controls.Add(this.lnameTextBox);
+			this.panel2.Controls.Add(this.fnameTextBox);
+			this.panel2.Controls.Add(this.label2);
+			this.panel2.Controls.Add(this.label6);
+			this.panel2.Controls.Add(this.label3);
+			this.panel2.Controls.Add(this.dateOfBirthDatePicker);
+			this.panel2.Controls.Add(this.label5);
+			this.panel2.Controls.Add(this.label4);
+			this.panel2.Controls.Add(this.genderComboBox);
+			this.panel2.Location = new System.Drawing.Point(25, 86);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(722, 175);
+			this.panel2.TabIndex = 23;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label13.Location = new System.Drawing.Point(43, 71);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(201, 25);
+			this.label13.TabIndex = 24;
+			this.label13.Text = "Personal Information";
+			// 
+			// registerPatientButton
+			// 
+			this.registerPatientButton.BackColor = System.Drawing.Color.SteelBlue;
+			this.registerPatientButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.registerPatientButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.registerPatientButton.Location = new System.Drawing.Point(25, 502);
+			this.registerPatientButton.Name = "registerPatientButton";
+			this.registerPatientButton.Size = new System.Drawing.Size(218, 36);
+			this.registerPatientButton.TabIndex = 11;
+			this.registerPatientButton.Text = "Register Patient";
+			this.registerPatientButton.UseVisualStyleBackColor = false;
+			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
+			// 
+			// phoneNumberTextBox
+			// 
+			this.phoneNumberTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.phoneNumberTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.phoneNumberTextBox.Location = new System.Drawing.Point(19, 125);
+			this.phoneNumberTextBox.Mask = "000-000-0000";
+			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
+			this.phoneNumberTextBox.TabIndex = 11;
+			// 
+			// zipTextBox
+			// 
+			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.zipTextBox.Location = new System.Drawing.Point(381, 127);
+			this.zipTextBox.Mask = "00000";
+			this.zipTextBox.Name = "zipTextBox";
+			this.zipTextBox.Size = new System.Drawing.Size(167, 27);
+			this.zipTextBox.TabIndex = 12;
+			// 
 			// RegisterPatientControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,7 +417,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox lnameTextBox;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox phoneNumberTextBox;
 		private System.Windows.Forms.ComboBox genderComboBox;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.DateTimePicker dateOfBirthDatePicker;
@@ -429,12 +429,13 @@
 		private System.Windows.Forms.TextBox cityTextBox;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.TextBox zipTextBox;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Button registerPatientButton;
 		private System.Windows.Forms.ComboBox stateComboBox;
+		private System.Windows.Forms.MaskedTextBox phoneNumberTextBox;
+		private System.Windows.Forms.MaskedTextBox zipTextBox;
 	}
 }

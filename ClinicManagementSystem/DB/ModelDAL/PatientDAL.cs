@@ -56,7 +56,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		{
 			using (MySqlCommand cmd = new MySqlCommand(GetMaxPatientID, connection))
 			{
-				var patientID = StringHelper.LeaveOnlyNumbers(cmd.ExecuteScalar().ToString());
+				var patientID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
 				return $"P{patientID++}";
 			}
 		}

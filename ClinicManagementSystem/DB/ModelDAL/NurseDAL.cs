@@ -65,7 +65,7 @@ namespace ClinicManagementSystem.DB
 		{
 			using (MySqlCommand cmd = new MySqlCommand(GetMaxNurseID, connection))
 			{
-				var nurseID = StringHelper.LeaveOnlyNumbers(cmd.ExecuteScalar().ToString());
+				var nurseID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
 				return $"N{nurseID++}";
 			}
 		}
