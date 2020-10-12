@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ClinicManagementSystem.DB
 	public class NurseDAL
 	{
 		private const string GetNurseQuery = "CALL GetNurse(@username)";
+		private const string GetMaxNurseID = "SELECT nurseID FROM Nurse ORDER BY nurseID DESC LIMIT 1";
 
 		public static Nurse GetNurse(string username)
 		{
@@ -56,6 +58,15 @@ namespace ClinicManagementSystem.DB
 					nurse.Bio.DOB = DbDefault.GetDatetime(reader, dobOrdinal);
 					nurse.Bio.PhoneNumber = DbDefault.GetString(reader, phoneNumberOrdinal);
 				}
+			}
+		}
+
+		private static string buildNurseID(MySqlConnection connection)
+		{
+			using (MySqlCommand cmd = new MySqlCommand(GetMaxNurseID, connection))
+			{
+				var nurseID = StringHelper.LeaveOnlyNumbers(cmd.ExecuteScalar().ToString());
+				return $"N{nurseID++}";
 			}
 		}
 

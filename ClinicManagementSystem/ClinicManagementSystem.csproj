@@ -127,6 +127,7 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\StringHelper.cs" />
     <Compile Include="View\AdminMainPage.cs">
       <SubType>Form</SubType>
     </Compile>

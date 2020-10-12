@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 	public class PatientDAL
 	{
 		private const string GetNurseQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
-		private const string GetPatientCount = "SELECT COUNT(*) FROM Patient";
+		private const string GetMaxPatientID = "SELECT patientID FROM Patient ORDER BY patientID DESC LIMIT 1";
 
 		public static void InsertNewPatient(Patient patient)
 		{
@@ -53,9 +54,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		private static string buildPatientID(MySqlConnection connection)
 		{
-			using (MySqlCommand cmd = new MySqlCommand(GetPatientCount, connection))
+			using (MySqlCommand cmd = new MySqlCommand(GetMaxPatientID, connection))
 			{
-				return 'P' + (Convert.ToInt32(cmd.ExecuteScalar()) + 1).ToString();
+				var patientID = StringHelper.LeaveOnlyNumbers(cmd.ExecuteScalar().ToString());
+				return $"P{patientID++}";
 			}
 		}
 	}
