@@ -46,7 +46,6 @@
 			this.label9 = new System.Windows.Forms.Label();
 			this.cityTextBox = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
-			this.stateTextBox = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.zipTextBox = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -54,6 +53,7 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label13 = new System.Windows.Forms.Label();
 			this.registerPatientButton = new System.Windows.Forms.Button();
+			this.stateComboBox = new System.Windows.Forms.ComboBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
@@ -236,16 +236,6 @@
 			this.label10.TabIndex = 18;
 			this.label10.Text = "State";
 			// 
-			// stateTextBox
-			// 
-			this.stateTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.stateTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.stateTextBox.Location = new System.Drawing.Point(256, 126);
-			this.stateTextBox.MaxLength = 2;
-			this.stateTextBox.Name = "stateTextBox";
-			this.stateTextBox.Size = new System.Drawing.Size(91, 27);
-			this.stateTextBox.TabIndex = 9;
-			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
@@ -269,6 +259,7 @@
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.stateComboBox);
 			this.panel1.Controls.Add(this.label8);
 			this.panel1.Controls.Add(this.label11);
 			this.panel1.Controls.Add(this.addressOneTextBox);
@@ -276,7 +267,6 @@
 			this.panel1.Controls.Add(this.label7);
 			this.panel1.Controls.Add(this.label10);
 			this.panel1.Controls.Add(this.addressTwoTextBox);
-			this.panel1.Controls.Add(this.stateTextBox);
 			this.panel1.Controls.Add(this.cityTextBox);
 			this.panel1.Controls.Add(this.label9);
 			this.panel1.Location = new System.Drawing.Point(25, 291);
@@ -335,6 +325,67 @@
 			this.registerPatientButton.UseVisualStyleBackColor = false;
 			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
 			// 
+			// stateComboBox
+			// 
+			this.stateComboBox.BackColor = System.Drawing.Color.SlateGray;
+			this.stateComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.stateComboBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.stateComboBox.FormattingEnabled = true;
+			this.stateComboBox.Items.AddRange(new object[] {
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
+			this.stateComboBox.Location = new System.Drawing.Point(253, 127);
+			this.stateComboBox.Name = "stateComboBox";
+			this.stateComboBox.Size = new System.Drawing.Size(91, 26);
+			this.stateComboBox.TabIndex = 21;
+			// 
 			// RegisterPatientControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,7 +428,6 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox cityTextBox;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.TextBox stateTextBox;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.TextBox zipTextBox;
 		private System.Windows.Forms.Panel panel1;
@@ -385,5 +435,6 @@
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Button registerPatientButton;
+		private System.Windows.Forms.ComboBox stateComboBox;
 	}
 }

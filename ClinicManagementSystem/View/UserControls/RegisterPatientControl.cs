@@ -62,7 +62,7 @@ namespace ClinicManagementSystem.View
 			this.addressOneTextBox.Clear();
 			this.addressTwoTextBox.Clear();
 			this.cityTextBox.Clear();
-			this.stateTextBox.Clear();
+			this.stateComboBox.ResetText();
 			this.zipTextBox.Clear();
 		}
 
@@ -85,7 +85,7 @@ namespace ClinicManagementSystem.View
 			}
 			if (string.IsNullOrEmpty(this.lnameTextBox.Text))
 			{
-				errorMsg += "The last me can not be empty." + Environment.NewLine;
+				errorMsg += "The last name can not be empty." + Environment.NewLine;
 				isValid = false;
 			}
 			if (string.IsNullOrEmpty(this.phoneNumberTextBox.Text))
@@ -108,9 +108,9 @@ namespace ClinicManagementSystem.View
 				errorMsg += "Address 1 can not be empty." + Environment.NewLine;
 				isValid = false;
 			}
-			if (string.IsNullOrEmpty(this.stateTextBox.Text))
+			if (this.stateComboBox.SelectedIndex == -1)
 			{
-				errorMsg += "The State can not be empty." + Environment.NewLine;
+				errorMsg += "You must select a state." + Environment.NewLine;
 				isValid = false;
 			}
 			if (string.IsNullOrEmpty(this.cityTextBox.Text))
@@ -143,7 +143,7 @@ namespace ClinicManagementSystem.View
 			patient.Bio.Address.Address1 = this.addressOneTextBox.Text;
 			patient.Bio.Address.Address2 = this.addressTwoTextBox.Text;
 			patient.Bio.Address.City = this.cityTextBox.Text;
-			patient.Bio.Address.State = this.stateTextBox.Text;
+			patient.Bio.Address.State = this.stateComboBox.SelectedItem.ToString();
 			patient.Bio.Address.Zip = Convert.ToInt32(this.zipTextBox.Text);
 
 			return patient;
