@@ -13,6 +13,12 @@ namespace ClinicManagementSystem.View
 {
 	public partial class UserMainPage : Form
 	{
+		#region Members
+
+		private bool HasLoggedOut;
+
+		#endregion
+
 		#region Properties
 
 		public LoginPage LoginForm;
@@ -38,7 +44,10 @@ namespace ClinicManagementSystem.View
 
 		private void mainPage_OnClose(object sender, FormClosingEventArgs e)
 		{
-			Application.Exit();
+			if (!this.HasLoggedOut)
+			{
+				Application.Exit();
+			}
 		}
 
 		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
@@ -59,6 +68,7 @@ namespace ClinicManagementSystem.View
 			{
 				this.currentUserToolStripStatusLbl.Text = "User:";
 				this.controlPanel.Controls.Clear();
+				this.HasLoggedOut = true;
 				this.Hide();
 				this.showLoginPage();
 			}
