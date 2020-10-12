@@ -28,9 +28,11 @@ C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\C
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.Properties.Resources.resources
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.EditPatientControl.resources
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.LoginPage.resources
-C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.MainPage.resources
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.RegisterPatientControl.resources
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.csproj.GenerateResource.cache
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.csproj.CopyComplete
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.exe
 C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.pdb
+C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.AdminMainPage.resources
+C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.UserMainPage.resources
+C:\Users\NolanW\OneDrive\Documents\SCHOOL\Info Management\Project\ClinicSystem\ClinicManagementSystem\ClinicManagementSystem\obj\x64\Debug\ClinicManagementSystem.View.UserControls.RegisterUserControl.resources

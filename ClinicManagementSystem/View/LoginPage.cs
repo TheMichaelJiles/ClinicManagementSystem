@@ -17,7 +17,7 @@ namespace ClinicManagementSystem.View
 
 		#region Members
 
-		private bool IsAdminLoginPage;
+		public bool IsAdminLoginPage { get; private set; }
 
 		#endregion
 
@@ -30,6 +30,13 @@ namespace ClinicManagementSystem.View
 		public LoginPage()
 		{
 			InitializeComponent();
+		}
+
+		public void Redisplay()
+		{
+			this.usernameTextBox.Clear();
+			this.passwordTextBox.Clear();
+			this.Show();
 		}
 
 		#region Events
@@ -61,10 +68,49 @@ namespace ClinicManagementSystem.View
 			MessageBox.Show(msg, "Incorrect Credentials", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 		}
 
+		private void showDeniedAccessMessage()
+		{
+			var msg = "You're account does not have Admin privilages.";
+			MessageBox.Show(msg, "Denied Access", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+		}
+
+		private void displayAdminMainPage()
+		{
+			var adminPage = new AdminMainPage
+			{
+				CurrentUser = this.Nurse,
+				LoginForm = this
+			};
+			adminPage.ShowDialog();
+		}
+
+		private void displayUserMainPage()
+		{
+			var userPage = new UserMainPage
+			{
+				CurrentUser = this.Nurse,
+				LoginForm = this
+			};
+			userPage.ShowDialog();
+		}
+
 		private void handleLogin()
 		{
 			this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
-			this.Close(); 
+			this.Hide();
+
+			if (this.IsAdminLoginPage & !this.Nurse.IsAdmin)
+			{
+				this.showDeniedAccessMessage();
+			}
+			else if (this.IsAdminLoginPage & this.Nurse.IsAdmin)
+			{
+				this.displayAdminMainPage();
+			}
+			else
+			{
+				this.displayUserMainPage();
+			}
 		}
 
 		private void switchToAdminLogin()

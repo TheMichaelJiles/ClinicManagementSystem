@@ -192,7 +192,7 @@
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(381, 42);
+			this.label8.Location = new System.Drawing.Point(378, 42);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(89, 18);
 			this.label8.TabIndex = 14;
@@ -202,7 +202,7 @@
 			// 
 			this.addressTwoTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.addressTwoTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.addressTwoTextBox.Location = new System.Drawing.Point(384, 63);
+			this.addressTwoTextBox.Location = new System.Drawing.Point(381, 63);
 			this.addressTwoTextBox.Name = "addressTwoTextBox";
 			this.addressTwoTextBox.Size = new System.Drawing.Size(319, 27);
 			this.addressTwoTextBox.TabIndex = 7;
@@ -250,7 +250,7 @@
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label11.Location = new System.Drawing.Point(381, 105);
+			this.label11.Location = new System.Drawing.Point(378, 105);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(34, 18);
 			this.label11.TabIndex = 20;
@@ -260,7 +260,7 @@
 			// 
 			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.zipTextBox.Location = new System.Drawing.Point(384, 126);
+			this.zipTextBox.Location = new System.Drawing.Point(381, 126);
 			this.zipTextBox.MaxLength = 5;
 			this.zipTextBox.Name = "zipTextBox";
 			this.zipTextBox.Size = new System.Drawing.Size(198, 27);
@@ -281,7 +281,7 @@
 			this.panel1.Controls.Add(this.label9);
 			this.panel1.Location = new System.Drawing.Point(25, 291);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(761, 175);
+			this.panel1.Size = new System.Drawing.Size(722, 175);
 			this.panel1.TabIndex = 21;
 			// 
 			// label12
@@ -309,7 +309,7 @@
 			this.panel2.Controls.Add(this.genderComboBox);
 			this.panel2.Location = new System.Drawing.Point(25, 86);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(761, 175);
+			this.panel2.Size = new System.Drawing.Size(722, 175);
 			this.panel2.TabIndex = 23;
 			// 
 			// label13
@@ -335,7 +335,7 @@
 			this.registerPatientButton.UseVisualStyleBackColor = false;
 			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
 			// 
-			// registerPatientControl
+			// RegisterPatientControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -346,8 +346,8 @@
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label1);
-			this.Name = "registerPatientControl";
-			this.Size = new System.Drawing.Size(809, 558);
+			this.Name = "RegisterPatientControl";
+			this.Size = new System.Drawing.Size(768, 558);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +12,18 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
-	public partial class MainPage : Form
+	public partial class AdminMainPage : Form
 	{
 		#region Properties
 
+		public LoginPage LoginForm;
 		public Nurse CurrentUser { get; set; }
 
 		#endregion
 
 		#region Construction
 
-		public MainPage()
+		public AdminMainPage()
 		{
 			InitializeComponent();
 		}
@@ -30,29 +32,35 @@ namespace ClinicManagementSystem.View
 
 		#region Events
 
-		private void mainPage_OnLoad(object sender, EventArgs e)
+		private void adminPage_OnLoad(object sender, EventArgs e)
 		{
-			this.showLoginPage();
+			this.handlePostLogin();
 		}
 
-		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
+		private void registerNewUserMenuItem_OnClick(object sender, EventArgs e)
 		{
 			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new RegisterPatientControl());
+			this.controlPanel.Controls.Add(new RegisterUserControl());
+		}
+
+		private void editUserMenuItem_OnClick(object sender, EventArgs e)
+		{
+			this.controlPanel.Controls.Clear();
+			this.controlPanel.Controls.Add(new EditPatientControl());
 		}
 
 		private void editPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new EditPatientControl());
+			
 		}
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
 			if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
 			{
-				this.currentUserToolStripStatusLbl.Text = "User:";
+				this.currentUserToolStripStatusLbl.Text = "Admin:";
 				this.controlPanel.Controls.Clear();
+				this.Hide();
 				this.showLoginPage();
 			}
 		}
@@ -63,29 +71,20 @@ namespace ClinicManagementSystem.View
 
 		private void showLoginPage()
 		{
-			var loginPage = new LoginPage();
-			loginPage.ShowDialog();
-			this.handlePostLogin(loginPage);
+			this.LoginForm.Redisplay();
 		}
 
-		private void handlePostLogin(LoginPage loginPage)
+		private void handlePostLogin()
 		{
-			if (loginPage.Nurse != null)
-			{
-				this.CurrentUser = loginPage.Nurse;
-				this.setupStatusStrip();
-			}
-			else
-			{
-				this.Close();
-			}
+			this.setupStatusStrip();
 		}
 
 		private void setupStatusStrip()
 		{
-			this.currentUserToolStripStatusLbl.Text = $"User: {this.CurrentUser.Username} - {this.CurrentUser.Bio.FirstName} {this.CurrentUser.Bio.LastName}";
+			this.currentUserToolStripStatusLbl.Text = $"Admin: {this.CurrentUser.Username} - {this.CurrentUser.Bio.FirstName} {this.CurrentUser.Bio.LastName}";
 		}
 
 		#endregion
+
 	}
 }

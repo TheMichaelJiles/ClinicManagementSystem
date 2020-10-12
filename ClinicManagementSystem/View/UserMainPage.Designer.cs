@@ -1,0 +1,213 @@
+﻿namespace ClinicManagementSystem.View
+{
+	partial class UserMainPage
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+		#region Windows Form Designer generated code
+
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserMainPage));
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
+			this.currentUserToolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.navigationMenuStrip = new System.Windows.Forms.MenuStrip();
+			this.registerPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.editPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.logoutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.topMenuStrip = new System.Windows.Forms.MenuStrip();
+			this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.controlPanel = new System.Windows.Forms.Panel();
+			this.statusStrip.SuspendLayout();
+			this.navigationMenuStrip.SuspendLayout();
+			this.topMenuStrip.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// statusStrip
+			// 
+			this.statusStrip.BackColor = System.Drawing.Color.SteelBlue;
+			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentUserToolStripStatusLbl});
+			this.statusStrip.Location = new System.Drawing.Point(0, 588);
+			this.statusStrip.Name = "statusStrip";
+			this.statusStrip.Size = new System.Drawing.Size(910, 22);
+			this.statusStrip.TabIndex = 0;
+			// 
+			// currentUserToolStripStatusLbl
+			// 
+			this.currentUserToolStripStatusLbl.BackColor = System.Drawing.SystemColors.Control;
+			this.currentUserToolStripStatusLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.currentUserToolStripStatusLbl.Name = "currentUserToolStripStatusLbl";
+			this.currentUserToolStripStatusLbl.Size = new System.Drawing.Size(200, 17);
+			this.currentUserToolStripStatusLbl.Text = "User: nwilli27 - Nolan Williams";
+			// 
+			// navigationMenuStrip
+			// 
+			this.navigationMenuStrip.AutoSize = false;
+			this.navigationMenuStrip.BackColor = System.Drawing.Color.SlateGray;
+			this.navigationMenuStrip.Dock = System.Windows.Forms.DockStyle.Right;
+			this.navigationMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerPatientMenuItem,
+            this.editPatientMenuItem,
+            this.logoutMenuItem});
+			this.navigationMenuStrip.Location = new System.Drawing.Point(910, 24);
+			this.navigationMenuStrip.Name = "navigationMenuStrip";
+			this.navigationMenuStrip.Padding = new System.Windows.Forms.Padding(0);
+			this.navigationMenuStrip.Size = new System.Drawing.Size(214, 586);
+			this.navigationMenuStrip.TabIndex = 1;
+			// 
+			// registerPatientMenuItem
+			// 
+			this.registerPatientMenuItem.AutoSize = false;
+			this.registerPatientMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.registerPatientMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("registerPatientMenuItem.Image")));
+			this.registerPatientMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.registerPatientMenuItem.Name = "registerPatientMenuItem";
+			this.registerPatientMenuItem.Padding = new System.Windows.Forms.Padding(0);
+			this.registerPatientMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.registerPatientMenuItem.Text = "Register Patient";
+			this.registerPatientMenuItem.Click += new System.EventHandler(this.registerNewPatientMenuItem_OnClick);
+			// 
+			// editPatientMenuItem
+			// 
+			this.editPatientMenuItem.AutoSize = false;
+			this.editPatientMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.editPatientMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editPatientMenuItem.Image")));
+			this.editPatientMenuItem.Name = "editPatientMenuItem";
+			this.editPatientMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.editPatientMenuItem.Text = "Edit Patient";
+			this.editPatientMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.editPatientMenuItem.Click += new System.EventHandler(this.editPatientMenuItem_OnClick);
+			// 
+			// logoutMenuItem
+			// 
+			this.logoutMenuItem.AutoSize = false;
+			this.logoutMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 451, 0, 0);
+			this.logoutMenuItem.Name = "logoutMenuItem";
+			this.logoutMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.logoutMenuItem.Text = "Logout";
+			this.logoutMenuItem.Click += new System.EventHandler(this.logoutMenuItem_OnClick);
+			// 
+			// topMenuStrip
+			// 
+			this.topMenuStrip.BackColor = System.Drawing.Color.SteelBlue;
+			this.topMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem1,
+            this.editToolStripMenuItem1,
+            this.toolsToolStripMenuItem1,
+            this.helpToolStripMenuItem1});
+			this.topMenuStrip.Location = new System.Drawing.Point(0, 0);
+			this.topMenuStrip.Name = "topMenuStrip";
+			this.topMenuStrip.Size = new System.Drawing.Size(1124, 24);
+			this.topMenuStrip.TabIndex = 2;
+			this.topMenuStrip.Text = "menuStrip2";
+			// 
+			// fileToolStripMenuItem1
+			// 
+			this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem1});
+			this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+			this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem1.Text = "&File";
+			// 
+			// exitToolStripMenuItem1
+			// 
+			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+			this.exitToolStripMenuItem1.Text = "E&xit";
+			// 
+			// editToolStripMenuItem1
+			// 
+			this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+			this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+			this.editToolStripMenuItem1.Text = "&Edit";
+			// 
+			// toolsToolStripMenuItem1
+			// 
+			this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+			this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+			this.toolsToolStripMenuItem1.Text = "&Tools";
+			// 
+			// helpToolStripMenuItem1
+			// 
+			this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+			this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+			this.helpToolStripMenuItem1.Text = "&Help";
+			// 
+			// controlPanel
+			// 
+			this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.controlPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.controlPanel.Location = new System.Drawing.Point(0, 24);
+			this.controlPanel.Name = "controlPanel";
+			this.controlPanel.Size = new System.Drawing.Size(910, 564);
+			this.controlPanel.TabIndex = 3;
+			// 
+			// MainPage
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.ClientSize = new System.Drawing.Size(1124, 610);
+			this.Controls.Add(this.controlPanel);
+			this.Controls.Add(this.statusStrip);
+			this.Controls.Add(this.navigationMenuStrip);
+			this.Controls.Add(this.topMenuStrip);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MainMenuStrip = this.navigationMenuStrip;
+			this.Name = "MainPage";
+			this.Text = "Clinic Management System";
+			this.Load += new System.EventHandler(this.mainPage_OnLoad);
+			this.statusStrip.ResumeLayout(false);
+			this.statusStrip.PerformLayout();
+			this.navigationMenuStrip.ResumeLayout(false);
+			this.navigationMenuStrip.PerformLayout();
+			this.topMenuStrip.ResumeLayout(false);
+			this.topMenuStrip.PerformLayout();
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
+		}
+
+		#endregion
+
+		private System.Windows.Forms.StatusStrip statusStrip;
+		private System.Windows.Forms.ToolStripStatusLabel currentUserToolStripStatusLbl;
+		private System.Windows.Forms.MenuStrip navigationMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem registerPatientMenuItem;
+		private System.Windows.Forms.MenuStrip topMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+		public System.Windows.Forms.Panel controlPanel;
+		private System.Windows.Forms.ToolStripMenuItem editPatientMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem logoutMenuItem;
+	}
+}
