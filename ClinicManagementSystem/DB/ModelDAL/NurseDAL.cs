@@ -13,6 +13,36 @@ namespace ClinicManagementSystem.DB
 	{
 		private const string GetNurseQuery = "CALL GetNurse(@username)";
 		private const string GetMaxNurseID = "SELECT nurseID FROM Nurse ORDER BY nurseID DESC LIMIT 1";
+		private const string InsertNurseCommand = "CALL InsertNurse(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @nurseID, @username, @password)";
+
+		public static bool InsertNurse(Nurse nurse, string password)
+		{
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(InsertNurseCommand, connection))
+				{
+					cmd.Parameters.AddWithValue("@fname", nurse.Bio.FirstName);
+					cmd.Parameters.AddWithValue("@lname", nurse.Bio.LastName);
+					cmd.Parameters.AddWithValue("@DOB", nurse.Bio.DOB);
+					cmd.Parameters.AddWithValue("@phone", nurse.Bio.PhoneNumber);
+					cmd.Parameters.AddWithValue("@gender", nurse.Bio.Gender);
+					cmd.Parameters.AddWithValue("@address1", nurse.Bio.Address.Address1);
+					cmd.Parameters.AddWithValue("@address2", nurse.Bio.Address.Address2);
+					cmd.Parameters.AddWithValue("@city", nurse.Bio.Address.City);
+					cmd.Parameters.AddWithValue("@state", nurse.Bio.Address.State);
+					cmd.Parameters.AddWithValue("@zip", nurse.Bio.Address.Zip);
+					cmd.Parameters.AddWithValue("@nurseID", buildNurseID(connection));
+					cmd.Parameters.AddWithValue("@username", nurse.Username);
+					cmd.Parameters.AddWithValue("@password", password);
+					cmd.ExecuteNonQuery();
+				}
+			}
+			return false;
+		}
 
 		public static Nurse GetNurse(string username)
 		{
@@ -66,7 +96,7 @@ namespace ClinicManagementSystem.DB
 			using (MySqlCommand cmd = new MySqlCommand(GetMaxNurseID, connection))
 			{
 				var nurseID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
-				return $"N{nurseID++}";
+				return $"N{++nurseID}";
 			}
 		}
 
