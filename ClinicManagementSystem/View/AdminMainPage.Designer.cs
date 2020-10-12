@@ -181,6 +181,7 @@
 			this.MainMenuStrip = this.navigationMenuStrip;
 			this.Name = "AdminMainPage";
 			this.Text = "Clinic Management System";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.adminPage_OnClose);
 			this.Load += new System.EventHandler(this.adminPage_OnLoad);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();

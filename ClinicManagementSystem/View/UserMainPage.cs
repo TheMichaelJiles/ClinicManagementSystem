@@ -36,6 +36,11 @@ namespace ClinicManagementSystem.View
 			this.handlePostLogin();
 		}
 
+		private void mainPage_OnClose(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+		}
+
 		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
 			this.controlPanel.Controls.Clear();

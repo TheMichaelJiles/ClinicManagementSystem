@@ -168,7 +168,7 @@
 			this.controlPanel.Size = new System.Drawing.Size(910, 564);
 			this.controlPanel.TabIndex = 3;
 			// 
-			// MainPage
+			// UserMainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -180,8 +180,9 @@
 			this.Controls.Add(this.topMenuStrip);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MainMenuStrip = this.navigationMenuStrip;
-			this.Name = "MainPage";
+			this.Name = "UserMainPage";
 			this.Text = "Clinic Management System";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainPage_OnClose);
 			this.Load += new System.EventHandler(this.mainPage_OnLoad);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();

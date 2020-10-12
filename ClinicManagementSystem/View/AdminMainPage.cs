@@ -37,6 +37,11 @@ namespace ClinicManagementSystem.View
 			this.handlePostLogin();
 		}
 
+		private void adminPage_OnClose(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+		}
+
 		private void registerNewUserMenuItem_OnClick(object sender, EventArgs e)
 		{
 			this.controlPanel.Controls.Clear();
@@ -52,7 +57,7 @@ namespace ClinicManagementSystem.View
 		private void editPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
 			
-		}
+		} 
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
@@ -85,6 +90,5 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
-
 	}
 }
