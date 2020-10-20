@@ -6,3 +6,9 @@ ClinicManagementSystem/bin/x64/Debug/
 *.dll
 
 ClinicManagementSystem/obj/x64/Debug/
+
+.vs/ClinicManagementSystem/v16/.suo
+
+.vs/ClinicManagementSystem/v16/Server/sqlite3/
+
+ClinicManagementSystem/obj/Debug/

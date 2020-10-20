@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,11 @@ namespace ClinicManagementSystem.View
 
 		public LoginPage LoginForm;
 		public Nurse CurrentUser { get; set; }
+		public Patient CurrentPatient 
+		{ 
+		  get; 
+		  set; 
+		}
 
 		#endregion
 
@@ -56,10 +62,25 @@ namespace ClinicManagementSystem.View
 			this.controlPanel.Controls.Add(new RegisterPatientControl());
 		}
 
-		private void editPatientMenuItem_OnClick(object sender, EventArgs e)
+		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new EditPatientControl());
+			var searchFrm = new SearchPatientPage();
+			searchFrm.ShowDialog();
+		}
+
+		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
+		{
+			//if (this.CurrentPatient =! null)
+			//{
+			//	this.controlPanel.Controls.Clear();
+			//	this.controlPanel.Controls.Add(new RegisterPatientControl());
+			//}
+			//else
+			//{
+			//	var searchFrm = new SearchPatientControl();
+			//	searchFrm.ShowDialog();
+			//	this.CurrentPatient = searchFrm.SelectedPatient;
+			//}
 		}
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
@@ -94,5 +115,6 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
+
 	}
 }

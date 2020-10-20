@@ -140,17 +140,17 @@
     <Compile Include="View\LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SearchPatientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SearchPatientPage.Designer.cs">
+      <DependentUpon>SearchPatientPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\RegisterUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\UserControls\RegisterUserControl.Designer.cs">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\SearchPatientControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControls\SearchPatientControl.Designer.cs">
-      <DependentUpon>SearchPatientControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserMainPage.cs">
       <SubType>Form</SubType>
@@ -179,11 +179,11 @@
     <EmbeddedResource Include="View\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\SearchPatientPage.resx">
+      <DependentUpon>SearchPatientPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\RegisterUserControl.resx">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\SearchPatientControl.resx">
-      <DependentUpon>SearchPatientControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserMainPage.resx">
       <DependentUpon>UserMainPage.cs</DependentUpon>
