@@ -77,9 +77,7 @@ namespace ClinicManagementSystem.View
 
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.highlightSelectedMenuItem(this.searchPatientMenuItem);
 			this.showSearchPatientControl();
-			this.searchPatientMenuItem.Checked = true;
 		}
 
 		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
@@ -128,6 +126,7 @@ namespace ClinicManagementSystem.View
 
 		private void showSearchPatientControl()
 		{
+			this.highlightSelectedMenuItem(this.searchPatientMenuItem);
 			this.controlPanel.Controls.Clear();
 			this.controlPanel.Controls.Add(new SearchPatientControl(this));
 		}

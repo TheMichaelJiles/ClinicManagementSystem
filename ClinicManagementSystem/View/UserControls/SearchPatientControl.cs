@@ -42,13 +42,17 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void selectPatientButton_OnClick(object sender, EventArgs e)
 		{
-			this.MainPage.SetCurrentPatient(this.SelectedPatient);
-			this.MainPage.ClearControlPanel();
+			this.SetMainPageCurrentPatient();
 		}
 
 		private void searchPatientButton_OnClick(object sender, EventArgs e)
 		{
 			this.loadPatientGrid();
+		}
+
+		private void patientDataGrid_OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			this.SetMainPageCurrentPatient();
 		}
 
 		#endregion
@@ -77,6 +81,13 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
+		private void SetMainPageCurrentPatient()
+		{
+			this.MainPage.SetCurrentPatient(this.SelectedPatient);
+			this.MainPage.ClearControlPanel();
+		}
+
 		#endregion
+
 	}
 }

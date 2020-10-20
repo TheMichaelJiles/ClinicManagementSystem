@@ -222,6 +222,7 @@
 			this.patientDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.patientDataGrid.Size = new System.Drawing.Size(860, 264);
 			this.patientDataGrid.TabIndex = 36;
+			this.patientDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientDataGrid_OnCellDoubleClick);
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
