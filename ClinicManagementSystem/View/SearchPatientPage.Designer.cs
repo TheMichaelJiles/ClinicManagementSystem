@@ -82,16 +82,16 @@
 			this.panel2.Controls.Add(this.dobDatePicker);
 			this.panel2.Location = new System.Drawing.Point(22, 81);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(722, 78);
+			this.panel2.Size = new System.Drawing.Size(937, 88);
 			this.panel2.TabIndex = 27;
 			// 
 			// lnameTextBox
 			// 
 			this.lnameTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.lnameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lnameTextBox.Location = new System.Drawing.Point(212, 40);
+			this.lnameTextBox.Location = new System.Drawing.Point(305, 40);
 			this.lnameTextBox.Name = "lnameTextBox";
-			this.lnameTextBox.Size = new System.Drawing.Size(173, 27);
+			this.lnameTextBox.Size = new System.Drawing.Size(246, 27);
 			this.lnameTextBox.TabIndex = 2;
 			// 
 			// fnameTextBox
@@ -100,7 +100,7 @@
 			this.fnameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.fnameTextBox.Location = new System.Drawing.Point(19, 41);
 			this.fnameTextBox.Name = "fnameTextBox";
-			this.fnameTextBox.Size = new System.Drawing.Size(173, 27);
+			this.fnameTextBox.Size = new System.Drawing.Size(246, 27);
 			this.fnameTextBox.TabIndex = 1;
 			// 
 			// label4
@@ -117,7 +117,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(400, 19);
+			this.label5.Location = new System.Drawing.Point(587, 20);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(114, 18);
 			this.label5.TabIndex = 10;
@@ -127,7 +127,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(209, 20);
+			this.label7.Location = new System.Drawing.Point(302, 20);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(94, 18);
 			this.label7.TabIndex = 4;
@@ -137,9 +137,9 @@
 			// 
 			this.dobDatePicker.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dobDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dobDatePicker.Location = new System.Drawing.Point(404, 39);
+			this.dobDatePicker.Location = new System.Drawing.Point(591, 40);
 			this.dobDatePicker.Name = "dobDatePicker";
-			this.dobDatePicker.Size = new System.Drawing.Size(296, 27);
+			this.dobDatePicker.Size = new System.Drawing.Size(326, 27);
 			this.dobDatePicker.TabIndex = 5;
 			// 
 			// searchPatientButton
@@ -147,7 +147,7 @@
 			this.searchPatientButton.BackColor = System.Drawing.Color.SteelBlue;
 			this.searchPatientButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.searchPatientButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.searchPatientButton.Location = new System.Drawing.Point(22, 170);
+			this.searchPatientButton.Location = new System.Drawing.Point(22, 180);
 			this.searchPatientButton.Name = "searchPatientButton";
 			this.searchPatientButton.Size = new System.Drawing.Size(218, 36);
 			this.searchPatientButton.TabIndex = 32;
@@ -157,6 +157,7 @@
 			// 
 			// patientDataGrid
 			// 
+			this.patientDataGrid.BackgroundColor = System.Drawing.Color.SlateGray;
 			this.patientDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.patientDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
@@ -165,9 +166,10 @@
             this.dobColumn,
             this.phoneColumn,
             this.genderColumn});
-			this.patientDataGrid.Location = new System.Drawing.Point(21, 223);
+			this.patientDataGrid.Location = new System.Drawing.Point(21, 244);
 			this.patientDataGrid.Name = "patientDataGrid";
-			this.patientDataGrid.Size = new System.Drawing.Size(723, 275);
+			this.patientDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.patientDataGrid.Size = new System.Drawing.Size(938, 296);
 			this.patientDataGrid.TabIndex = 34;
 			// 
 			// idColumn
@@ -211,7 +213,7 @@
 			this.selectPatientButton.BackColor = System.Drawing.Color.SteelBlue;
 			this.selectPatientButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.selectPatientButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.selectPatientButton.Location = new System.Drawing.Point(21, 509);
+			this.selectPatientButton.Location = new System.Drawing.Point(21, 553);
 			this.selectPatientButton.Name = "selectPatientButton";
 			this.selectPatientButton.Size = new System.Drawing.Size(218, 36);
 			this.selectPatientButton.TabIndex = 35;
@@ -223,7 +225,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(766, 561);
+			this.ClientSize = new System.Drawing.Size(982, 606);
 			this.Controls.Add(this.selectPatientButton);
 			this.Controls.Add(this.patientDataGrid);
 			this.Controls.Add(this.searchPatientButton);

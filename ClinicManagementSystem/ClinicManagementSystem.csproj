@@ -152,6 +152,12 @@
     <Compile Include="View\UserControls\RegisterUserControl.Designer.cs">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\SearchPatientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\SearchPatientControl.Designer.cs">
+      <DependentUpon>SearchPatientControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserMainPage.cs">
       <SubType>Form</SubType>
     </Compile>

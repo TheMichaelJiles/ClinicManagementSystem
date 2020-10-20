@@ -27,7 +27,7 @@ namespace ClinicManagementSystem.View
 		public Patient CurrentPatient 
 		{ 
 		  get; 
-		  set; 
+		  set;
 		}
 
 		#endregion
@@ -64,8 +64,7 @@ namespace ClinicManagementSystem.View
 
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			var searchFrm = new SearchPatientPage();
-			searchFrm.ShowDialog();
+			this.showSearchPatientPage();
 		}
 
 		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
@@ -77,9 +76,7 @@ namespace ClinicManagementSystem.View
 			}
 			else
 			{
-				var searchFrm = new SearchPatientPage();
-				searchFrm.ShowDialog();
-				this.CurrentPatient = searchFrm.SelectedPatient;
+				this.showSearchPatientPage();	
 			}
 		}
 
@@ -98,6 +95,13 @@ namespace ClinicManagementSystem.View
 		#endregion
 
 		#region Private Helpers
+
+		private void showSearchPatientPage()
+		{
+			var searchFrm = new SearchPatientPage();
+			searchFrm.ShowDialog();
+			this.CurrentPatient = searchFrm.SelectedPatient;
+		}
 
 		private void showLoginPage()
 		{
