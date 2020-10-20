@@ -47,13 +47,13 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.zipTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.stateComboBox = new System.Windows.Forms.ComboBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.phoneNumberTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.registerPatientButton = new System.Windows.Forms.Button();
-			this.phoneNumberTextBox = new System.Windows.Forms.MaskedTextBox();
-			this.zipTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
@@ -74,7 +74,7 @@
 			this.fnameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.fnameTextBox.Location = new System.Drawing.Point(19, 63);
 			this.fnameTextBox.Name = "fnameTextBox";
-			this.fnameTextBox.Size = new System.Drawing.Size(198, 27);
+			this.fnameTextBox.Size = new System.Drawing.Size(268, 27);
 			this.fnameTextBox.TabIndex = 1;
 			// 
 			// label2
@@ -91,7 +91,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(289, 42);
+			this.label3.Location = new System.Drawing.Point(329, 42);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(94, 18);
 			this.label3.TabIndex = 4;
@@ -101,9 +101,9 @@
 			// 
 			this.lnameTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.lnameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lnameTextBox.Location = new System.Drawing.Point(292, 63);
+			this.lnameTextBox.Location = new System.Drawing.Point(332, 63);
 			this.lnameTextBox.Name = "lnameTextBox";
-			this.lnameTextBox.Size = new System.Drawing.Size(198, 27);
+			this.lnameTextBox.Size = new System.Drawing.Size(268, 27);
 			this.lnameTextBox.TabIndex = 2;
 			// 
 			// label4
@@ -125,7 +125,7 @@
 			this.genderComboBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.genderComboBox.Location = new System.Drawing.Point(253, 125);
+			this.genderComboBox.Location = new System.Drawing.Point(268, 125);
 			this.genderComboBox.Name = "genderComboBox";
 			this.genderComboBox.Size = new System.Drawing.Size(91, 26);
 			this.genderComboBox.TabIndex = 4;
@@ -134,7 +134,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(250, 104);
+			this.label5.Location = new System.Drawing.Point(265, 104);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(66, 18);
 			this.label5.TabIndex = 8;
@@ -144,7 +144,7 @@
 			// 
 			this.dateOfBirthDatePicker.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dateOfBirthDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateOfBirthDatePicker.Location = new System.Drawing.Point(381, 125);
+			this.dateOfBirthDatePicker.Location = new System.Drawing.Point(409, 123);
 			this.dateOfBirthDatePicker.Name = "dateOfBirthDatePicker";
 			this.dateOfBirthDatePicker.Size = new System.Drawing.Size(319, 27);
 			this.dateOfBirthDatePicker.TabIndex = 5;
@@ -154,7 +154,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(378, 104);
+			this.label6.Location = new System.Drawing.Point(406, 102);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(114, 18);
 			this.label6.TabIndex = 10;
@@ -183,7 +183,7 @@
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(378, 42);
+			this.label8.Location = new System.Drawing.Point(384, 42);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(89, 18);
 			this.label8.TabIndex = 14;
@@ -193,7 +193,7 @@
 			// 
 			this.addressTwoTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.addressTwoTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.addressTwoTextBox.Location = new System.Drawing.Point(381, 63);
+			this.addressTwoTextBox.Location = new System.Drawing.Point(387, 63);
 			this.addressTwoTextBox.Name = "addressTwoTextBox";
 			this.addressTwoTextBox.Size = new System.Drawing.Size(319, 27);
 			this.addressTwoTextBox.TabIndex = 7;
@@ -212,7 +212,7 @@
 			// 
 			this.cityTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.cityTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cityTextBox.Location = new System.Drawing.Point(22, 126);
+			this.cityTextBox.Location = new System.Drawing.Point(22, 127);
 			this.cityTextBox.Name = "cityTextBox";
 			this.cityTextBox.Size = new System.Drawing.Size(198, 27);
 			this.cityTextBox.TabIndex = 8;
@@ -221,7 +221,7 @@
 			// 
 			this.label10.AutoSize = true;
 			this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(253, 105);
+			this.label10.Location = new System.Drawing.Point(265, 106);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(52, 18);
 			this.label10.TabIndex = 18;
@@ -231,7 +231,7 @@
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label11.Location = new System.Drawing.Point(378, 105);
+			this.label11.Location = new System.Drawing.Point(406, 106);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(34, 18);
 			this.label11.TabIndex = 20;
@@ -252,8 +252,18 @@
 			this.panel1.Controls.Add(this.label9);
 			this.panel1.Location = new System.Drawing.Point(25, 291);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(722, 175);
+			this.panel1.Size = new System.Drawing.Size(859, 175);
 			this.panel1.TabIndex = 21;
+			// 
+			// zipTextBox
+			// 
+			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.zipTextBox.Location = new System.Drawing.Point(409, 127);
+			this.zipTextBox.Mask = "00000";
+			this.zipTextBox.Name = "zipTextBox";
+			this.zipTextBox.Size = new System.Drawing.Size(167, 27);
+			this.zipTextBox.TabIndex = 12;
 			// 
 			// stateComboBox
 			// 
@@ -311,7 +321,7 @@
             "WV",
             "WI",
             "WY"});
-			this.stateComboBox.Location = new System.Drawing.Point(253, 127);
+			this.stateComboBox.Location = new System.Drawing.Point(268, 127);
 			this.stateComboBox.Name = "stateComboBox";
 			this.stateComboBox.Size = new System.Drawing.Size(91, 26);
 			this.stateComboBox.TabIndex = 21;
@@ -341,8 +351,18 @@
 			this.panel2.Controls.Add(this.genderComboBox);
 			this.panel2.Location = new System.Drawing.Point(25, 86);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(722, 175);
+			this.panel2.Size = new System.Drawing.Size(859, 175);
 			this.panel2.TabIndex = 23;
+			// 
+			// phoneNumberTextBox
+			// 
+			this.phoneNumberTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.phoneNumberTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.phoneNumberTextBox.Location = new System.Drawing.Point(19, 125);
+			this.phoneNumberTextBox.Mask = "000-000-0000";
+			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
+			this.phoneNumberTextBox.TabIndex = 11;
 			// 
 			// label13
 			// 
@@ -367,30 +387,9 @@
 			this.registerPatientButton.UseVisualStyleBackColor = false;
 			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
 			// 
-			// phoneNumberTextBox
-			// 
-			this.phoneNumberTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.phoneNumberTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.phoneNumberTextBox.Location = new System.Drawing.Point(19, 125);
-			this.phoneNumberTextBox.Mask = "000-000-0000";
-			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
-			this.phoneNumberTextBox.TabIndex = 11;
-			// 
-			// zipTextBox
-			// 
-			this.zipTextBox.BackColor = System.Drawing.Color.SlateGray;
-			this.zipTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.zipTextBox.Location = new System.Drawing.Point(381, 127);
-			this.zipTextBox.Mask = "00000";
-			this.zipTextBox.Name = "zipTextBox";
-			this.zipTextBox.Size = new System.Drawing.Size(167, 27);
-			this.zipTextBox.TabIndex = 12;
-			// 
 			// RegisterPatientControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.Controls.Add(this.registerPatientButton);
 			this.Controls.Add(this.label13);
@@ -399,7 +398,7 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label1);
 			this.Name = "RegisterPatientControl";
-			this.Size = new System.Drawing.Size(768, 558);
+			this.Size = new System.Drawing.Size(909, 558);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);

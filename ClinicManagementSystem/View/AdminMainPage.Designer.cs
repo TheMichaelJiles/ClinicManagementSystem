@@ -160,6 +160,7 @@
 			// 
 			// controlPanel
 			// 
+			this.controlPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.controlPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.controlPanel.Location = new System.Drawing.Point(0, 24);

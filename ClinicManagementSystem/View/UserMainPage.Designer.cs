@@ -37,7 +37,6 @@
 			this.registerPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.scheduleApptMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logoutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.topMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +45,11 @@
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.controlPanel = new System.Windows.Forms.Panel();
 			this.patientStatusStrip = new System.Windows.Forms.StatusStrip();
+			this.currentPatientStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.statusStrip.SuspendLayout();
 			this.navigationMenuStrip.SuspendLayout();
 			this.topMenuStrip.SuspendLayout();
+			this.patientStatusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// statusStrip
@@ -59,6 +60,7 @@
 			this.statusStrip.Location = new System.Drawing.Point(0, 588);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(910, 22);
+			this.statusStrip.SizingGrip = false;
 			this.statusStrip.TabIndex = 0;
 			// 
 			// currentUserToolStripStatusLbl
@@ -79,8 +81,7 @@
             this.viewPatientMenuItem,
             this.registerPatientMenuItem,
             this.scheduleApptMenuItem,
-            this.logoutMenuItem,
-            this.toolStripMenuItem1});
+            this.logoutMenuItem});
 			this.navigationMenuStrip.Location = new System.Drawing.Point(910, 24);
 			this.navigationMenuStrip.Name = "navigationMenuStrip";
 			this.navigationMenuStrip.Padding = new System.Windows.Forms.Padding(0);
@@ -92,18 +93,22 @@
 			this.searchPatientMenuItem.AutoSize = false;
 			this.searchPatientMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.searchPatientMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchPatientMenuItem.Image")));
+			this.searchPatientMenuItem.Margin = new System.Windows.Forms.Padding(0, 22, 0, 0);
 			this.searchPatientMenuItem.Name = "searchPatientMenuItem";
-			this.searchPatientMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.searchPatientMenuItem.Padding = new System.Windows.Forms.Padding(0);
+			this.searchPatientMenuItem.Size = new System.Drawing.Size(220, 45);
 			this.searchPatientMenuItem.Text = "Search Patient";
 			this.searchPatientMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.searchPatientMenuItem.Click += new System.EventHandler(this.searchPatientMenuItem_OnClick);
 			// 
 			// viewPatientMenuItem
 			// 
+			this.viewPatientMenuItem.AutoSize = false;
 			this.viewPatientMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.viewPatientMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewPatientMenuItem.Image")));
 			this.viewPatientMenuItem.Name = "viewPatientMenuItem";
-			this.viewPatientMenuItem.Size = new System.Drawing.Size(213, 34);
-			this.viewPatientMenuItem.Text = "View Patient";
+			this.viewPatientMenuItem.Size = new System.Drawing.Size(220, 45);
+			this.viewPatientMenuItem.Text = "View Patient  ";
 			this.viewPatientMenuItem.Click += new System.EventHandler(this.viewPatientMenuItem_OnClick);
 			// 
 			// registerPatientMenuItem
@@ -114,32 +119,29 @@
 			this.registerPatientMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.registerPatientMenuItem.Name = "registerPatientMenuItem";
 			this.registerPatientMenuItem.Padding = new System.Windows.Forms.Padding(0);
-			this.registerPatientMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.registerPatientMenuItem.Size = new System.Drawing.Size(220, 45);
 			this.registerPatientMenuItem.Text = "Register Patient ";
 			this.registerPatientMenuItem.Click += new System.EventHandler(this.registerNewPatientMenuItem_OnClick);
 			// 
 			// scheduleApptMenuItem
 			// 
 			this.scheduleApptMenuItem.AutoSize = false;
-			this.scheduleApptMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.scheduleApptMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.scheduleApptMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("scheduleApptMenuItem.Image")));
+			this.scheduleApptMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.scheduleApptMenuItem.Name = "scheduleApptMenuItem";
-			this.scheduleApptMenuItem.Size = new System.Drawing.Size(217, 45);
-			this.scheduleApptMenuItem.Text = "Schedule Appt";
+			this.scheduleApptMenuItem.Size = new System.Drawing.Size(220, 45);
+			this.scheduleApptMenuItem.Text = "Schedule Appt   ";
 			// 
 			// logoutMenuItem
 			// 
 			this.logoutMenuItem.AutoSize = false;
 			this.logoutMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 451, 0, 0);
+			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 338, 0, 0);
 			this.logoutMenuItem.Name = "logoutMenuItem";
-			this.logoutMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.logoutMenuItem.Size = new System.Drawing.Size(220, 45);
 			this.logoutMenuItem.Text = "Logout";
 			this.logoutMenuItem.Click += new System.EventHandler(this.logoutMenuItem_OnClick);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 4);
 			// 
 			// topMenuStrip
 			// 
@@ -189,8 +191,7 @@
 			// 
 			// controlPanel
 			// 
-			this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.controlPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.controlPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.controlPanel.Location = new System.Drawing.Point(0, 37);
 			this.controlPanel.Name = "controlPanel";
 			this.controlPanel.Size = new System.Drawing.Size(910, 551);
@@ -200,15 +201,24 @@
 			// 
 			this.patientStatusStrip.BackColor = System.Drawing.Color.SlateGray;
 			this.patientStatusStrip.Dock = System.Windows.Forms.DockStyle.Top;
+			this.patientStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentPatientStripStatusLbl});
 			this.patientStatusStrip.Location = new System.Drawing.Point(0, 24);
 			this.patientStatusStrip.Name = "patientStatusStrip";
 			this.patientStatusStrip.Size = new System.Drawing.Size(910, 22);
+			this.patientStatusStrip.SizingGrip = false;
 			this.patientStatusStrip.TabIndex = 4;
+			// 
+			// currentPatientStripStatusLbl
+			// 
+			this.currentPatientStripStatusLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.currentPatientStripStatusLbl.Name = "currentPatientStripStatusLbl";
+			this.currentPatientStripStatusLbl.Size = new System.Drawing.Size(110, 17);
+			this.currentPatientStripStatusLbl.Text = "Current Patient: ";
 			// 
 			// UserMainPage
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(1124, 610);
 			this.Controls.Add(this.patientStatusStrip);
@@ -216,6 +226,7 @@
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.navigationMenuStrip);
 			this.Controls.Add(this.topMenuStrip);
+			this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MainMenuStrip = this.navigationMenuStrip;
 			this.Name = "UserMainPage";
@@ -228,6 +239,8 @@
 			this.navigationMenuStrip.PerformLayout();
 			this.topMenuStrip.ResumeLayout(false);
 			this.topMenuStrip.PerformLayout();
+			this.patientStatusStrip.ResumeLayout(false);
+			this.patientStatusStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -248,9 +261,9 @@
 		public System.Windows.Forms.Panel controlPanel;
 		private System.Windows.Forms.ToolStripMenuItem searchPatientMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logoutMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem scheduleApptMenuItem;
 		private System.Windows.Forms.StatusStrip patientStatusStrip;
 		private System.Windows.Forms.ToolStripMenuItem viewPatientMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem scheduleApptMenuItem;
+		private System.Windows.Forms.ToolStripStatusLabel currentPatientStripStatusLbl;
 	}
 }

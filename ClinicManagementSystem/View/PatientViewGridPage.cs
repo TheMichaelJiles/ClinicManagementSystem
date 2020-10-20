@@ -12,20 +12,25 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
-	public partial class SearchPatientPage : Form
+	public partial class PatientViewGridPage : Form
 	{
 
-		public Patient SelectedPatient { get; set; }
+		private IList<Patient> patients;
 
+		#region Constructor
 
-		public SearchPatientPage()
+		public PatientViewGridPage(IList<Patient> patients)
 		{
 			InitializeComponent();
+
+			this.patients = patients;
 		}
+
+		#endregion
 
 		#region Events
 
-		private void searchPatientButton_OnClick(object sender, EventArgs e)
+		private void patientView_OnLoad(object sender, EventArgs e)
 		{
 			this.loadPatientGrid();
 		}
@@ -37,9 +42,8 @@ namespace ClinicManagementSystem.View
 		private void loadPatientGrid()
 		{
 			this.patientDataGrid.Rows.Clear();
-			var patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, this.dobDatePicker.Value);
 
-			foreach (var patient in patients)
+			foreach (var patient in this.patients)
 			{
 				DataGridViewRow newRow = new DataGridViewRow();
 

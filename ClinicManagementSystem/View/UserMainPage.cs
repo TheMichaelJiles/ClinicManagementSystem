@@ -16,6 +16,7 @@ namespace ClinicManagementSystem.View
 	{
 		#region Members
 
+		private Patient currentPatient;
 		private bool HasLoggedOut;
 
 		#endregion
@@ -24,11 +25,6 @@ namespace ClinicManagementSystem.View
 
 		public LoginPage LoginForm;
 		public Nurse CurrentUser { get; set; }
-		public Patient CurrentPatient 
-		{ 
-		  get; 
-		  set;
-		}
 
 		#endregion
 
@@ -41,11 +37,27 @@ namespace ClinicManagementSystem.View
 
 		#endregion
 
+		#region Public Methods
+
+		public void ClearControlPanel()
+		{
+			this.controlPanel.Controls.Clear();
+		}
+
+		public void SetCurrentPatient(Patient patient)
+		{
+			this.currentPatient = patient;
+			this.updateCurrentPatientStatus();
+		}
+
+		#endregion
+
 		#region Events
 
 		private void mainPage_OnLoad(object sender, EventArgs e)
 		{
 			this.handlePostLogin();
+			this.updateCurrentPatientStatus();
 		}
 
 		private void mainPage_OnClose(object sender, FormClosingEventArgs e)
@@ -58,25 +70,29 @@ namespace ClinicManagementSystem.View
 
 		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
+			this.highlightSelectedMenuItem(this.registerPatientMenuItem);
 			this.controlPanel.Controls.Clear();
 			this.controlPanel.Controls.Add(new RegisterPatientControl());
 		}
 
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.showSearchPatientPage();
+			this.highlightSelectedMenuItem(this.searchPatientMenuItem);
+			this.showSearchPatientControl();
+			this.searchPatientMenuItem.Checked = true;
 		}
 
 		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			if (this.CurrentPatient != null)
+			this.highlightSelectedMenuItem(this.viewPatientMenuItem);
+			if (this.currentPatient != null)
 			{
 				this.controlPanel.Controls.Clear();
-				this.controlPanel.Controls.Add(new RegisterPatientControl(this.CurrentPatient));
+				this.controlPanel.Controls.Add(new RegisterPatientControl(this.currentPatient));
 			}
 			else
 			{
-				this.showSearchPatientPage();	
+				this.showSearchPatientControl();	
 			}
 		}
 
@@ -96,11 +112,24 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
-		private void showSearchPatientPage()
+		private void highlightSelectedMenuItem(ToolStripMenuItem selectedMenuItem)
 		{
-			var searchFrm = new SearchPatientPage();
-			searchFrm.ShowDialog();
-			this.CurrentPatient = searchFrm.SelectedPatient;
+			foreach (ToolStripItem menuItem in this.navigationMenuStrip.Items)
+			{
+				menuItem.BackColor = menuItem == selectedMenuItem ? SystemColors.ActiveCaption : Color.Transparent;
+			}
+		}
+
+		private void updateCurrentPatientStatus()
+		{
+			var preText = "Current Patient:";
+			this.currentPatientStripStatusLbl.Text = currentPatient != null ? $"{preText} {this.currentPatient.Bio.FirstName} {this.currentPatient.Bio.LastName} - {this.currentPatient.ID}" : preText;
+		}
+
+		private void showSearchPatientControl()
+		{
+			this.controlPanel.Controls.Clear();
+			this.controlPanel.Controls.Add(new SearchPatientControl(this));
 		}
 
 		private void showLoginPage()
