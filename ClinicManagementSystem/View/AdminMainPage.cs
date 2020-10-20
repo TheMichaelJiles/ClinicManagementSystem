@@ -61,7 +61,7 @@ namespace ClinicManagementSystem.View
 		private void editUserMenuItem_OnClick(object sender, EventArgs e)
 		{
 			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new SearchPatientControl());
+			this.controlPanel.Controls.Add(new SearchPatientPage());
 		}
 
 		private void editPatientMenuItem_OnClick(object sender, EventArgs e)

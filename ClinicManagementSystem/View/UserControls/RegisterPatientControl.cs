@@ -27,6 +27,20 @@ namespace ClinicManagementSystem.View
 			InitializeComponent();
 		}
 
+		public RegisterPatientControl(Patient patient)
+        {
+			InitializeComponent();
+			this.fnameTextBox.Text = patient.Bio.FirstName;
+			this.lnameTextBox.Text = patient.Bio.LastName;
+			this.phoneNumberTextBox.Text = patient.Bio.PhoneNumber;
+			this.dateOfBirthDatePicker.Value = patient.Bio.DOB;
+			this.addressOneTextBox.Text = patient.Bio.Address.Address1;
+			this.addressTwoTextBox.Text = patient.Bio.Address.Address2;
+			this.cityTextBox.Text = patient.Bio.Address.City;
+			this.stateComboBox.SelectedItem = patient.Bio.Address.State;
+			this.zipTextBox.Text = Convert.ToString(patient.Bio.Address.Zip);
+        }
+
 		#endregion
 
 		#region Events

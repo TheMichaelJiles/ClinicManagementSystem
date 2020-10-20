@@ -70,17 +70,17 @@ namespace ClinicManagementSystem.View
 
 		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			//if (this.CurrentPatient =! null)
-			//{
-			//	this.controlPanel.Controls.Clear();
-			//	this.controlPanel.Controls.Add(new RegisterPatientControl());
-			//}
-			//else
-			//{
-			//	var searchFrm = new SearchPatientControl();
-			//	searchFrm.ShowDialog();
-			//	this.CurrentPatient = searchFrm.SelectedPatient;
-			//}
+			if (this.CurrentPatient != null)
+			{
+				this.controlPanel.Controls.Clear();
+				this.controlPanel.Controls.Add(new RegisterPatientControl(this.CurrentPatient));
+			}
+			else
+			{
+				var searchFrm = new SearchPatientPage();
+				searchFrm.ShowDialog();
+				this.CurrentPatient = searchFrm.SelectedPatient;
+			}
 		}
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
