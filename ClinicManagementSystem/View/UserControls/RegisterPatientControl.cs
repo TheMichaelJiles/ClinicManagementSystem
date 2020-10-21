@@ -17,6 +17,7 @@ namespace ClinicManagementSystem.View
 		#region Members
 
 		private bool hasDateBeenSelected;
+		private Patient selectedPatient;
 
 		#endregion
 
@@ -30,16 +31,41 @@ namespace ClinicManagementSystem.View
 		public RegisterPatientControl(Patient patient)
         {
 			InitializeComponent();
+			this.populateWithPatientInfo(patient);
+			this.setInfoFieldsEnabled(false);
+			this.registerPatientButton.Text = "Edit Patient";
+			this.pageTitleLabel.Text = "View Patient Details";
+			this.registerPatientButton.Click -= this.registerPatientButton_OnClick;
+			this.registerPatientButton.Click += this.editPatientButton_OnClick;
+			this.selectedPatient = patient;
+        }
+
+		private void setInfoFieldsEnabled(bool isEnabled)
+        {
+			this.fnameTextBox.ReadOnly = !isEnabled;
+			this.lnameTextBox.ReadOnly = !isEnabled;
+			this.phoneNumberTextBox.ReadOnly = !isEnabled;
+			this.dateOfBirthDatePicker.Enabled = isEnabled;
+			this.addressOneTextBox.ReadOnly = !isEnabled;
+			this.addressTwoTextBox.ReadOnly = !isEnabled;
+			this.cityTextBox.ReadOnly = !isEnabled;
+			this.stateComboBox.Enabled = isEnabled;
+			this.zipTextBox.ReadOnly = !isEnabled;
+		}
+
+		private void populateWithPatientInfo(Patient patient)
+        {
 			this.fnameTextBox.Text = patient.Bio.FirstName;
 			this.lnameTextBox.Text = patient.Bio.LastName;
 			this.phoneNumberTextBox.Text = patient.Bio.PhoneNumber;
 			this.dateOfBirthDatePicker.Value = patient.Bio.DOB;
+			this.genderComboBox.SelectedItem = patient.Bio.Gender;
 			this.addressOneTextBox.Text = patient.Bio.Address.Address1;
 			this.addressTwoTextBox.Text = patient.Bio.Address.Address2;
 			this.cityTextBox.Text = patient.Bio.Address.City;
 			this.stateComboBox.SelectedItem = patient.Bio.Address.State;
 			this.zipTextBox.Text = Convert.ToString(patient.Bio.Address.Zip);
-        }
+		}
 
 		#endregion
 
@@ -55,6 +81,11 @@ namespace ClinicManagementSystem.View
 				this.showPatientRegisteredMessage(patient);
 			}
 		}
+
+		private void editPatientButton_OnClick(object sender, EventArgs e)
+        {
+			this.setInfoFieldsEnabled(true);
+        }
 
 		private void dateOfBirth_OnValueChanged(object sender, EventArgs e)
 		{
@@ -84,6 +115,12 @@ namespace ClinicManagementSystem.View
 		{
 			var msg = $"The Patient {patient.Bio.FirstName} {patient.Bio.LastName} has been registerd.";
 			MessageBox.Show(msg, "Patient Registered", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+		}
+
+		private void showPatientSavedMessage(Patient patient)
+        {
+			var msg = $"The Patient {patient.Bio.FirstName} {patient.Bio.LastName} has been saved.";
+			MessageBox.Show(msg, "Patient Saved", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 
 		private bool areEntryFieldsValid()
@@ -163,7 +200,17 @@ namespace ClinicManagementSystem.View
 			return patient;
 		}
 
-		#endregion
+        #endregion
 
-	}
+        private void saveButton_OnClick(object sender, EventArgs e)
+        {
+			if (this.areEntryFieldsValid())
+			{
+				var patient = this.BuildPatient();
+				patient.ID = this.selectedPatient.ID;
+				PatientDAL.EditPatient(patient);
+				this.showPatientSavedMessage(patient);
+			}
+		}
+    }
 }

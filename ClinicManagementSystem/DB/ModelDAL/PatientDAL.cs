@@ -79,7 +79,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					cmd.Parameters.AddWithValue("@fname", patient.Bio.FirstName);
 					cmd.Parameters.AddWithValue("@lname", patient.Bio.LastName);
 					cmd.Parameters.AddWithValue("@DOB", patient.Bio.DOB);
-					cmd.Parameters.AddWithValue("@phone", patient.Bio.DOB);
+					cmd.Parameters.AddWithValue("@phone", patient.Bio.PhoneNumber);
 					cmd.Parameters.AddWithValue("@gender", patient.Bio.Gender);
 					cmd.Parameters.AddWithValue("@address1", patient.Bio.Address.Address1);
 					cmd.Parameters.AddWithValue("@address2", patient.Bio.Address.Address2);
