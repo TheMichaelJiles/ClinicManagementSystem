@@ -158,11 +158,11 @@
     <Compile Include="View\UserMainPage.Designer.cs">
       <DependentUpon>UserMainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\RegisterPatientControl.cs">
+    <Compile Include="View\UserControls\PatientInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserControls\RegisterPatientControl.Designer.cs">
-      <DependentUpon>RegisterPatientControl.cs</DependentUpon>
+    <Compile Include="View\UserControls\PatientInfoControl.Designer.cs">
+      <DependentUpon>PatientInfoControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -188,8 +188,8 @@
     <EmbeddedResource Include="View\UserMainPage.resx">
       <DependentUpon>UserMainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\RegisterPatientControl.resx">
-      <DependentUpon>RegisterPatientControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\UserControls\PatientInfoControl.resx">
+      <DependentUpon>PatientInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
