@@ -137,7 +137,7 @@
 			// 
 			this.logoutMenuItem.AutoSize = false;
 			this.logoutMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 338, 0, 0);
+			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 339, 0, 0);
 			this.logoutMenuItem.Name = "logoutMenuItem";
 			this.logoutMenuItem.Size = new System.Drawing.Size(220, 45);
 			this.logoutMenuItem.Text = "Logout";

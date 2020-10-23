@@ -25,6 +25,15 @@ namespace ClinicManagementSystem.View
 
 		public LoginPage LoginForm;
 		public Nurse CurrentUser { get; set; }
+		public Patient CurrentPatient
+		{
+			get => this.currentPatient;
+			set
+			{
+				this.currentPatient = value;
+				this.updateCurrentPatientStatus();
+			}
+		}
 
 		#endregion
 
@@ -42,12 +51,6 @@ namespace ClinicManagementSystem.View
 		public void ClearControlPanel()
 		{
 			this.controlPanel.Controls.Clear();
-		}
-
-		public void SetCurrentPatient(Patient patient)
-		{
-			this.currentPatient = patient;
-			this.updateCurrentPatientStatus();
 		}
 
 		#endregion
@@ -72,7 +75,7 @@ namespace ClinicManagementSystem.View
 		{
 			this.highlightSelectedMenuItem(this.registerPatientMenuItem);
 			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new RegisterPatientControl());
+			this.controlPanel.Controls.Add(new PatientInfoControl(this));
 		}
 
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
@@ -86,7 +89,7 @@ namespace ClinicManagementSystem.View
 			if (this.currentPatient != null)
 			{
 				this.controlPanel.Controls.Clear();
-				this.controlPanel.Controls.Add(new RegisterPatientControl(this.currentPatient));
+				this.controlPanel.Controls.Add(new PatientInfoControl(this));
 			}
 			else
 			{

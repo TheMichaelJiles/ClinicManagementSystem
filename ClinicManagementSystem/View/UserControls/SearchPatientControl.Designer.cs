@@ -32,6 +32,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -215,10 +216,14 @@
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.patientDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.patientDataGrid.RowHeadersVisible = false;
+			this.patientDataGrid.RowHeadersWidth = 50;
+			this.patientDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			this.patientDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.patientDataGrid.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			this.patientDataGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.patientDataGrid.RowTemplate.Height = 40;
-			this.patientDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.patientDataGrid.RowTemplate.Height = 80;
+			this.patientDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.patientDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.patientDataGrid.Size = new System.Drawing.Size(860, 264);
 			this.patientDataGrid.TabIndex = 36;

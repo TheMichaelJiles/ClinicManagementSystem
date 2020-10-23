@@ -1,6 +1,6 @@
 ﻿namespace ClinicManagementSystem.View
 {
-	partial class RegisterPatientControl
+	partial class PatientInfoControl
 	{
 		/// <summary> 
 		/// Required designer variable.

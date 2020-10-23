@@ -33,14 +33,14 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					cmd.Parameters.AddWithValue("@fname", patient.Bio.FirstName);
 					cmd.Parameters.AddWithValue("@lname", patient.Bio.LastName);
 					cmd.Parameters.AddWithValue("@DOB", patient.Bio.DOB);
-					cmd.Parameters.AddWithValue("@phone", patient.Bio.DOB);
+					cmd.Parameters.AddWithValue("@phone", patient.Bio.PhoneNumber);
 					cmd.Parameters.AddWithValue("@gender", patient.Bio.Gender);
 					cmd.Parameters.AddWithValue("@address1", patient.Bio.Address.Address1);
 					cmd.Parameters.AddWithValue("@address2", patient.Bio.Address.Address2);
 					cmd.Parameters.AddWithValue("@city", patient.Bio.Address.City);
 					cmd.Parameters.AddWithValue("@state", patient.Bio.Address.State);
 					cmd.Parameters.AddWithValue("@zip", patient.Bio.Address.Zip);
-					cmd.Parameters.AddWithValue("@patientID", patient.ID);
+					cmd.Parameters.AddWithValue("@patientID", buildPatientID(connection));
 
 					cmd.ExecuteNonQuery();
 				}
@@ -137,6 +137,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				return patients;
 			}
         }
+
 		private static string buildPatientID(MySqlConnection connection)
 		{
 			using (MySqlCommand cmd = new MySqlCommand(GetMaxPatientID, connection))

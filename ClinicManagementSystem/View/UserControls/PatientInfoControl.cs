@@ -12,27 +12,32 @@ using ClinicManagementSystem.DB.ModelDAL;
 
 namespace ClinicManagementSystem.View
 {
-	public partial class RegisterPatientControl : UserControl
+	public partial class PatientInfoControl : UserControl
 	{
 		#region Members
 
+		private UserMainPage MainPage;
 		private bool hasDateBeenSelected;
-		private Patient currentPatient;
 
 		#endregion
 
-        #region Construction
+		#region Properties
 
-		public RegisterPatientControl()
+		private Patient currentPatient
 		{
-			InitializeComponent();
+			get => this.MainPage.CurrentPatient;
+			set => this.MainPage.CurrentPatient = value;
 		}
 
-		public RegisterPatientControl(Patient patient)
+		#endregion
+
+		#region Construction
+
+		public PatientInfoControl(UserMainPage mainPage)
         {
             InitializeComponent();
 
-            this.currentPatient = patient;
+			this.MainPage = mainPage;
         }
 
         #endregion
@@ -47,6 +52,7 @@ namespace ClinicManagementSystem.View
 				PatientDAL.InsertNewPatient(patient);
 				this.resetFields();
 				this.showPatientRegisteredMessage(patient);
+				this.MainPage.ClearControlPanel();
 			}
 		}
 
@@ -84,7 +90,7 @@ namespace ClinicManagementSystem.View
 
 		private void initializeControls()
         {
-            if (this.currentPatient != null)
+            if (this.MainPage.CurrentPatient != null)
             {
                 this.populateWithPatientInfo();
                 this.setInfoFieldsEnabled(false);

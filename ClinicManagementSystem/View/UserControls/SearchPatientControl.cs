@@ -85,8 +85,8 @@ namespace ClinicManagementSystem.View.UserControls
 		{
             if (this.patients != null)
             {
-                this.MainPage.SetCurrentPatient(this.SelectedPatient);
-                this.MainPage.ClearControlPanel();
+                this.MainPage.CurrentPatient = this.SelectedPatient;
+				this.MainPage.ClearControlPanel();
 			}
         }
 
