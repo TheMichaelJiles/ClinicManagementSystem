@@ -46,6 +46,7 @@
 			this.controlPanel = new System.Windows.Forms.Panel();
 			this.patientStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.currentPatientStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.homeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.navigationMenuStrip.SuspendLayout();
 			this.topMenuStrip.SuspendLayout();
@@ -78,6 +79,7 @@
 			this.navigationMenuStrip.Dock = System.Windows.Forms.DockStyle.Right;
 			this.navigationMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchPatientMenuItem,
+            this.homeMenuItem,
             this.viewPatientMenuItem,
             this.registerPatientMenuItem,
             this.scheduleApptMenuItem,
@@ -137,7 +139,7 @@
 			// 
 			this.logoutMenuItem.AutoSize = false;
 			this.logoutMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 339, 0, 0);
+			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 294, 0, 0);
 			this.logoutMenuItem.Name = "logoutMenuItem";
 			this.logoutMenuItem.Size = new System.Drawing.Size(220, 45);
 			this.logoutMenuItem.Text = "Logout";
@@ -216,6 +218,17 @@
 			this.currentPatientStripStatusLbl.Size = new System.Drawing.Size(110, 17);
 			this.currentPatientStripStatusLbl.Text = "Current Patient: ";
 			// 
+			// homeMenuItem
+			// 
+			this.homeMenuItem.AutoSize = false;
+			this.homeMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.homeMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeMenuItem.Image")));
+			this.homeMenuItem.Name = "homeMenuItem";
+			this.homeMenuItem.Size = new System.Drawing.Size(220, 45);
+			this.homeMenuItem.Text = "Home            ";
+			this.homeMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.homeMenuItem.Click += new System.EventHandler(this.homeMenuItem_OnClick);
+			// 
 			// UserMainPage
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -265,5 +278,6 @@
 		private System.Windows.Forms.ToolStripMenuItem viewPatientMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem scheduleApptMenuItem;
 		private System.Windows.Forms.ToolStripStatusLabel currentPatientStripStatusLbl;
+		private System.Windows.Forms.ToolStripMenuItem homeMenuItem;
 	}
 }

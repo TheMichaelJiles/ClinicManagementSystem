@@ -120,6 +120,7 @@
     <Compile Include="DB\Util\DbDefault.cs" />
     <Compile Include="DB\ModelDAL\NurseDAL.cs" />
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Bio.cs" />
     <Compile Include="DB\Util\DbConnection.cs" />
     <Compile Include="Model\Nurse.cs" />
@@ -139,6 +140,12 @@
     </Compile>
     <Compile Include="View\LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PatientHomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\PatientHomeControl.Designer.cs">
+      <DependentUpon>PatientHomeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\RegisterUserControl.cs">
       <SubType>UserControl</SubType>
@@ -178,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\PatientHomeControl.resx">
+      <DependentUpon>PatientHomeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\RegisterUserControl.resx">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>

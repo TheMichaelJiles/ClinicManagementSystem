@@ -78,6 +78,12 @@ namespace ClinicManagementSystem.View
 			this.controlPanel.Controls.Add(new PatientInfoControl(this));
 		}
 
+		private void homeMenuItem_OnClick(object sender, EventArgs e)
+		{
+			this.highlightSelectedMenuItem(this.homeMenuItem);
+			this.controlPanel.Controls.Clear();
+		}
+
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
 			this.showSearchPatientControl();
@@ -89,7 +95,7 @@ namespace ClinicManagementSystem.View
 			if (this.currentPatient != null)
 			{
 				this.controlPanel.Controls.Clear();
-				this.controlPanel.Controls.Add(new PatientInfoControl(this));
+				this.controlPanel.Controls.Add(new PatientInfoControl(this) { IsViewingPatient = true });
 			}
 			else
 			{

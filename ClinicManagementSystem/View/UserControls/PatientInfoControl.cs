@@ -23,6 +23,8 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+		public bool IsViewingPatient { get; set; }
+
 		private Patient currentPatient
 		{
 			get => this.MainPage.CurrentPatient;
@@ -89,49 +91,49 @@ namespace ClinicManagementSystem.View
 		#region Private Helpers
 
 		private void initializeControls()
+    {
+        if (this.IsViewingPatient)
         {
-            if (this.MainPage.CurrentPatient != null)
-            {
-                this.populateWithPatientInfo();
-                this.setInfoFieldsEnabled(false);
-                this.pageTitleLabel.Text = "View Patient Details";
-                this.registerPatientButton.Text = "Edit Patient";
-                this.registerPatientButton.Click -= this.registerPatientButton_OnClick;
-                this.registerPatientButton.Click += this.editPatientButton_OnClick;
-			}
-            else
-            {
-                this.saveButton.Visible = false;
-            }
+            this.populateWithPatientInfo();
+            this.setInfoFieldsEnabled(false);
+            this.pageTitleLabel.Text = "View Patient Details";
+            this.registerPatientButton.Text = "Edit Patient";
+            this.registerPatientButton.Click -= this.registerPatientButton_OnClick;
+            this.registerPatientButton.Click += this.editPatientButton_OnClick;
+				}
+        else
+        {
+            this.saveButton.Visible = false;
         }
+    }
 
-        private void setInfoFieldsEnabled(bool isEnabled)
-        {
-            this.fnameTextBox.ReadOnly = !isEnabled;
-            this.lnameTextBox.ReadOnly = !isEnabled;
-            this.phoneNumberTextBox.ReadOnly = !isEnabled;
-            this.dateOfBirthDatePicker.Enabled = isEnabled;
-            this.addressOneTextBox.ReadOnly = !isEnabled;
-            this.addressTwoTextBox.ReadOnly = !isEnabled;
-            this.cityTextBox.ReadOnly = !isEnabled;
-            this.stateComboBox.Enabled = isEnabled;
-            this.zipTextBox.ReadOnly = !isEnabled;
-            this.saveButton.Enabled = isEnabled;
-        }
+      private void setInfoFieldsEnabled(bool isEnabled)
+      {
+          this.fnameTextBox.ReadOnly = !isEnabled;
+          this.lnameTextBox.ReadOnly = !isEnabled;
+          this.phoneNumberTextBox.ReadOnly = !isEnabled;
+          this.dateOfBirthDatePicker.Enabled = isEnabled;
+          this.addressOneTextBox.ReadOnly = !isEnabled;
+          this.addressTwoTextBox.ReadOnly = !isEnabled;
+          this.cityTextBox.ReadOnly = !isEnabled;
+          this.stateComboBox.Enabled = isEnabled;
+          this.zipTextBox.ReadOnly = !isEnabled;
+          this.saveButton.Enabled = isEnabled;
+      }
 
-        private void populateWithPatientInfo()
-        {
-            this.fnameTextBox.Text = this.currentPatient.Bio.FirstName;
-            this.lnameTextBox.Text = this.currentPatient.Bio.LastName;
-            this.phoneNumberTextBox.Text = this.currentPatient.Bio.PhoneNumber;
-            this.dateOfBirthDatePicker.Value = this.currentPatient.Bio.DOB;
-            this.genderComboBox.SelectedItem = this.currentPatient.Bio.Gender;
-            this.addressOneTextBox.Text = this.currentPatient.Bio.Address.Address1;
-            this.addressTwoTextBox.Text = this.currentPatient.Bio.Address.Address2;
-            this.cityTextBox.Text = this.currentPatient.Bio.Address.City;
-            this.stateComboBox.SelectedItem = this.currentPatient.Bio.Address.State;
-            this.zipTextBox.Text = Convert.ToString(this.currentPatient.Bio.Address.Zip);
-        }
+      private void populateWithPatientInfo()
+      {
+          this.fnameTextBox.Text = this.currentPatient.Bio.FirstName;
+          this.lnameTextBox.Text = this.currentPatient.Bio.LastName;
+          this.phoneNumberTextBox.Text = this.currentPatient.Bio.PhoneNumber;
+          this.dateOfBirthDatePicker.Value = this.currentPatient.Bio.DOB;
+          this.genderComboBox.SelectedItem = this.currentPatient.Bio.Gender;
+          this.addressOneTextBox.Text = this.currentPatient.Bio.Address.Address1;
+          this.addressTwoTextBox.Text = this.currentPatient.Bio.Address.Address2;
+          this.cityTextBox.Text = this.currentPatient.Bio.Address.City;
+          this.stateComboBox.SelectedItem = this.currentPatient.Bio.Address.State;
+          this.zipTextBox.Text = Convert.ToString(this.currentPatient.Bio.Address.Zip);
+      }
 
 		private void resetFields()
 		{
