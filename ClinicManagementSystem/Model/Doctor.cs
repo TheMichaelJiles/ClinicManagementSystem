@@ -10,5 +10,6 @@ namespace ClinicManagementSystem.Model
 	{
 		public string ID { get; set; }
 		public Bio Bio { get; set; } = new Bio();
+
 	}
 }

@@ -1,4 +1,6 @@
-﻿using ClinicManagementSystem.View.UserControls;
+﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
+using ClinicManagementSystem.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +17,18 @@ namespace ClinicManagementSystem.View
 	{
 		#region Members
 
+		private IList<DateTime> availableTimes;
+		private IList<Doctor> doctors;
 		private PatientAppointmentsControl AppointmentControl;
 
 		#endregion
 
 		#region Properties
 
-		public bool IsCreatingAppointment { get; set; }
+		public bool IsEditingAppointment { get; set; }
+
+		private Doctor SelectedDoctor => this.doctors[this.doctorComboBox.SelectedIndex];
+		private DateTime SelectedTime => this.availableTimes[this.timeComboBox.SelectedIndex];
 
 		#endregion
 
@@ -45,13 +52,13 @@ namespace ClinicManagementSystem.View
 
 		private void appointmentButton_OnClick(object sender, EventArgs e)
 		{
-			if (this.IsCreatingAppointment)
+			if (this.IsEditingAppointment)
 			{
-
+				// Update Appointment DAL
 			}
 			else
 			{
-
+				this.AppointmentControl.AddAppointment(this.buildAppointment());
 			}
 		}
 
@@ -61,17 +68,33 @@ namespace ClinicManagementSystem.View
 
 		private void initializeControls()
 		{
-			if (this.IsCreatingAppointment)
-			{
-
-			}
-			else
+			if (this.IsEditingAppointment)
 			{
 				this.appointmentButton.Text = "Save Appointment";
+				this.autofillAppointmentData();
+				// Reload available appt options based on this data
 			}
 		}
 
-		#endregion
+		private void autofillAppointmentData()
+		{
+			var appointment = this.AppointmentControl.SelectedAppointment;
 
+			this.doctorComboBox.Text = appointment.Doctor.Bio.FullName;
+			this.apptDatePicker.Value = appointment.Date;
+			this.timeComboBox.Text = appointment.Date.TimeOfDay.ToString();
+		}
+
+		private Appointment buildAppointment()
+		{
+			var appointment = new Appointment();
+
+			appointment.Doctor.ID = this.SelectedDoctor.ID;
+			appointment.Date = this.apptDatePicker.Value.ChangeTime(this.SelectedTime.Hour, this.SelectedTime.Minute, 0, 0);
+
+			return appointment;
+		}
+
+		#endregion
 	}
 }

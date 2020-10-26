@@ -31,17 +31,15 @@
 			this.pageTitleLabel = new System.Windows.Forms.Label();
 			this.doctorComboBox = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.dateOfBirthDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.apptDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.label6 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.timeComboBox = new System.Windows.Forms.ComboBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.appointmentButton = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.lengthComboBox = new System.Windows.Forms.ComboBox();
-			this.timeComboBox = new System.Windows.Forms.ComboBox();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -77,35 +75,33 @@
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Select Doctor";
 			// 
-			// dateOfBirthDatePicker
+			// apptDatePicker
 			// 
-			this.dateOfBirthDatePicker.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateOfBirthDatePicker.Enabled = false;
-			this.dateOfBirthDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateOfBirthDatePicker.Location = new System.Drawing.Point(498, 44);
-			this.dateOfBirthDatePicker.Name = "dateOfBirthDatePicker";
-			this.dateOfBirthDatePicker.Size = new System.Drawing.Size(319, 27);
-			this.dateOfBirthDatePicker.TabIndex = 5;
+			this.apptDatePicker.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.apptDatePicker.Enabled = false;
+			this.apptDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.apptDatePicker.Location = new System.Drawing.Point(261, 44);
+			this.apptDatePicker.Name = "apptDatePicker";
+			this.apptDatePicker.Size = new System.Drawing.Size(319, 27);
+			this.apptDatePicker.TabIndex = 5;
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(495, 23);
+			this.label6.Location = new System.Drawing.Point(258, 24);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(47, 18);
+			this.label6.Size = new System.Drawing.Size(113, 18);
 			this.label6.TabIndex = 10;
-			this.label6.Text = "Date";
+			this.label6.Text = "Choose Date";
 			// 
 			// panel2
 			// 
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.timeComboBox);
-			this.panel2.Controls.Add(this.label3);
-			this.panel2.Controls.Add(this.lengthComboBox);
 			this.panel2.Controls.Add(this.label2);
 			this.panel2.Controls.Add(this.label6);
-			this.panel2.Controls.Add(this.dateOfBirthDatePicker);
+			this.panel2.Controls.Add(this.apptDatePicker);
 			this.panel2.Controls.Add(this.richTextBox1);
 			this.panel2.Controls.Add(this.label1);
 			this.panel2.Controls.Add(this.label5);
@@ -114,6 +110,49 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(859, 231);
 			this.panel2.TabIndex = 23;
+			// 
+			// timeComboBox
+			// 
+			this.timeComboBox.BackColor = System.Drawing.Color.SlateGray;
+			this.timeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.timeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.timeComboBox.Enabled = false;
+			this.timeComboBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.timeComboBox.FormattingEnabled = true;
+			this.timeComboBox.Location = new System.Drawing.Point(623, 45);
+			this.timeComboBox.Name = "timeComboBox";
+			this.timeComboBox.Size = new System.Drawing.Size(195, 26);
+			this.timeComboBox.TabIndex = 17;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(23, 91);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(77, 18);
+			this.label2.TabIndex = 14;
+			this.label2.Text = "Reasons";
+			// 
+			// richTextBox1
+			// 
+			this.richTextBox1.BackColor = System.Drawing.Color.SlateGray;
+			this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.richTextBox1.Location = new System.Drawing.Point(22, 111);
+			this.richTextBox1.Name = "richTextBox1";
+			this.richTextBox1.Size = new System.Drawing.Size(555, 96);
+			this.richTextBox1.TabIndex = 13;
+			this.richTextBox1.Text = "";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(620, 24);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(104, 18);
+			this.label1.TabIndex = 12;
+			this.label1.Text = "Select Time";
 			// 
 			// label13
 			// 
@@ -137,71 +176,6 @@
 			this.appointmentButton.Text = "Create Appointment";
 			this.appointmentButton.UseVisualStyleBackColor = false;
 			this.appointmentButton.Click += new System.EventHandler(this.appointmentButton_OnClick);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(619, 91);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(48, 18);
-			this.label1.TabIndex = 12;
-			this.label1.Text = "Time";
-			// 
-			// richTextBox1
-			// 
-			this.richTextBox1.BackColor = System.Drawing.Color.SlateGray;
-			this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.richTextBox1.Location = new System.Drawing.Point(22, 111);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.Size = new System.Drawing.Size(555, 96);
-			this.richTextBox1.TabIndex = 13;
-			this.richTextBox1.Text = "";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(23, 91);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(77, 18);
-			this.label2.TabIndex = 14;
-			this.label2.Text = "Reasons";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(258, 24);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(130, 18);
-			this.label3.TabIndex = 16;
-			this.label3.Text = "Choose Length";
-			// 
-			// lengthComboBox
-			// 
-			this.lengthComboBox.BackColor = System.Drawing.Color.SlateGray;
-			this.lengthComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lengthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.lengthComboBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lengthComboBox.FormattingEnabled = true;
-			this.lengthComboBox.Location = new System.Drawing.Point(261, 45);
-			this.lengthComboBox.Name = "lengthComboBox";
-			this.lengthComboBox.Size = new System.Drawing.Size(195, 26);
-			this.lengthComboBox.TabIndex = 15;
-			// 
-			// timeComboBox
-			// 
-			this.timeComboBox.BackColor = System.Drawing.Color.SlateGray;
-			this.timeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.timeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.timeComboBox.Enabled = false;
-			this.timeComboBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.timeComboBox.FormattingEnabled = true;
-			this.timeComboBox.Location = new System.Drawing.Point(622, 111);
-			this.timeComboBox.Name = "timeComboBox";
-			this.timeComboBox.Size = new System.Drawing.Size(195, 26);
-			this.timeComboBox.TabIndex = 17;
 			// 
 			// AppointmentInfoPage
 			// 
@@ -228,7 +202,7 @@
 		private System.Windows.Forms.Label pageTitleLabel;
 		private System.Windows.Forms.ComboBox doctorComboBox;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.DateTimePicker dateOfBirthDatePicker;
+		private System.Windows.Forms.DateTimePicker apptDatePicker;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label13;
@@ -237,7 +211,5 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.ComboBox timeComboBox;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox lengthComboBox;
 	}
 }
