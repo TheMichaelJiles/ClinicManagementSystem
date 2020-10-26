@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\ModelDAL\AppointmentDAL.cs" />
     <Compile Include="DB\ModelDAL\PatientDAL.cs" />
     <Compile Include="DB\Util\DbDefault.cs" />
     <Compile Include="DB\ModelDAL\NurseDAL.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Bio.cs" />
     <Compile Include="DB\Util\DbConnection.cs" />
+    <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="DB\Util\Security.cs" />
     <Compile Include="Model\Patient.cs" />
@@ -135,17 +137,23 @@
     <Compile Include="View\AdminMainPage.Designer.cs">
       <DependentUpon>AdminMainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AppointmentInfoPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AppointmentInfoPage.Designer.cs">
+      <DependentUpon>AppointmentInfoPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\PatientHomeControl.cs">
+    <Compile Include="View\UserControls\PatientAppointmentsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserControls\PatientHomeControl.Designer.cs">
-      <DependentUpon>PatientHomeControl.cs</DependentUpon>
+    <Compile Include="View\UserControls\PatientAppointmentsControl.Designer.cs">
+      <DependentUpon>PatientAppointmentsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\RegisterUserControl.cs">
       <SubType>UserControl</SubType>
@@ -183,11 +191,14 @@
     <EmbeddedResource Include="View\AdminMainPage.resx">
       <DependentUpon>AdminMainPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AppointmentInfoPage.resx">
+      <DependentUpon>AppointmentInfoPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControls\PatientHomeControl.resx">
-      <DependentUpon>PatientHomeControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\UserControls\PatientAppointmentsControl.resx">
+      <DependentUpon>PatientAppointmentsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\RegisterUserControl.resx">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>

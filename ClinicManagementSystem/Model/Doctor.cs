@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Model
 {
-	public class Appointment
+	public class Doctor
 	{
-
-		public DateTime Date { get; set; }
-		public string PatientID { get; set; }
-		public Doctor Doctor { get; set; }
 		public string ID { get; set; }
-		public string Reasons { get; set; }
-
+		public Bio Bio { get; set; } = new Bio();
 	}
 }

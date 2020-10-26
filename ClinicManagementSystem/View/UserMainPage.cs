@@ -103,6 +103,20 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		private void apptButton_OnClick(object sender, EventArgs e)
+		{
+			this.highlightSelectedMenuItem(this.apptMenuItem);
+			if (this.currentPatient != null)
+			{
+				this.controlPanel.Controls.Clear();
+				this.controlPanel.Controls.Add(new PatientAppointmentsControl(this));
+			}
+			else
+			{
+				this.showSearchPatientControl();
+			}
+		}
+
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
 			if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
@@ -156,6 +170,5 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
-
 	}
 }
