@@ -95,8 +95,10 @@ namespace ClinicManagementSystem.View
 				this.appointmentButton.Text = "Save Appointment";
 				this.autofillAppointmentData();
 			}
-
-			this.loadDoctors();
+			else
+			{
+				this.loadDoctors();
+			}
 		}
 
 		private void loadDoctors()

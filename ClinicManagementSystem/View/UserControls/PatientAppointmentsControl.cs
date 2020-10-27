@@ -49,7 +49,7 @@ namespace ClinicManagementSystem.View.UserControls
 		public void AddAppointment(Appointment appointment)
 		{
 			this.appointments.Add(appointment);
-			this.loadAppointmentGrid();
+			this.refreshAppointmentGrid();
 		}
 
 		#endregion
@@ -73,11 +73,28 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void removeButton_OnClick(object sender, EventArgs e)
 		{
-			if (this.SelectedAppointment != null)
+			try
 			{
-				// TODO prompt confirmation to remove
+				if (this.SelectedAppointment != null)
+				{
+					this.promptRemoveAppointment();
+				}
+			}
+			catch (Exception)
+			{
+				// TODO show appointment had issue being removed
+			}
+		}
+
+		private void promptRemoveAppointment()
+		{
+			var message = $"Are you sure you want to remove Appointment {this.SelectedAppointment.ID}?";
+
+			if (MessageBox.Show(message, "Delete Appointment", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+			{
+				AppointmentDAL.RemovePatientAppointment(this.SelectedAppointment.ID);
 				this.appointments.Remove(this.SelectedAppointment);
-				// TODO remove from DB if user confirms
+				this.refreshAppointmentGrid();
 			}
 		}
 
@@ -98,6 +115,11 @@ namespace ClinicManagementSystem.View.UserControls
 		private void loadAppointmentGrid()
 		{
 			this.appointments = AppointmentDAL.GetPatientAppointments(this.MainPage.CurrentPatient.ID);
+			this.refreshAppointmentGrid();
+		}
+
+		private void refreshAppointmentGrid()
+		{
 			this.apptDataGrid.Rows.Clear();
 
 			foreach (var appointment in appointments)

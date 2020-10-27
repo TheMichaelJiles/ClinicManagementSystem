@@ -14,6 +14,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		private const string GetPatientAppointmentsQuery = "CALL GetPatientAppointments(@patientID)";
 		private const string GetDoctorAppointmentTimesQuery = "CALL GetDoctorAppointmentTimes(@doctorID, @date)";
+		private const string RemoveAppointment = "DELETE FROM Appointment WHERE apptID = @apptID";
 
 		#endregion
 
@@ -32,6 +33,22 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					cmd.Parameters.AddWithValue("@patientID", patientID);
 
 					return buildAppointmentList(cmd);
+				}
+			}
+		}
+
+		public static void RemovePatientAppointment(string apptID)
+		{
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(RemoveAppointment, connection))
+				{
+					cmd.Parameters.AddWithValue("@apptID", apptID);
+					cmd.ExecuteNonQuery();
 				}
 			}
 		}
