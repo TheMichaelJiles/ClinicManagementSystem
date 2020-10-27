@@ -13,6 +13,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		#region Constants
 
 		private const string GetPatientAppointmentsQuery = "CALL GetPatientAppointments(@patientID)";
+		private const string GetDoctorAppointmentTimesQuery = "CALL GetDoctorAppointmentTimes(@doctorID, @date)";
 
 		#endregion
 
@@ -31,6 +32,24 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					cmd.Parameters.AddWithValue("@patientID", patientID);
 
 					return buildAppointmentList(cmd);
+				}
+			}
+		}
+
+		public static IList<DateTime> GetDoctorAppointmentTimes(string doctorID, DateTime date)
+		{
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(GetDoctorAppointmentTimesQuery, connection))
+				{
+					cmd.Parameters.AddWithValue("@doctorID", doctorID);
+					cmd.Parameters.AddWithValue("@date", date);
+
+					return buildDateList(cmd);
 				}
 			}
 		}
@@ -67,6 +86,23 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				}
 
 				return appointments;
+			}
+		}
+
+		private static IList<DateTime> buildDateList(MySqlCommand cmd)
+		{
+			var dates = new List<DateTime>();
+
+			using (MySqlDataReader reader = cmd.ExecuteReader())
+			{
+				int datetimeOrdinal = reader.GetOrdinal("datetime");
+
+				while (reader.Read())
+				{
+					dates.Add(DbDefault.GetDatetime(reader, datetimeOrdinal));
+				}
+
+				return dates;
 			}
 		}
 

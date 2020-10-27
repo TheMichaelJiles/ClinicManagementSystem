@@ -75,7 +75,9 @@ namespace ClinicManagementSystem.View.UserControls
 		{
 			if (this.SelectedAppointment != null)
 			{
+				// TODO prompt confirmation to remove
 				this.appointments.Remove(this.SelectedAppointment);
+				// TODO remove from DB if user confirms
 			}
 		}
 
@@ -98,7 +100,7 @@ namespace ClinicManagementSystem.View.UserControls
 			this.appointments = AppointmentDAL.GetPatientAppointments(this.MainPage.CurrentPatient.ID);
 			this.apptDataGrid.Rows.Clear();
 
-			foreach (var appointment in this.appointments)
+			foreach (var appointment in appointments)
 			{
 				DataGridViewRow newRow = new DataGridViewRow();
 
