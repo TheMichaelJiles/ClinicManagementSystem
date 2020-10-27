@@ -86,7 +86,7 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
 		{
-			//this.loadAppointmentGrid();
+			this.loadAppointmentGrid();
 		}
 
 		#endregion

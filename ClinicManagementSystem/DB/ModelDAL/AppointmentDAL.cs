@@ -45,33 +45,27 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 			using (MySqlDataReader reader = cmd.ExecuteReader())
 			{
-				int patientIDOrdinal = reader.GetOrdinal("patientID");
-
-				int bioIDOrdinal = reader.GetOrdinal("ID");
+				int apptIDOrdinal = reader.GetOrdinal("apptID");
+				int datetimeOrdinal = reader.GetOrdinal("datetime");
+				int reasonsOrdinal = reader.GetOrdinal("reasons");
+				int doctorIDOrdinal = reader.GetOrdinal("doctorID");
 				int fnameOrdinal = reader.GetOrdinal("fname");
 				int lnameOrdinal = reader.GetOrdinal("lname");
-				int dobOrdinal = reader.GetOrdinal("DOB");
-				int phoneNumberOrdinal = reader.GetOrdinal("phone#");
-				int genderOrdinal = reader.GetOrdinal("gender");
-
-				int addressIDOrdinal = reader.GetOrdinal("addressID");
-				int address1Ordinal = reader.GetOrdinal("address1");
-				int address2Ordinal = reader.GetOrdinal("address2");
-				int cityOrdinal = reader.GetOrdinal("city");
-				int stateOrdinal = reader.GetOrdinal("state");
-				int zipOrdinal = reader.GetOrdinal("zip");
 
 				while (reader.Read())
 				{
 					Appointment appointment = new Appointment();
 
-					//appointment.ID = DbDefault.GetString(reader, );
-					//appointment.Date = DbDefault.GetString(reader, );
-					//appointment.Doctor = DbDefault.GetString(reader, );
-					//appointment.Doctor.ID = DbDefault.GetString(reader, );
+					appointment.ID = DbDefault.GetString(reader, apptIDOrdinal);
+					appointment.Date = DbDefault.GetDatetime(reader, datetimeOrdinal);
+					appointment.Reasons = DbDefault.GetString(reader, reasonsOrdinal);
+					appointment.Doctor.ID = DbDefault.GetString(reader, doctorIDOrdinal);
+					appointment.Doctor.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
+					appointment.Doctor.Bio.LastName = DbDefault.GetString(reader, lnameOrdinal);
 
 					appointments.Add(appointment);
 				}
+
 				return appointments;
 			}
 		}

@@ -11,7 +11,7 @@ namespace ClinicManagementSystem.Model
 
 		public DateTime Date { get; set; }
 		public string PatientID { get; set; }
-		public Doctor Doctor { get; set; }
+		public Doctor Doctor { get; set; } = new Doctor();
 		public string ID { get; set; }
 		public string Reasons { get; set; }
 
