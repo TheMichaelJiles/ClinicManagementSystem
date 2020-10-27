@@ -30,5 +30,10 @@ namespace ClinicManagementSystem.DB
 			return reader[ordinal] == DBNull.Value ? default : reader.GetDateTime(ordinal);
 		}
 
+		public static decimal GetDecimal(MySqlDataReader reader, int ordinal)
+		{
+			return reader[ordinal] == DBNull.Value ? 0 : reader.GetDecimal(ordinal);
+		}
+
 	}
 }

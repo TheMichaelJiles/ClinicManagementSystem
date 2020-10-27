@@ -49,7 +49,7 @@
 			this.pageTitleLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.pageTitleLabel.Location = new System.Drawing.Point(19, 17);
 			this.pageTitleLabel.Name = "pageTitleLabel";
-			this.pageTitleLabel.Size = new System.Drawing.Size(309, 46);
+			this.pageTitleLabel.Size = new System.Drawing.Size(248, 37);
 			this.pageTitleLabel.TabIndex = 0;
 			this.pageTitleLabel.Text = "Appointment Info";
 			// 
@@ -62,7 +62,7 @@
 			this.doctorComboBox.FormattingEnabled = true;
 			this.doctorComboBox.Location = new System.Drawing.Point(22, 45);
 			this.doctorComboBox.Name = "doctorComboBox";
-			this.doctorComboBox.Size = new System.Drawing.Size(195, 33);
+			this.doctorComboBox.Size = new System.Drawing.Size(195, 26);
 			this.doctorComboBox.TabIndex = 4;
 			this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_OnSelectionChange);
 			// 
@@ -72,7 +72,7 @@
 			this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label5.Location = new System.Drawing.Point(19, 24);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(147, 25);
+			this.label5.Size = new System.Drawing.Size(117, 18);
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Select Doctor";
 			// 
@@ -83,7 +83,7 @@
 			this.apptDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.apptDatePicker.Location = new System.Drawing.Point(261, 44);
 			this.apptDatePicker.Name = "apptDatePicker";
-			this.apptDatePicker.Size = new System.Drawing.Size(319, 32);
+			this.apptDatePicker.Size = new System.Drawing.Size(319, 27);
 			this.apptDatePicker.TabIndex = 5;
 			this.apptDatePicker.ValueChanged += new System.EventHandler(this.apptDatePicker_OnValueChanged);
 			// 
@@ -93,7 +93,7 @@
 			this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label6.Location = new System.Drawing.Point(258, 24);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(139, 25);
+			this.label6.Size = new System.Drawing.Size(113, 18);
 			this.label6.TabIndex = 10;
 			this.label6.Text = "Choose Date";
 			// 
@@ -123,7 +123,7 @@
 			this.timeComboBox.FormattingEnabled = true;
 			this.timeComboBox.Location = new System.Drawing.Point(623, 45);
 			this.timeComboBox.Name = "timeComboBox";
-			this.timeComboBox.Size = new System.Drawing.Size(195, 33);
+			this.timeComboBox.Size = new System.Drawing.Size(195, 26);
 			this.timeComboBox.TabIndex = 17;
 			// 
 			// label2
@@ -132,7 +132,7 @@
 			this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(23, 91);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(95, 25);
+			this.label2.Size = new System.Drawing.Size(77, 18);
 			this.label2.TabIndex = 14;
 			this.label2.Text = "Reasons";
 			// 
@@ -142,7 +142,7 @@
 			this.reasonsTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.reasonsTextBox.Location = new System.Drawing.Point(22, 111);
 			this.reasonsTextBox.Name = "reasonsTextBox";
-			this.reasonsTextBox.Size = new System.Drawing.Size(555, 96);
+			this.reasonsTextBox.Size = new System.Drawing.Size(796, 96);
 			this.reasonsTextBox.TabIndex = 13;
 			this.reasonsTextBox.Text = "";
 			// 
@@ -152,7 +152,7 @@
 			this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(620, 24);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(130, 25);
+			this.label1.Size = new System.Drawing.Size(104, 18);
 			this.label1.TabIndex = 12;
 			this.label1.Text = "Select Time";
 			// 
@@ -162,7 +162,7 @@
 			this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label13.Location = new System.Drawing.Point(43, 73);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(160, 32);
+			this.label13.Size = new System.Drawing.Size(123, 25);
 			this.label13.TabIndex = 24;
 			this.label13.Text = "Enter Details";
 			// 

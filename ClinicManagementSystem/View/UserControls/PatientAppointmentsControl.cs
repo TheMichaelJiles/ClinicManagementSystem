@@ -30,7 +30,7 @@ namespace ClinicManagementSystem.View.UserControls
 			set => this.MainPage.CurrentPatient = value;
 		}
 
-		public Appointment SelectedAppointment => this.appointments != null ? this.appointments[this.apptDataGrid.SelectedRows[0].Index] : null;
+		public Appointment SelectedAppointment => this.appointments.Count > 0 ? this.appointments[this.apptDataGrid.SelectedRows[0].Index] : null;
 
 		#endregion
 
@@ -100,7 +100,18 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void manageButton_OnClick(object sender, EventArgs e)
 		{
-
+			try
+			{
+				if (this.SelectedAppointment != null)
+				{
+					var manageApptFrm = new ManageAppointmentPage(this);
+					manageApptFrm.ShowDialog();
+				}
+			}
+			catch (Exception)
+			{
+				// TODO
+			}
 		}
 
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
@@ -122,7 +133,7 @@ namespace ClinicManagementSystem.View.UserControls
 		{
 			this.apptDataGrid.Rows.Clear();
 
-			foreach (var appointment in appointments)
+			foreach (var appointment in this.appointments)
 			{
 				DataGridViewRow newRow = new DataGridViewRow();
 

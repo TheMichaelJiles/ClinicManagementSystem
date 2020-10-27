@@ -265,7 +265,7 @@
 			this.zipTextBox.Mask = "00000";
 			this.zipTextBox.Name = "zipTextBox";
 			this.zipTextBox.Size = new System.Drawing.Size(167, 27);
-			this.zipTextBox.TabIndex = 12;
+			this.zipTextBox.TabIndex = 10;
 			// 
 			// stateComboBox
 			// 
@@ -327,7 +327,7 @@
 			this.stateComboBox.Location = new System.Drawing.Point(268, 127);
 			this.stateComboBox.Name = "stateComboBox";
 			this.stateComboBox.Size = new System.Drawing.Size(91, 26);
-			this.stateComboBox.TabIndex = 21;
+			this.stateComboBox.TabIndex = 9;
 			// 
 			// label12
 			// 
@@ -365,7 +365,7 @@
 			this.phoneNumberTextBox.Mask = "000-000-0000";
 			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
 			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
-			this.phoneNumberTextBox.TabIndex = 11;
+			this.phoneNumberTextBox.TabIndex = 3;
 			// 
 			// label13
 			// 
@@ -398,7 +398,7 @@
 			this.saveButton.Location = new System.Drawing.Point(270, 502);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(218, 36);
-			this.saveButton.TabIndex = 25;
+			this.saveButton.TabIndex = 12;
 			this.saveButton.Text = "Save Patient";
 			this.saveButton.UseVisualStyleBackColor = false;
 			this.saveButton.Click += new System.EventHandler(this.saveButton_OnClick);
