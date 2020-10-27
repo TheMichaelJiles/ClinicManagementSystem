@@ -29,6 +29,8 @@
 		{
 			this.pageTitleLabel = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.weightTextBox = new System.Windows.Forms.MaskedTextBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.pulseTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.bodyTempTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -58,6 +60,8 @@
 			// panel2
 			// 
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Controls.Add(this.weightTextBox);
+			this.panel2.Controls.Add(this.label6);
 			this.panel2.Controls.Add(this.pulseTextBox);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.bodyTempTextBox);
@@ -71,17 +75,37 @@
 			this.panel2.Location = new System.Drawing.Point(25, 86);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(859, 312);
-			this.panel2.TabIndex = 23;
+			this.panel2.TabIndex = 1;
+			// 
+			// weightTextBox
+			// 
+			this.weightTextBox.BackColor = System.Drawing.Color.SlateGray;
+			this.weightTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.weightTextBox.Location = new System.Drawing.Point(528, 125);
+			this.weightTextBox.Mask = "####.##";
+			this.weightTextBox.Name = "weightTextBox";
+			this.weightTextBox.Size = new System.Drawing.Size(158, 27);
+			this.weightTextBox.TabIndex = 6;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(524, 105);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(66, 18);
+			this.label6.TabIndex = 34;
+			this.label6.Text = "Weight";
 			// 
 			// pulseTextBox
 			// 
 			this.pulseTextBox.BackColor = System.Drawing.Color.SlateGray;
 			this.pulseTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.pulseTextBox.Location = new System.Drawing.Point(325, 125);
+			this.pulseTextBox.Location = new System.Drawing.Point(324, 125);
 			this.pulseTextBox.Mask = "###";
 			this.pulseTextBox.Name = "pulseTextBox";
 			this.pulseTextBox.Size = new System.Drawing.Size(98, 27);
-			this.pulseTextBox.TabIndex = 4;
+			this.pulseTextBox.TabIndex = 5;
 			// 
 			// label5
 			// 
@@ -101,7 +125,7 @@
 			this.bodyTempTextBox.Mask = "###.##";
 			this.bodyTempTextBox.Name = "bodyTempTextBox";
 			this.bodyTempTextBox.Size = new System.Drawing.Size(198, 27);
-			this.bodyTempTextBox.TabIndex = 3;
+			this.bodyTempTextBox.TabIndex = 4;
 			// 
 			// label4
 			// 
@@ -130,7 +154,7 @@
 			this.diastolicTextBox.Location = new System.Drawing.Point(324, 54);
 			this.diastolicTextBox.Name = "diastolicTextBox";
 			this.diastolicTextBox.Size = new System.Drawing.Size(242, 27);
-			this.diastolicTextBox.TabIndex = 2;
+			this.diastolicTextBox.TabIndex = 3;
 			// 
 			// systolicTextBox
 			// 
@@ -139,7 +163,7 @@
 			this.systolicTextBox.Location = new System.Drawing.Point(22, 54);
 			this.systolicTextBox.Name = "systolicTextBox";
 			this.systolicTextBox.Size = new System.Drawing.Size(242, 27);
-			this.systolicTextBox.TabIndex = 1;
+			this.systolicTextBox.TabIndex = 2;
 			// 
 			// label2
 			// 
@@ -168,7 +192,7 @@
 			this.symptomsTextArea.Location = new System.Drawing.Point(19, 195);
 			this.symptomsTextArea.Name = "symptomsTextArea";
 			this.symptomsTextArea.Size = new System.Drawing.Size(796, 96);
-			this.symptomsTextArea.TabIndex = 5;
+			this.symptomsTextArea.TabIndex = 7;
 			this.symptomsTextArea.Text = "";
 			// 
 			// label13
@@ -189,7 +213,7 @@
 			this.saveButton.Location = new System.Drawing.Point(260, 408);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(218, 36);
-			this.saveButton.TabIndex = 6;
+			this.saveButton.TabIndex = 8;
 			this.saveButton.Text = "Save";
 			this.saveButton.UseVisualStyleBackColor = false;
 			// 
@@ -201,7 +225,7 @@
 			this.cancelButton.Location = new System.Drawing.Point(25, 408);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(218, 36);
-			this.cancelButton.TabIndex = 7;
+			this.cancelButton.TabIndex = 9;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = false;
 			// 
@@ -242,5 +266,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.MaskedTextBox bodyTempTextBox;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.MaskedTextBox weightTextBox;
+		private System.Windows.Forms.Label label6;
 	}
 }

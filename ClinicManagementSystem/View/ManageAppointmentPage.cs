@@ -110,5 +110,6 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
+
 	}
 }

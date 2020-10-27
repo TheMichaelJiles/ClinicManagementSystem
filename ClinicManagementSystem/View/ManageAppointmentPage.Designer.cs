@@ -78,7 +78,7 @@
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(37, 71);
+			this.label13.Location = new System.Drawing.Point(37, 214);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(91, 25);
 			this.label13.TabIndex = 30;
@@ -91,10 +91,10 @@
 			this.panel2.Controls.Add(this.orderButton);
 			this.panel2.Controls.Add(this.editButton);
 			this.panel2.Controls.Add(this.removeButton);
-			this.panel2.Location = new System.Drawing.Point(22, 84);
+			this.panel2.Location = new System.Drawing.Point(22, 227);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(997, 227);
-			this.panel2.TabIndex = 29;
+			this.panel2.TabIndex = 4;
 			// 
 			// labTestsDataGrid
 			// 
@@ -147,7 +147,7 @@
 			this.labTestsDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.labTestsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.labTestsDataGrid.Size = new System.Drawing.Size(845, 211);
-			this.labTestsDataGrid.TabIndex = 1;
+			this.labTestsDataGrid.TabIndex = 5;
 			// 
 			// testTypeColumn
 			// 
@@ -189,7 +189,7 @@
 			this.orderButton.Location = new System.Drawing.Point(844, 14);
 			this.orderButton.Name = "orderButton";
 			this.orderButton.Size = new System.Drawing.Size(152, 36);
-			this.orderButton.TabIndex = 2;
+			this.orderButton.TabIndex = 6;
 			this.orderButton.Text = "Order";
 			this.orderButton.UseVisualStyleBackColor = false;
 			this.orderButton.Click += new System.EventHandler(this.orderTestButton_OnClick);
@@ -202,7 +202,7 @@
 			this.editButton.Location = new System.Drawing.Point(844, 49);
 			this.editButton.Name = "editButton";
 			this.editButton.Size = new System.Drawing.Size(152, 36);
-			this.editButton.TabIndex = 3;
+			this.editButton.TabIndex = 7;
 			this.editButton.Text = "Edit";
 			this.editButton.UseVisualStyleBackColor = false;
 			this.editButton.Click += new System.EventHandler(this.editTestButton_OnClick);
@@ -215,7 +215,7 @@
 			this.removeButton.Location = new System.Drawing.Point(844, 84);
 			this.removeButton.Name = "removeButton";
 			this.removeButton.Size = new System.Drawing.Size(152, 36);
-			this.removeButton.TabIndex = 4;
+			this.removeButton.TabIndex = 8;
 			this.removeButton.Text = "Remove";
 			this.removeButton.UseVisualStyleBackColor = false;
 			this.removeButton.Click += new System.EventHandler(this.removeTestButton_OnClick);
@@ -224,7 +224,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(37, 323);
+			this.label1.Location = new System.Drawing.Point(37, 67);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(140, 25);
 			this.label1.TabIndex = 39;
@@ -237,10 +237,10 @@
 			this.panel1.Controls.Add(this.editCheckButton);
 			this.panel1.Controls.Add(this.routineFinishedCheckBox);
 			this.panel1.Controls.Add(this.startCheckButton);
-			this.panel1.Location = new System.Drawing.Point(22, 336);
+			this.panel1.Location = new System.Drawing.Point(22, 80);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(997, 118);
-			this.panel1.TabIndex = 38;
+			this.panel1.TabIndex = 1;
 			// 
 			// byNurseLabel
 			// 
@@ -262,7 +262,7 @@
 			this.editCheckButton.Location = new System.Drawing.Point(265, 64);
 			this.editCheckButton.Name = "editCheckButton";
 			this.editCheckButton.Size = new System.Drawing.Size(225, 36);
-			this.editCheckButton.TabIndex = 6;
+			this.editCheckButton.TabIndex = 3;
 			this.editCheckButton.Text = "Edit";
 			this.editCheckButton.UseVisualStyleBackColor = false;
 			this.editCheckButton.Click += new System.EventHandler(this.editCheckButton_OnClick);
@@ -287,7 +287,7 @@
 			this.startCheckButton.Location = new System.Drawing.Point(19, 64);
 			this.startCheckButton.Name = "startCheckButton";
 			this.startCheckButton.Size = new System.Drawing.Size(225, 36);
-			this.startCheckButton.TabIndex = 5;
+			this.startCheckButton.TabIndex = 2;
 			this.startCheckButton.Text = "Start";
 			this.startCheckButton.UseVisualStyleBackColor = false;
 			this.startCheckButton.Click += new System.EventHandler(this.startButton_OnClick);
@@ -309,7 +309,7 @@
 			this.initialDiagnosisTextArea.Location = new System.Drawing.Point(15, 47);
 			this.initialDiagnosisTextArea.Name = "initialDiagnosisTextArea";
 			this.initialDiagnosisTextArea.Size = new System.Drawing.Size(475, 185);
-			this.initialDiagnosisTextArea.TabIndex = 7;
+			this.initialDiagnosisTextArea.TabIndex = 10;
 			this.initialDiagnosisTextArea.Text = "";
 			// 
 			// label4
@@ -332,7 +332,7 @@
 			this.panel3.Location = new System.Drawing.Point(22, 481);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(997, 250);
-			this.panel3.TabIndex = 41;
+			this.panel3.TabIndex = 9;
 			// 
 			// label5
 			// 
@@ -351,7 +351,7 @@
 			this.finalDiagnosisTextArea.Location = new System.Drawing.Point(504, 47);
 			this.finalDiagnosisTextArea.Name = "finalDiagnosisTextArea";
 			this.finalDiagnosisTextArea.Size = new System.Drawing.Size(475, 185);
-			this.finalDiagnosisTextArea.TabIndex = 8;
+			this.finalDiagnosisTextArea.TabIndex = 11;
 			this.finalDiagnosisTextArea.Text = "";
 			// 
 			// saveAppointmentButton
@@ -362,7 +362,7 @@
 			this.saveAppointmentButton.Location = new System.Drawing.Point(288, 743);
 			this.saveAppointmentButton.Name = "saveAppointmentButton";
 			this.saveAppointmentButton.Size = new System.Drawing.Size(245, 36);
-			this.saveAppointmentButton.TabIndex = 9;
+			this.saveAppointmentButton.TabIndex = 12;
 			this.saveAppointmentButton.Text = "Save Appointment";
 			this.saveAppointmentButton.UseVisualStyleBackColor = false;
 			this.saveAppointmentButton.Click += new System.EventHandler(this.saveButton_OnClick);
@@ -375,7 +375,7 @@
 			this.cancelButton.Location = new System.Drawing.Point(22, 743);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(245, 36);
-			this.cancelButton.TabIndex = 10;
+			this.cancelButton.TabIndex = 13;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = false;
 			this.cancelButton.Click += new System.EventHandler(this.cancelButton_OnClick);
