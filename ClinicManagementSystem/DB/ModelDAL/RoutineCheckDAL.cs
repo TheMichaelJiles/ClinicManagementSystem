@@ -10,9 +10,11 @@ namespace ClinicManagementSystem.DB.ModelDAL
 {
 	public class RoutineCheckDAL
 	{
-		#region Constants
+        #region Constants
 
-		private const string GetRoutineCheckQuery = "CALL GetRoutineCheck(@apptID)";
+        private const string InsertRoutineCheckup = "CALL InsertRoutineCheckup(@apptID, @nurseID, @bloodPressureSystolic, @bloodPressureDiastolic, @bodyTemp, @pulse, @symptoms)";
+        private const string UpdateRoutineCheckup = "CALL UpdateRoutineCheckup(@apptID, @nurseID, @bloodPressureSystolic, @bloodPressureDiastolic, @bodyTemp, @pulse, @symptoms)";
+        private const string GetRoutineCheckQuery = "CALL GetRoutineCheck(@apptID)";
 
 		#endregion
 
@@ -26,7 +28,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			{
 				connection.Open();
 
-				using (MySqlCommand cmd = new MySqlCommand(GetRoutineCheckQuery, connection))
+				using (var cmd = new MySqlCommand(GetRoutineCheckQuery, connection))
 				{
 					cmd.Parameters.AddWithValue("@apptID", apptID);
 
@@ -35,11 +37,57 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
-		#endregion
+        #endregion
 
-		#region Private Helpers
+        #region Private Helpers
 
-		private static RoutineCheck buildRoutineCheck(MySqlCommand cmd)
+        public static void InsertNewRoutineCheck(RoutineCheck check)
+        {
+            var connection = DbConnection.GetConnection();
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (var cmd = new MySqlCommand(InsertRoutineCheckup, connection))
+                {
+                    cmd.Parameters.AddWithValue("@apptID", check.Appointment.ID);
+                    cmd.Parameters.AddWithValue("@nurseID", check.Nurse.ID);
+                    cmd.Parameters.AddWithValue("@bloodPressureSystolic", check.BloodPressureSystolic);
+                    cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
+                    cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
+                    cmd.Parameters.AddWithValue("@pulse", check.Pulse);
+                    cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void UpdateRoutineCheck(RoutineCheck check)
+        {
+            var connection = DbConnection.GetConnection();
+
+            using (connection)
+            {
+                connection.Open();
+
+                using (var cmd = new MySqlCommand(UpdateRoutineCheckup, connection))
+                {
+                    cmd.Parameters.AddWithValue("@apptID", check.Appointment.ID);
+                    cmd.Parameters.AddWithValue("@nurseID", check.Nurse.ID);
+                    cmd.Parameters.AddWithValue("@bloodPressureSystolic", check.BloodPressureSystolic);
+                    cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
+                    cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
+                    cmd.Parameters.AddWithValue("@pulse", check.Pulse);
+                    cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private static RoutineCheck buildRoutineCheck(MySqlCommand cmd)
 		{
 			var routineCheck = new RoutineCheck();
 
