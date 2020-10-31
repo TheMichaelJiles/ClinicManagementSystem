@@ -62,7 +62,7 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void loadPatientGrid()
 		{
-			this.updatePatientSearchList();
+			this.patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, this.dobDatePicker.Value);
 			this.patientDataGrid.Rows.Clear();
 
 			foreach (var patient in this.patients)
@@ -87,18 +87,6 @@ namespace ClinicManagementSystem.View.UserControls
 			this.fnameTextBox.Clear();
 			this.lnameTextBox.Clear();
 			this.dobDatePicker.ResetText();
-		}
-
-		private void updatePatientSearchList()
-		{
-			if (this.dobDatePicker.Value != DateTime.Today)
-			{
-				this.patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, this.dobDatePicker.Value);
-			}
-			else
-			{
-				this.patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, DateTime.Today);
-			}
 		}
 
 		private void setMainPageCurrentPatient()

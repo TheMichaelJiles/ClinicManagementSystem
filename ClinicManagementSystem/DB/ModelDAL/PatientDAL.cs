@@ -158,19 +158,6 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
-		private static string buildSearchQuery(string fname, string lname, DateTime dob)
-		{
-			var isFnameOnly = string.IsNullOrEmpty(fname);
-			var isLnameOnly = string.IsNullOrEmpty(lname);
-			var isDOBOnly = dob == default;
-			var isFullNameOnly = string.IsNullOrEmpty(fname) && string.IsNullOrEmpty(lname);
-			var isLnameDOB = string.IsNullOrEmpty(lname) && dob == default;
-			var isFnameDOB = string.IsNullOrEmpty(fname) && dob == default;
-			var isAll = string.IsNullOrEmpty(fname) && string.IsNullOrEmpty(lname) && dob == default;
-
-			return "";
-		}
-
 		#endregion
 	}
 }
