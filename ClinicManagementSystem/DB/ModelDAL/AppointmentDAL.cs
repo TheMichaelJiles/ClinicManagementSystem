@@ -1,8 +1,10 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +17,8 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		private const string GetPatientAppointmentsQuery = "CALL GetPatientAppointments(@patientID)";
 		private const string GetDoctorAppointmentTimesQuery = "CALL GetDoctorAppointmentTimes(@doctorID, @date)";
 		private const string RemoveAppointment = "DELETE FROM Appointment WHERE apptID = @apptID";
+		private const string InsertAppointmentProcedure = "CALL InsertAppointment(@apptID, @datetime, @reasons, @patientID, @doctorID)";
+		private const string GetMaxApptID = "SELECT apptID FROM Appointment ORDER BY apptID DESC LIMIT 1";
 
 		#endregion
 
@@ -71,6 +75,29 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		public static void InsertAppointment(ref Appointment appt)
+        {
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(InsertAppointmentProcedure, connection))
+				{
+					var apptID = buildApptID(connection);
+					appt.ID = apptID;
+					cmd.Parameters.AddWithValue("@apptID", apptID);
+					cmd.Parameters.AddWithValue("@datetime", appt.Date);
+					cmd.Parameters.AddWithValue("@reasons", appt.Reasons);
+					cmd.Parameters.AddWithValue("@patientID", appt.PatientID);
+					cmd.Parameters.AddWithValue("@doctorID", appt.Doctor.ID);
+
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
+
 		#endregion
 
 		#region Private Helpers
@@ -120,6 +147,15 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				}
 
 				return dates;
+			}
+		}
+
+		private static string buildApptID(MySqlConnection connection)
+		{
+			using (MySqlCommand cmd = new MySqlCommand(GetMaxApptID, connection))
+			{
+				var apptID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
+				return $"A{++apptID}";
 			}
 		}
 

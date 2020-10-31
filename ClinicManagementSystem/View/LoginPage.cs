@@ -23,7 +23,7 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
-		public Nurse Nurse { get; private set; }
+		public static Nurse Nurse { get; private set; }
 
 		#endregion
 
@@ -78,7 +78,7 @@ namespace ClinicManagementSystem.View
 		{
 			var adminPage = new AdminMainPage
 			{
-				CurrentUser = this.Nurse,
+				CurrentUser = LoginPage.Nurse,
 				LoginForm = this
 			};
 			adminPage.ShowDialog();
@@ -88,7 +88,7 @@ namespace ClinicManagementSystem.View
 		{
 			var userPage = new UserMainPage
 			{
-				CurrentUser = this.Nurse,
+				CurrentUser = LoginPage.Nurse,
 				LoginForm = this
 			};
 			userPage.ShowDialog();
@@ -96,14 +96,14 @@ namespace ClinicManagementSystem.View
 
 		private void handleLogin()
 		{
-			this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
+			LoginPage.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
 			this.Hide();
 
-			if (this.IsAdminLoginPage & !this.Nurse.IsAdmin)
+			if (this.IsAdminLoginPage & !LoginPage.Nurse.IsAdmin)
 			{
 				this.showDeniedAccessMessage();
 			}
-			else if (this.IsAdminLoginPage & this.Nurse.IsAdmin)
+			else if (this.IsAdminLoginPage & LoginPage.Nurse.IsAdmin)
 			{
 				this.displayAdminMainPage();
 			}

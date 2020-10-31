@@ -37,34 +37,34 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
-        #endregion
+		public static void InsertNewRoutineCheck(RoutineCheck check)
+		{
+			var connection = DbConnection.GetConnection();
 
-        #region Private Helpers
+			using (connection)
+			{
+				connection.Open();
 
-        public static void InsertNewRoutineCheck(RoutineCheck check)
-        {
-            var connection = DbConnection.GetConnection();
+				using (var cmd = new MySqlCommand(InsertRoutineCheckup, connection))
+				{
+					cmd.Parameters.AddWithValue("@apptID", check.Appointment.ID);
+					cmd.Parameters.AddWithValue("@nurseID", check.Nurse.ID);
+					cmd.Parameters.AddWithValue("@bloodPressureSystolic", check.BloodPressureSystolic);
+					cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
+					cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
+					cmd.Parameters.AddWithValue("@pulse", check.Pulse);
+					cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
 
-            using (connection)
-            {
-                connection.Open();
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
 
-                using (var cmd = new MySqlCommand(InsertRoutineCheckup, connection))
-                {
-                    cmd.Parameters.AddWithValue("@apptID", check.Appointment.ID);
-                    cmd.Parameters.AddWithValue("@nurseID", check.Nurse.ID);
-                    cmd.Parameters.AddWithValue("@bloodPressureSystolic", check.BloodPressureSystolic);
-                    cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
-                    cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
-                    cmd.Parameters.AddWithValue("@pulse", check.Pulse);
-                    cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
+		#endregion
 
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
+		#region Private Helpers
 
-        public static void UpdateRoutineCheck(RoutineCheck check)
+		public static void UpdateRoutineCheck(RoutineCheck check)
         {
             var connection = DbConnection.GetConnection();
 

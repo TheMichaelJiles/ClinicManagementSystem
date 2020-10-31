@@ -29,6 +29,8 @@ namespace ClinicManagementSystem.View
 		public bool IsEditingAppointment { get; set; }
 
 		private Doctor SelectedDoctor => this.doctors[this.doctorComboBox.SelectedIndex];
+
+		private Patient SelectedPatient;
 		private DateTime SelectedTime => this.availableTimes[this.timeComboBox.SelectedIndex];
 
 		#endregion
@@ -41,6 +43,7 @@ namespace ClinicManagementSystem.View
 
 			this.AppointmentControl = appointmentControl;
 			this.availableTimes = new List<DateTime>();
+			this.SelectedPatient = appointmentControl.CurrentPatient;
 		}
 
 		#endregion
@@ -62,13 +65,15 @@ namespace ClinicManagementSystem.View
 				}
 				else if (true) // verify all fields are valid; 
 				{
-					// insert new appointment in DB
-					this.AppointmentControl.AddAppointment(this.buildAppointment());
+					var appt = this.buildAppointment();
+					AppointmentDAL.InsertAppointment(ref appt);
+					this.AppointmentControl.AddAppointment(appt);
 					this.Close();
 				}
 			}
 			catch (Exception err)
 			{
+				Console.WriteLine(err.Message);
 				// duplicate appointment exist in DB on InsertAppointment
 			}
 		}
@@ -172,6 +177,7 @@ namespace ClinicManagementSystem.View
 
 			appointment.Doctor.ID = this.SelectedDoctor.ID;
 			appointment.Doctor.Bio = this.SelectedDoctor.Bio;
+			appointment.PatientID = this.SelectedPatient.ID;
 			appointment.Reasons = this.reasonsTextBox.Text;
 			appointment.Date = this.apptDatePicker.Value.ChangeTime(this.SelectedTime.Hour, this.SelectedTime.Minute, 0, 0);
 
