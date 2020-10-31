@@ -48,6 +48,7 @@ namespace ClinicManagementSystem.View.UserControls
 		private void searchPatientButton_OnClick(object sender, EventArgs e)
 		{
 			this.loadPatientGrid();
+			this.resetSearchFields();
 		}
 
 		private void patientDataGrid_OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -61,7 +62,7 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void loadPatientGrid()
 		{
-			this.patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, this.dobDatePicker.Value);
+			this.updatePatientSearchList();
 			this.patientDataGrid.Rows.Clear();
 
 			foreach (var patient in this.patients)
@@ -78,6 +79,25 @@ namespace ClinicManagementSystem.View.UserControls
 				newRow.Cells[5].Value = patient.Bio.Gender;
 
 				this.patientDataGrid.Rows.Add(newRow);
+			}
+		}
+
+		private void resetSearchFields()
+		{
+			this.fnameTextBox.Clear();
+			this.lnameTextBox.Clear();
+			this.dobDatePicker.ResetText();
+		}
+
+		private void updatePatientSearchList()
+		{
+			if (this.dobDatePicker.Value != DateTime.Today)
+			{
+				this.patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, this.dobDatePicker.Value);
+			}
+			else
+			{
+				this.patients = PatientDAL.SearchForPatient(this.fnameTextBox.Text, this.lnameTextBox.Text, DateTime.Today);
 			}
 		}
 
