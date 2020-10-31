@@ -89,15 +89,20 @@ namespace ClinicManagementSystem.View
 
 		private RoutineCheck buildRoutineCheck()
         {
-            var check = new RoutineCheck
+			var check = new RoutineCheck();
+			check.Appointment = this.appt;
+			check.Nurse = LoginPage.Nurse;
+			check.BloodPressureSystolic = Int32.Parse(this.systolicTextBox.Text);
+			check.BloodPressureDiastolic = Int32.Parse(this.diastolicTextBox.Text);
+			check.Pulse = Int32.Parse(this.pulseTextBox.Text);
+			try
             {
-                Appointment = this.appt,
-                Nurse = LoginPage.Nurse,
-                BloodPressureSystolic = this.systolicTextBox.Text,
-                BloodPressureDiastolic = this.diastolicTextBox.Text,
-                Pulse = Int32.Parse(this.pulseTextBox.Text),
-                BodyTemp = Decimal.Parse(this.bodyTempTextBox.Text)
-            };
+				check.BodyTemp = Convert.ToDouble(this.bodyTempTextBox.Text.Trim());
+			} catch (Exception)
+            {
+				Console.WriteLine("Double parse failed");
+            }
+			check.Symptoms = this.symptomsTextArea.Text;
 
             return check;
         }

@@ -10,9 +10,9 @@ namespace ClinicManagementSystem.Model
 	{
 		public Appointment Appointment { get; set; }
 		public Nurse Nurse { get; set; } = new Nurse();
-		public string BloodPressureSystolic { get; set; }
-		public string BloodPressureDiastolic { get; set; }
-		public decimal BodyTemp { get; set; }
+		public int BloodPressureSystolic { get; set; }
+		public int BloodPressureDiastolic { get; set; }
+		public double BodyTemp { get; set; }
 		public int Pulse { get; set; }
 		public string Symptoms { get; set; }
 		public bool IsFinished => !string.IsNullOrEmpty(this.Nurse.ID);

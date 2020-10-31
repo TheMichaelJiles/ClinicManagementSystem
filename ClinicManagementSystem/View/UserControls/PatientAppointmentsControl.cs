@@ -108,9 +108,9 @@ namespace ClinicManagementSystem.View.UserControls
 					manageApptFrm.ShowDialog();
 				}
 			}
-			catch (Exception)
+			catch (Exception err)
 			{
-				// TODO
+				Console.WriteLine(err.Message);
 			}
 		}
 

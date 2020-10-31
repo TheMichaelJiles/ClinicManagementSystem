@@ -35,5 +35,10 @@ namespace ClinicManagementSystem.DB
 			return reader[ordinal] == DBNull.Value ? 0 : reader.GetDecimal(ordinal);
 		}
 
+		public static double GetDouble(MySqlDataReader reader, int ordinal)
+        {
+			return reader[ordinal] == DBNull.Value ? 0 : reader.GetDouble(ordinal);
+        }
+
 	}
 }
