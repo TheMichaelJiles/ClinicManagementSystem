@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.DB.ModelDAL;
 using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using ClinicManagementSystem.View.UserControls;
 using System;
 using System.Collections.Generic;
@@ -37,44 +38,96 @@ namespace ClinicManagementSystem.View
 
 		private void manageFrm_OnLoad(object sender, EventArgs e)
 		{
-			this.initializeControls();
+			try
+			{
+				this.initializeControls();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void orderTestButton_OnClick(object sender, EventArgs e)
 		{
-
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void editTestButton_OnClick(object sender, EventArgs e)
 		{
-
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void removeTestButton_OnClick(object sender, EventArgs e)
 		{
-
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void startButton_OnClick(object sender, EventArgs e)
 		{
-			var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = false };
-			routineCheckPage.ShowDialog();
+			try
+			{
+				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment);
+				routineCheckPage.ShowDialog();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void editCheckButton_OnClick(object sender, EventArgs e)
 		{
-			var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = true };
-			routineCheckPage.ShowDialog();
+			try
+			{
+				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment);
+				routineCheckPage.ShowDialog();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void saveButton_OnClick(object sender, EventArgs e)
 		{
-
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void cancelButton_OnClick(object sender, EventArgs e)
 		{
-			this.Close();
+			try
+			{
+				this.Close();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		#endregion

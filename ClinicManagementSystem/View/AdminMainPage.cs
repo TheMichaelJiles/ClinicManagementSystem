@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using ClinicManagementSystem.View.UserControls;
 using System;
 using System.Collections.Generic;
@@ -41,41 +42,82 @@ namespace ClinicManagementSystem.View
 
 		private void adminPage_OnLoad(object sender, EventArgs e)
 		{
-			this.handlePostLogin();
+			try
+			{
+				this.handlePostLogin();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void adminPage_OnClose(object sender, FormClosingEventArgs e)
 		{
-			if (!this.HasLoggedOut)
+			try
 			{
-				Application.Exit();
+				if (!this.HasLoggedOut)
+				{
+					Application.Exit();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void registerNewUserMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new RegisterUserControl());
+			try
+			{
+				this.controlPanel.Controls.Clear();
+				this.controlPanel.Controls.Add(new RegisterUserControl());
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void editUserMenuItem_OnClick(object sender, EventArgs e)
 		{
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void editPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		} 
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+			try
 			{
-				this.currentUserToolStripStatusLbl.Text = "Admin:";
-				this.controlPanel.Controls.Clear();
-				this.HasLoggedOut = true;
-				this.Hide();
-				this.showLoginPage();
+				if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+				{
+					this.currentUserToolStripStatusLbl.Text = "Admin:";
+					this.controlPanel.Controls.Clear();
+					this.HasLoggedOut = true;
+					this.Hide();
+					this.showLoginPage();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 

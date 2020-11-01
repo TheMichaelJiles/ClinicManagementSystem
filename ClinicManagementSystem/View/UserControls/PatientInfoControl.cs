@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicManagementSystem.Model;
 using ClinicManagementSystem.DB.ModelDAL;
+using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View
 {
@@ -48,42 +49,77 @@ namespace ClinicManagementSystem.View
 
 		private void registerPatientButton_OnClick(object sender, EventArgs e)
 		{
-			if (this.areEntryFieldsValid())
+			try
 			{
-				var patient = this.buildPatient();
-				PatientDAL.InsertNewPatient(patient);
-				this.resetFields();
-				this.showPatientRegisteredMessage(patient);
-				this.MainPage.ClearControlPanel();
+				if (this.areEntryFieldsValid())
+				{
+					var patient = this.buildPatient();
+					PatientDAL.InsertNewPatient(patient);
+					this.resetFields();
+					this.showPatientRegisteredMessage(patient);
+					this.MainPage.ClearControlPanel();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void editPatientButton_OnClick(object sender, EventArgs e)
         {
-            this.setInfoFieldsEnabled(true);
+			try
+			{
+				this.setInfoFieldsEnabled(true);
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
         }
 
         private void saveButton_OnClick(object sender, EventArgs e)
         {
-            if (this.areEntryFieldsValid())
-            {
-                var patient = this.buildPatient();
-                patient.ID = this.currentPatient.ID;
-                this.currentPatient = patient;
-                PatientDAL.EditPatient(patient);
-                this.showPatientSavedMessage(patient);
-				this.setInfoFieldsEnabled(false);
-            }
+			try
+			{
+				if (this.areEntryFieldsValid())
+				{
+					var patient = this.buildPatient();
+					patient.ID = this.currentPatient.ID;
+					this.currentPatient = patient;
+					PatientDAL.EditPatient(patient);
+					this.showPatientSavedMessage(patient);
+					this.setInfoFieldsEnabled(false);
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
         }
 
 		private void dateOfBirth_OnValueChanged(object sender, EventArgs e)
 		{
-			this.hasDateBeenSelected = true;
+			try
+			{
+				this.hasDateBeenSelected = true;
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
         private void patientInfo_OnLoad(object sender, EventArgs e)
         {
-			this.initializeControls();
+			try
+			{
+				this.initializeControls();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
         }
 
 		#endregion

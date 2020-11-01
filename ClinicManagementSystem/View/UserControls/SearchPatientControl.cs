@@ -56,6 +56,21 @@ namespace ClinicManagementSystem.View.UserControls
 			this.setMainPageCurrentPatient();
 		}
 
+		private void fnameTextBox_OnChange(object sender, EventArgs e)
+		{
+			this.loadPatientGrid();
+		}
+
+		private void lnameTextBox_OnChange(object sender, EventArgs e)
+		{
+			this.loadPatientGrid();
+		}
+
+		private void dobDatePicker_OnChange(object sender, EventArgs e)
+		{
+			this.loadPatientGrid();
+		}
+
 		#endregion
 
 		#region Private Helpers

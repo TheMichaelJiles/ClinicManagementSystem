@@ -1,4 +1,5 @@
 ﻿using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using ClinicManagementSystem.View.UserControls;
 using System;
 using System.Collections.Generic;
@@ -59,73 +60,129 @@ namespace ClinicManagementSystem.View
 
 		private void mainPage_OnLoad(object sender, EventArgs e)
 		{
-			this.handlePostLogin();
-			this.updateCurrentPatientStatus();
+			try
+			{
+				this.handlePostLogin();
+				this.updateCurrentPatientStatus();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void mainPage_OnClose(object sender, FormClosingEventArgs e)
 		{
-			if (!this.HasLoggedOut)
+			try
 			{
-				Application.Exit();
+				if (!this.HasLoggedOut)
+				{
+					Application.Exit();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.highlightSelectedMenuItem(this.registerPatientMenuItem);
-			this.controlPanel.Controls.Clear();
-			this.controlPanel.Controls.Add(new PatientInfoControl(this));
+			try
+			{
+				this.highlightSelectedMenuItem(this.registerPatientMenuItem);
+				this.controlPanel.Controls.Clear();
+				this.controlPanel.Controls.Add(new PatientInfoControl(this));
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void homeMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.highlightSelectedMenuItem(this.homeMenuItem);
-			this.controlPanel.Controls.Clear();
+			try
+			{
+				this.highlightSelectedMenuItem(this.homeMenuItem);
+				this.controlPanel.Controls.Clear();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.showSearchPatientControl();
+			try
+			{
+				this.showSearchPatientControl();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
-			this.highlightSelectedMenuItem(this.viewPatientMenuItem);
-			if (this.currentPatient != null)
+			try
 			{
-				this.controlPanel.Controls.Clear();
-				this.controlPanel.Controls.Add(new PatientInfoControl(this) { IsViewingPatient = true });
+				this.highlightSelectedMenuItem(this.viewPatientMenuItem);
+				if (this.currentPatient != null)
+				{
+					this.controlPanel.Controls.Clear();
+					this.controlPanel.Controls.Add(new PatientInfoControl(this) { IsViewingPatient = true });
+				}
+				else
+				{
+					this.showSearchPatientControl();
+				}
 			}
-			else
+			catch (Exception err)
 			{
-				this.showSearchPatientControl();	
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void apptButton_OnClick(object sender, EventArgs e)
 		{
-			this.highlightSelectedMenuItem(this.apptMenuItem);
-			if (this.currentPatient != null)
+			try
 			{
-				this.controlPanel.Controls.Clear();
-				this.controlPanel.Controls.Add(new PatientAppointmentsControl(this));
+				this.highlightSelectedMenuItem(this.apptMenuItem);
+				if (this.currentPatient != null)
+				{
+					this.controlPanel.Controls.Clear();
+					this.controlPanel.Controls.Add(new PatientAppointmentsControl(this));
+				}
+				else
+				{
+					this.showSearchPatientControl();
+				}
 			}
-			else
+			catch (Exception err)
 			{
-				this.showSearchPatientControl();
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
-			if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+			try
 			{
-				this.currentUserToolStripStatusLbl.Text = "User:";
-				this.controlPanel.Controls.Clear();
-				this.HasLoggedOut = true;
-				this.Hide();
-				this.showLoginPage();
+				if (MessageBox.Show("Are you sure you want to Logout?", "Logout", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+				{
+					this.currentUserToolStripStatusLbl.Text = "User:";
+					this.controlPanel.Controls.Clear();
+					this.HasLoggedOut = true;
+					this.Hide();
+					this.showLoginPage();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
