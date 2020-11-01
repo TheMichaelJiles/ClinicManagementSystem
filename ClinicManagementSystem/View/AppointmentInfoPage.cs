@@ -66,7 +66,10 @@ namespace ClinicManagementSystem.View
 			{
 				if (this.IsEditingAppointment)
 				{
-					// Update Appointment DAL
+					var appt = this.buildAppointment();
+					appt.ID = this.AppointmentControl.SelectedAppointment.ID;
+					AppointmentDAL.UpdateAppointment(appt);
+					this.Close();
 				}
 				else if (true) // verify all fields are valid; 
 				{

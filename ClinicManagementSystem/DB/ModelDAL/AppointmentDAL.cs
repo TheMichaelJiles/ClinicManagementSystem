@@ -19,6 +19,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		private const string RemoveAppointment = "DELETE FROM Appointment WHERE apptID = @apptID";
 		private const string InsertAppointmentProcedure = "CALL InsertAppointment(@apptID, @datetime, @reasons, @patientID, @doctorID)";
 		private const string GetMaxApptID = "SELECT apptID FROM Appointment ORDER BY apptID DESC LIMIT 1";
+		private const string UpdateAppointmentProcedure = "CALL UpdateAppointment(@n_apptID, @datetime, @reasons, @patientID, @doctorID)";
 
 		#endregion
 
@@ -88,6 +89,27 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					var apptID = buildApptID(connection);
 					appt.ID = apptID;
 					cmd.Parameters.AddWithValue("@apptID", apptID);
+					cmd.Parameters.AddWithValue("@datetime", appt.Date);
+					cmd.Parameters.AddWithValue("@reasons", appt.Reasons);
+					cmd.Parameters.AddWithValue("@patientID", appt.PatientID);
+					cmd.Parameters.AddWithValue("@doctorID", appt.Doctor.ID);
+
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
+
+		public static void UpdateAppointment(Appointment appt)
+        {
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(UpdateAppointmentProcedure, connection))
+				{
+					cmd.Parameters.AddWithValue("@n_apptID", appt.ID);
 					cmd.Parameters.AddWithValue("@datetime", appt.Date);
 					cmd.Parameters.AddWithValue("@reasons", appt.Reasons);
 					cmd.Parameters.AddWithValue("@patientID", appt.PatientID);
