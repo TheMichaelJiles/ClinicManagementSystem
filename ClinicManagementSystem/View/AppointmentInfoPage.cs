@@ -44,6 +44,11 @@ namespace ClinicManagementSystem.View
 			this.AppointmentControl = appointmentControl;
 			this.availableTimes = new List<DateTime>();
 			this.SelectedPatient = appointmentControl.CurrentPatient;
+			if (this.IsEditingAppointment)
+            {
+				this.appointmentButton.Text = "Save Appointment";
+				this.populateInfoFields();
+            }
 		}
 
 		#endregion
@@ -93,6 +98,13 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
+		private void populateInfoFields()
+        {
+			this.doctorComboBox.SelectedValue = this.AppointmentControl.SelectedAppointment.Doctor.Bio.FirstName;
+			this.apptDatePicker.Value = this.AppointmentControl.SelectedAppointment.Date;
+			this.timeComboBox.SelectedValue = this.AppointmentControl.SelectedAppointment.Date.TimeOfDay;
+			this.reasonsTextBox.Text = this.AppointmentControl.SelectedAppointment.Reasons;
+        }
 		private void initializeControls()
 		{
 			if (this.IsEditingAppointment)

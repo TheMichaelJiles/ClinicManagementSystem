@@ -95,13 +95,7 @@ namespace ClinicManagementSystem.View
 			check.BloodPressureSystolic = Int32.Parse(this.systolicTextBox.Text);
 			check.BloodPressureDiastolic = Int32.Parse(this.diastolicTextBox.Text);
 			check.Pulse = Int32.Parse(this.pulseTextBox.Text);
-			try
-            {
-				check.BodyTemp = Convert.ToDouble(this.bodyTempTextBox.Text.Trim());
-			} catch (Exception)
-            {
-				Console.WriteLine("Double parse failed");
-            }
+			check.BodyTemp = Convert.ToDouble(this.bodyTempTextBox.Text.Replace(' ', '0'));
 			check.Symptoms = this.symptomsTextArea.Text;
 
             return check;
