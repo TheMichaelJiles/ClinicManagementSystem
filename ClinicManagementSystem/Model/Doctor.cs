@@ -8,7 +8,7 @@ namespace ClinicManagementSystem.Model
 {
 	public class Doctor
 	{
-		public string ID { get; set; }
+		public int ID { get; set; }
 		public Bio Bio { get; set; } = new Bio();
 
 	}

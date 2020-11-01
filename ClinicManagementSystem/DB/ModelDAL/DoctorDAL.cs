@@ -51,7 +51,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				{
 					var doctor = new Doctor();
 
-					doctor.ID = DbDefault.GetString(reader, doctorIDOrdinal);
+					doctor.ID = DbDefault.GetInt(reader, doctorIDOrdinal);
 					doctor.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
 					doctor.Bio.LastName = DbDefault.GetString(reader, lnameOrdinal);
 

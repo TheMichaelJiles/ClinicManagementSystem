@@ -12,8 +12,7 @@ namespace ClinicManagementSystem.DB
 	public class NurseDAL
 	{
 		private const string GetNurseQuery = "CALL GetNurse(@username)";
-		private const string GetMaxNurseID = "SELECT nurseID FROM Nurse ORDER BY nurseID DESC LIMIT 1";
-		private const string InsertNurseCommand = "CALL InsertNurse(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @nurseID, @username, @password)";
+		private const string InsertNurseCommand = "CALL InsertNurse(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @username, @password)";
 
 		public static bool InsertNurse(Nurse nurse, string password)
 		{
@@ -35,7 +34,6 @@ namespace ClinicManagementSystem.DB
 					cmd.Parameters.AddWithValue("@city", nurse.Bio.Address.City);
 					cmd.Parameters.AddWithValue("@state", nurse.Bio.Address.State);
 					cmd.Parameters.AddWithValue("@zip", nurse.Bio.Address.Zip);
-					cmd.Parameters.AddWithValue("@nurseID", buildNurseID(connection));
 					cmd.Parameters.AddWithValue("@username", nurse.Username);
 					cmd.Parameters.AddWithValue("@password", password);
 					cmd.ExecuteNonQuery();
@@ -80,7 +78,7 @@ namespace ClinicManagementSystem.DB
 				while (reader.Read())
 				{
 					nurse.IsAdmin = DbDefault.GetBoolean(reader, isAdminOrdinal);
-					nurse.ID = DbDefault.GetString(reader, nurseIDOrdinal);
+					nurse.ID = DbDefault.GetInt(reader, nurseIDOrdinal);
 					nurse.Bio.ID = DbDefault.GetInt(reader, bioIDOrdinal);
 					nurse.Username = DbDefault.GetString(reader, usernameOrdinal);
 					nurse.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
@@ -88,15 +86,6 @@ namespace ClinicManagementSystem.DB
 					nurse.Bio.DOB = DbDefault.GetDatetime(reader, dobOrdinal);
 					nurse.Bio.PhoneNumber = DbDefault.GetString(reader, phoneNumberOrdinal);
 				}
-			}
-		}
-
-		private static string buildNurseID(MySqlConnection connection)
-		{
-			using (MySqlCommand cmd = new MySqlCommand(GetMaxNurseID, connection))
-			{
-				var nurseID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
-				return $"N{++nurseID}";
 			}
 		}
 

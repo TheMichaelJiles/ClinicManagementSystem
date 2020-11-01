@@ -8,7 +8,7 @@ namespace ClinicManagementSystem.Model
 {
 	public class Nurse
 	{
-		public string ID { get; set; }
+		public int ID { get; set; }
 		public string Username { get; set; }
 		public Bio Bio { get; set; } = new Bio();
 		public bool IsAdmin { get; set; }

@@ -16,6 +16,6 @@ namespace ClinicManagementSystem.Model
 		public int Pulse { get; set; }
 		public double Weight { get; set; }
 		public string Symptoms { get; set; }
-		public bool IsFinished => !string.IsNullOrEmpty(this.Nurse.ID);
+		public bool IsFinished => this.Nurse.ID > 0;
 	}
 }

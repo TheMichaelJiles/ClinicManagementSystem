@@ -20,7 +20,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Methods
 
-		public static RoutineCheck GetAppointmentRoutineCheck(string apptID)
+		public static RoutineCheck GetAppointmentRoutineCheck(int apptID)
 		{
 			var connection = DbConnection.GetConnection();
 
@@ -108,7 +108,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 				while (reader.Read())
 				{
-					routineCheck.Nurse.ID = DbDefault.GetString(reader, nurseIDOrdinal);
+					routineCheck.Nurse.ID = DbDefault.GetInt(reader, nurseIDOrdinal);
 					routineCheck.Nurse.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
 					routineCheck.Nurse.Bio.LastName = DbDefault.GetString(reader, fnameOrdinal);
 					routineCheck.BloodPressureSystolic = Int32.Parse(DbDefault.GetString(reader, bloodPressureSystolicOrdinal));

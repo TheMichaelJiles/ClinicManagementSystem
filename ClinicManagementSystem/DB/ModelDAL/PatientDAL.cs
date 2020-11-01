@@ -18,7 +18,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Constants
 
-		private const string GetNurseQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
+		private const string GetNurseQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip)";
 		private const string EditPatientQuery = "CALL UpdatePatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
 		private const string GetMaxPatientID = "SELECT patientID FROM Patient ORDER BY patientID DESC LIMIT 1";
 		private const string SearchPatientQuery = "Call SelectPatientsByNameDOB(@fname, @lname, @DOB)";
@@ -47,7 +47,6 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					cmd.Parameters.AddWithValue("@city", patient.Bio.Address.City);
 					cmd.Parameters.AddWithValue("@state", patient.Bio.Address.State);
 					cmd.Parameters.AddWithValue("@zip", patient.Bio.Address.Zip);
-					cmd.Parameters.AddWithValue("@patientID", buildPatientID(connection));
 
 					cmd.ExecuteNonQuery();
 				}
@@ -129,7 +128,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				while (reader.Read())
                 {
 					Patient patient = new Patient();
-					patient.ID = DbDefault.GetString(reader, patientIDOrdinal);
+					patient.ID = DbDefault.GetInt(reader, patientIDOrdinal);
 
 					patient.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
 					patient.Bio.LastName = DbDefault.GetString(reader, lnameOrdinal);
@@ -148,15 +147,6 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				return patients;
 			}
         }
-
-		private static string buildPatientID(MySqlConnection connection)
-		{
-			using (MySqlCommand cmd = new MySqlCommand(GetMaxPatientID, connection))
-			{
-				var patientID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
-				return $"P{++patientID}";
-			}
-		}
 
 		#endregion
 	}

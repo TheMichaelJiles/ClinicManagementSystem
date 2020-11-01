@@ -17,15 +17,14 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		private const string GetPatientAppointmentsQuery = "CALL GetPatientAppointments(@patientID)";
 		private const string GetDoctorAppointmentTimesQuery = "CALL GetDoctorAppointmentTimes(@doctorID, @date)";
 		private const string RemoveAppointment = "DELETE FROM Appointment WHERE apptID = @apptID";
-		private const string InsertAppointmentProcedure = "CALL InsertAppointment(@apptID, @datetime, @reasons, @patientID, @doctorID)";
-		private const string GetMaxApptID = "SELECT apptID FROM Appointment ORDER BY apptID DESC LIMIT 1";
+		private const string InsertAppointmentProcedure = "CALL InsertAppointment(@datetime, @reasons, @patientID, @doctorID)";
 		private const string UpdateAppointmentProcedure = "CALL UpdateAppointment(@n_apptID, @datetime, @reasons, @patientID, @doctorID)";
 
 		#endregion
 
 		#region Methods
 
-		public static IList<Appointment> GetPatientAppointments(string patientID)
+		public static IList<Appointment> GetPatientAppointments(int patientID)
 		{
 			var connection = DbConnection.GetConnection();
 
@@ -42,7 +41,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
-		public static void RemovePatientAppointment(string apptID)
+		public static void RemovePatientAppointment(int apptID)
 		{
 			var connection = DbConnection.GetConnection();
 
@@ -58,7 +57,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
-		public static IList<DateTime> GetDoctorAppointmentTimes(string doctorID, DateTime date)
+		public static IList<DateTime> GetDoctorAppointmentTimes(int doctorID, DateTime date)
 		{
 			var connection = DbConnection.GetConnection();
 
@@ -86,9 +85,6 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 				using (MySqlCommand cmd = new MySqlCommand(InsertAppointmentProcedure, connection))
 				{
-					var apptID = buildApptID(connection);
-					appt.ID = apptID;
-					cmd.Parameters.AddWithValue("@apptID", apptID);
 					cmd.Parameters.AddWithValue("@datetime", appt.Date);
 					cmd.Parameters.AddWithValue("@reasons", appt.Reasons);
 					cmd.Parameters.AddWithValue("@patientID", appt.PatientID);
@@ -141,10 +137,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				{
 					Appointment appointment = new Appointment();
 
-					appointment.ID = DbDefault.GetString(reader, apptIDOrdinal);
+					appointment.ID = DbDefault.GetInt(reader, apptIDOrdinal);
 					appointment.Date = DbDefault.GetDatetime(reader, datetimeOrdinal);
 					appointment.Reasons = DbDefault.GetString(reader, reasonsOrdinal);
-					appointment.Doctor.ID = DbDefault.GetString(reader, doctorIDOrdinal);
+					appointment.Doctor.ID = DbDefault.GetInt(reader, doctorIDOrdinal);
 					appointment.Doctor.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
 					appointment.Doctor.Bio.LastName = DbDefault.GetString(reader, lnameOrdinal);
 
@@ -169,15 +165,6 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				}
 
 				return dates;
-			}
-		}
-
-		private static string buildApptID(MySqlConnection connection)
-		{
-			using (MySqlCommand cmd = new MySqlCommand(GetMaxApptID, connection))
-			{
-				var apptID = cmd.ExecuteScalar().ToString().LeaveOnlyNumbers();
-				return $"A{++apptID}";
 			}
 		}
 
