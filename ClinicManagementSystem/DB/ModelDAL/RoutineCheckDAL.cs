@@ -12,8 +12,8 @@ namespace ClinicManagementSystem.DB.ModelDAL
 	{
         #region Constants
 
-        private const string InsertRoutineCheckup = "CALL InsertRoutineCheckup(@apptID, @nurseID, @bloodPressureSystolic, @bloodPressureDiastolic, @bodyTemp, @pulse, @symptoms)";
-        private const string UpdateRoutineCheckup = "CALL UpdateRoutineCheckup(@apptID, @nurseID, @bloodPressureSystolic, @bloodPressureDiastolic, @bodyTemp, @pulse, @symptoms)";
+        private const string InsertRoutineCheckup = "CALL InsertRoutineCheckup(@apptID, @nurseID, @bloodPressureSystolic, @bloodPressureDiastolic, @bodyTemp, @pulse, @weight, @symptoms)";
+        private const string UpdateRoutineCheckup = "CALL UpdateRoutineCheckup(@apptID, @nurseID, @bloodPressureSystolic, @bloodPressureDiastolic, @bodyTemp, @pulse, @weight, @symptoms)";
         private const string GetRoutineCheckQuery = "CALL GetRoutineCheck(@apptID)";
 
 		#endregion
@@ -53,6 +53,31 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
 					cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
 					cmd.Parameters.AddWithValue("@pulse", check.Pulse);
+					cmd.Parameters.AddWithValue("@weight", check.Weight);
+					cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
+
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
+
+		public static void UpdateRoutineCheck(RoutineCheck check)
+		{
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (var cmd = new MySqlCommand(UpdateRoutineCheckup, connection))
+				{
+					cmd.Parameters.AddWithValue("@apptID", check.Appointment.ID);
+					cmd.Parameters.AddWithValue("@nurseID", check.Nurse.ID);
+					cmd.Parameters.AddWithValue("@bloodPressureSystolic", check.BloodPressureSystolic);
+					cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
+					cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
+					cmd.Parameters.AddWithValue("@pulse", check.Pulse);
+					cmd.Parameters.AddWithValue("@weight", check.Weight);
 					cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
 
 					cmd.ExecuteNonQuery();
@@ -64,30 +89,8 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Private Helpers
 
-		public static void UpdateRoutineCheck(RoutineCheck check)
-        {
-            var connection = DbConnection.GetConnection();
 
-            using (connection)
-            {
-                connection.Open();
-
-                using (var cmd = new MySqlCommand(UpdateRoutineCheckup, connection))
-                {
-                    cmd.Parameters.AddWithValue("@apptID", check.Appointment.ID);
-                    cmd.Parameters.AddWithValue("@nurseID", check.Nurse.ID);
-                    cmd.Parameters.AddWithValue("@bloodPressureSystolic", check.BloodPressureSystolic);
-                    cmd.Parameters.AddWithValue("@bloodPressureDiastolic", check.BloodPressureDiastolic);
-                    cmd.Parameters.AddWithValue("@bodyTemp", check.BodyTemp);
-                    cmd.Parameters.AddWithValue("@pulse", check.Pulse);
-                    cmd.Parameters.AddWithValue("@symptoms", check.Symptoms);
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        private static RoutineCheck buildRoutineCheck(MySqlCommand cmd)
+		private static RoutineCheck buildRoutineCheck(MySqlCommand cmd)
 		{
 			var routineCheck = new RoutineCheck();
 
@@ -100,6 +103,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				int bloodPressureDiastolicOrdinal = reader.GetOrdinal("bloodPressureDiastolic");
 				int bodyTempOrdinal = reader.GetOrdinal("bodyTemp");
 				int pulseOrdinal = reader.GetOrdinal("pulse");
+				int weightOrdinal = reader.GetOrdinal("weight");
 				int symptomsOrdinal = reader.GetOrdinal("symptoms");
 
 				while (reader.Read())
@@ -111,6 +115,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					routineCheck.BloodPressureDiastolic = Int32.Parse(DbDefault.GetString(reader, bloodPressureDiastolicOrdinal));
 					routineCheck.BodyTemp = DbDefault.GetDouble(reader, bodyTempOrdinal);
 					routineCheck.Pulse = DbDefault.GetInt(reader, pulseOrdinal);
+					routineCheck.Weight = DbDefault.GetDouble(reader, weightOrdinal);
 					routineCheck.Symptoms = DbDefault.GetString(reader, symptomsOrdinal);
 				}
 

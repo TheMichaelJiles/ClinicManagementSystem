@@ -114,6 +114,7 @@ namespace ClinicManagementSystem.View
 			check.BloodPressureDiastolic = Int32.Parse(this.diastolicTextBox.Text);
 			check.Pulse = Int32.Parse(this.pulseTextBox.Text);
 			check.BodyTemp = Convert.ToDouble(this.bodyTempTextBox.Text.Replace(' ', '0'));
+			check.Weight = Convert.ToDouble(this.weightTextBox.Text.Replace(' ', '0'));
 			check.Symptoms = this.symptomsTextArea.Text;
 
             return check;

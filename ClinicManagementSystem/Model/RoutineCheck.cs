@@ -14,6 +14,7 @@ namespace ClinicManagementSystem.Model
 		public int BloodPressureDiastolic { get; set; }
 		public double BodyTemp { get; set; }
 		public int Pulse { get; set; }
+		public double Weight { get; set; }
 		public string Symptoms { get; set; }
 		public bool IsFinished => !string.IsNullOrEmpty(this.Nurse.ID);
 	}
