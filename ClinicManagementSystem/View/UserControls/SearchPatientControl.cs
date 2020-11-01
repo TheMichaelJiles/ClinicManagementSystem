@@ -45,9 +45,8 @@ namespace ClinicManagementSystem.View.UserControls
 			this.setMainPageCurrentPatient();
 		}
 
-		private void searchPatientButton_OnClick(object sender, EventArgs e)
+		private void clearButton_OnClick(object sender, EventArgs e)
 		{
-			this.loadPatientGrid();
 			this.resetSearchFields();
 		}
 
@@ -67,6 +66,11 @@ namespace ClinicManagementSystem.View.UserControls
 		}
 
 		private void dobDatePicker_OnChange(object sender, EventArgs e)
+		{
+			this.loadPatientGrid();
+		}
+
+		private void searchPatientFrm_OnLoad(object sender, EventArgs e)
 		{
 			this.loadPatientGrid();
 		}

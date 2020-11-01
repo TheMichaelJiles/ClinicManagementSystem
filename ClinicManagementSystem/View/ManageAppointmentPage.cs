@@ -23,6 +23,22 @@ namespace ClinicManagementSystem.View
 
 		#endregion
 
+		#region Properties
+
+		public RoutineCheck RoutineCheck 
+		{
+			get => this.routineCheck;
+			set
+			{
+				this.routineCheck = value;
+				this.initializeRoutineCheckControls();
+			}
+		}
+
+		public Appointment Appointment => AppointmentControl.SelectedAppointment;
+
+		#endregion
+
 		#region Constructor
 
 		public ManageAppointmentPage(PatientAppointmentsControl appointmentControl)
@@ -85,7 +101,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = false };
+				var routineCheckPage = new RoutineCheckPage(this);
 				routineCheckPage.ShowDialog();
 			}
 			catch (Exception err)
@@ -98,7 +114,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = true };
+				var routineCheckPage = new RoutineCheckPage(this) { IsEditing = true };
 				routineCheckPage.ShowDialog();
 			}
 			catch (Exception err)

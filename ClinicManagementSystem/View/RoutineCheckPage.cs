@@ -8,14 +8,20 @@ namespace ClinicManagementSystem.View
 {
 	public partial class RoutineCheckPage : Form
 	{
-		private Appointment SelectedAppointment;
+		#region Members
+
+		private ManageAppointmentPage ManageApptPage;
 		public bool IsEditing { get; set; }
+
+		#endregion
+
 		#region Constructor
-		 
-		public RoutineCheckPage(Appointment currentAppointment)
+
+		public RoutineCheckPage(ManageAppointmentPage manageApptPage)
 		{
 			InitializeComponent();
-			this.SelectedAppointment = currentAppointment;
+
+			this.ManageApptPage = manageApptPage;
 		}
 
         #endregion
@@ -28,16 +34,16 @@ namespace ClinicManagementSystem.View
 				{
 					if (this.IsEditing)
 					{
-						var check = this.buildRoutineCheck();
-						RoutineCheckDAL.UpdateRoutineCheck(check);
-						this.showRoutineCheckSavedMessage(check);
+						this.ManageApptPage.RoutineCheck = this.buildRoutineCheck();
+						RoutineCheckDAL.UpdateRoutineCheck(this.ManageApptPage.RoutineCheck);
+						this.showRoutineCheckSavedMessage(this.ManageApptPage.RoutineCheck);
 						this.Close();
 					}
 					else
 					{
-						var check = this.buildRoutineCheck();
-						RoutineCheckDAL.InsertNewRoutineCheck(check);
-						this.showRoutineCheckSavedMessage(check);
+						this.ManageApptPage.RoutineCheck = this.buildRoutineCheck();
+						RoutineCheckDAL.InsertNewRoutineCheck(this.ManageApptPage.RoutineCheck);
+						this.showRoutineCheckSavedMessage(this.ManageApptPage.RoutineCheck);
 						this.Close();
 					}
 				}
@@ -49,11 +55,12 @@ namespace ClinicManagementSystem.View
 
 		private void populateInfoFields()
         {
-			var check = RoutineCheckDAL.GetAppointmentRoutineCheck(this.SelectedAppointment.ID);
-			this.systolicTextBox.Text = Convert.ToString(check.BloodPressureSystolic);
-			this.diastolicTextBox.Text = Convert.ToString(check.BloodPressureDiastolic);
-			this.bodyTempTextBox.Text = Convert.ToString(check.BodyTemp);
-			this.pulseTextBox.Text = Convert.ToString(check.Pulse);
+			var check = this.ManageApptPage.RoutineCheck;
+			this.systolicNumberUpDown.Value = check.BloodPressureSystolic;
+			this.diastolicNumberUpDown.Value = check.BloodPressureDiastolic;
+			this.bodyTempNumberUpDown.Value = Convert.ToDecimal(check.BodyTemp);
+			this.pulseNumberUpDown.Value = check.Pulse;
+			this.weightNumberUpDown.Value = Convert.ToDecimal(check.Weight);
 			this.symptomsTextArea.Text = check.Symptoms;
         }
 
@@ -67,27 +74,27 @@ namespace ClinicManagementSystem.View
         {
 			bool isValid = true;
 			var errorMsg = "";
-			if (string.IsNullOrEmpty(this.systolicTextBox.Text))
+			if (this.systolicNumberUpDown.Value < 1)
             {
 				errorMsg += "Systolic blood pressure cannot be empty" + Environment.NewLine;
 				isValid = false;
             }
-			if (string.IsNullOrEmpty(this.diastolicTextBox.Text))
+			if (this.diastolicNumberUpDown.Value < 1)
             {
 				errorMsg += "Diastolic blood pressure cannot be empty" + Environment.NewLine;
 				isValid = false;
             }
-			if (string.IsNullOrEmpty(this.bodyTempTextBox.Text))
+			if (this.bodyTempNumberUpDown.Value < 1)
             {
 				errorMsg += "Body temperature cannot be empty" + Environment.NewLine;
 				isValid = false;
             }
-			if (string.IsNullOrEmpty(this.pulseTextBox.Text))
+			if (this.pulseNumberUpDown.Value < 1)
             {
 				errorMsg += "Pulse cannot be empty" + Environment.NewLine;
 				isValid = false;
             }
-			if (string.IsNullOrEmpty(this.weightTextBox.Text))
+			if (this.weightNumberUpDown.Value < 1)
             {
 				errorMsg += "Weight cannot be empty" + Environment.NewLine;
 				isValid = false;
@@ -108,13 +115,14 @@ namespace ClinicManagementSystem.View
 		private RoutineCheck buildRoutineCheck()
         {
 			var check = new RoutineCheck();
-			check.Appointment = this.SelectedAppointment;
+
+			check.Appointment = this.ManageApptPage.Appointment;
 			check.Nurse = LoginPage.Nurse;
-			check.BloodPressureSystolic = Int32.Parse(this.systolicTextBox.Text);
-			check.BloodPressureDiastolic = Int32.Parse(this.diastolicTextBox.Text);
-			check.Pulse = Int32.Parse(this.pulseTextBox.Text);
-			check.BodyTemp = Convert.ToDouble(this.bodyTempTextBox.Text.Replace(' ', '0'));
-			check.Weight = Convert.ToDouble(this.weightTextBox.Text.Replace(' ', '0'));
+			check.BloodPressureSystolic = Convert.ToInt32(this.systolicNumberUpDown.Value);
+			check.BloodPressureDiastolic = Convert.ToInt32(this.diastolicNumberUpDown.Value);
+			check.Pulse = Convert.ToInt32(this.pulseNumberUpDown.Value);
+			check.BodyTemp = Convert.ToDouble(this.bodyTempNumberUpDown.Value);
+			check.Weight = Convert.ToDouble(this.weightNumberUpDown.Value);
 			check.Symptoms = this.symptomsTextArea.Text;
 
             return check;
