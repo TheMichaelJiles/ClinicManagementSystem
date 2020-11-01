@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ClinicManagementSystem.Model;
 using ClinicManagementSystem.DB.ModelDAL;
+using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View
 {
@@ -20,12 +21,19 @@ namespace ClinicManagementSystem.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-			if (this.areEntryFieldsValid())
-            {
-				var check = this.buildRoutineCheck();
-				RoutineCheckDAL.InsertNewRoutineCheck(check);
-				this.showRoutineCheckSavedMessage(check);
-				this.resetFields();
+			try
+			{
+				if (this.areEntryFieldsValid())
+				{
+					var check = this.buildRoutineCheck();
+					RoutineCheckDAL.InsertNewRoutineCheck(check);
+					this.showRoutineCheckSavedMessage(check);
+					this.resetFields();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
         }
 

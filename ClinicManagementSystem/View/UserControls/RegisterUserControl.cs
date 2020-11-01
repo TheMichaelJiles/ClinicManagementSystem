@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicManagementSystem.Model;
 using ClinicManagementSystem.DB;
+using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View.UserControls
 {
@@ -24,14 +25,20 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void registerUserButton_Click(object sender, EventArgs e)
 		{
-			if (this.areEntryFieldsValid())
+			try
 			{
-				var nurse = this.buildNurse();
-				NurseDAL.InsertNurse(nurse, this.passwordTextBox.Text);
-				this.resetFields();
-				this.showNurseRegisteredMessage(nurse);
+				if (this.areEntryFieldsValid())
+				{
+					var nurse = this.buildNurse();
+					NurseDAL.InsertNurse(nurse, this.passwordTextBox.Text);
+					this.resetFields();
+					this.showNurseRegisteredMessage(nurse);
+				}
 			}
-
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void resetFields()

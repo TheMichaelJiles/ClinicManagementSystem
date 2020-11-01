@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicManagementSystem.Model;
 using ClinicManagementSystem.DB.ModelDAL;
+using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View.UserControls
 {
@@ -48,8 +49,15 @@ namespace ClinicManagementSystem.View.UserControls
 
 		public void AddAppointment(Appointment appointment)
 		{
-			this.appointments.Add(appointment);
-			this.refreshAppointmentGrid();
+			try
+			{
+				this.appointments.Add(appointment);
+				this.refreshAppointmentGrid();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		#endregion
@@ -58,17 +66,31 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void createButton_OnClick(object sender, EventArgs e)
 		{
-			var patientApptFrm = new AppointmentInfoPage(this);
-			patientApptFrm.ShowDialog();
+			try
+			{
+				var patientApptFrm = new AppointmentInfoPage(this);
+				patientApptFrm.ShowDialog();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void editButton_OnClick(object sender, EventArgs e)
 		{
-			if (this.SelectedAppointment != null)
+			try
 			{
-				var patientApptFrm = new AppointmentInfoPage(this) { IsEditingAppointment = true };
-				patientApptFrm.ShowDialog();
-				this.loadAppointmentGrid();
+				if (this.SelectedAppointment != null)
+				{
+					var patientApptFrm = new AppointmentInfoPage(this) { IsEditingAppointment = true };
+					patientApptFrm.ShowDialog();
+					this.loadAppointmentGrid();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
@@ -81,21 +103,10 @@ namespace ClinicManagementSystem.View.UserControls
 					this.promptRemoveAppointment();
 				}
 			}
-			catch (Exception)
+			catch (Exception err)
 			{
+				ExceptionMessage.ShowError(err);
 				// TODO show appointment had issue being removed
-			}
-		}
-
-		private void promptRemoveAppointment()
-		{
-			var message = $"Are you sure you want to remove Appointment {this.SelectedAppointment.ID}?";
-
-			if (MessageBox.Show(message, "Delete Appointment", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
-			{
-				AppointmentDAL.RemovePatientAppointment(this.SelectedAppointment.ID);
-				this.appointments.Remove(this.SelectedAppointment);
-				this.refreshAppointmentGrid();
 			}
 		}
 
@@ -111,12 +122,13 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 			catch (Exception err)
 			{
-				Console.WriteLine(err.Message);
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
 		{
+
 			this.loadAppointmentGrid();
 		}
 
@@ -146,6 +158,18 @@ namespace ClinicManagementSystem.View.UserControls
 				newRow.Cells[3].Value = appointment.Reasons;
 
 				this.apptDataGrid.Rows.Add(newRow);
+			}
+		}
+
+		private void promptRemoveAppointment()
+		{
+			var message = $"Are you sure you want to remove Appointment {this.SelectedAppointment.ID}?";
+
+			if (MessageBox.Show(message, "Delete Appointment", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+			{
+				AppointmentDAL.RemovePatientAppointment(this.SelectedAppointment.ID);
+				this.appointments.Remove(this.SelectedAppointment);
+				this.refreshAppointmentGrid();
 			}
 		}
 

@@ -1,5 +1,6 @@
 ﻿using ClinicManagementSystem.DB;
 using ClinicManagementSystem.Model;
+using ClinicManagementSystem.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,19 +44,33 @@ namespace ClinicManagementSystem.View
 
 		private void loginButton_OnClick(object sender, EventArgs e)
 		{
-			if (Security.AuthenticateUser(this.usernameTextBox.Text, this.passwordTextBox.Text))
+			try
 			{
-				this.handleLogin();
+				if (Security.AuthenticateUser(this.usernameTextBox.Text, this.passwordTextBox.Text))
+				{
+					this.handleLogin();
+				}
+				else
+				{
+					this.showIncorrectLoginMessage();
+				}
 			}
-			else
+			catch (Exception err)
 			{
-				this.showIncorrectLoginMessage();
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
 		private void adminLabel_OnClick(object sender, EventArgs e)
 		{
-			this.switchToAdminLogin();
+			try
+			{
+				this.switchToAdminLogin();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		#endregion

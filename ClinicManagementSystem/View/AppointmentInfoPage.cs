@@ -57,7 +57,14 @@ namespace ClinicManagementSystem.View
 
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
 		{
-			this.initializeControls();
+			try
+			{
+				this.initializeControls();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void appointmentButton_OnClick(object sender, EventArgs e)
@@ -81,20 +88,34 @@ namespace ClinicManagementSystem.View
 			}
 			catch (Exception err)
 			{
-				Console.WriteLine(err.Message);
+				ExceptionMessage.ShowError(err);
 				// duplicate appointment exist in DB on InsertAppointment
 			}
 		}
 
 		private void doctorComboBox_OnSelectionChange(object sender, EventArgs e)
 		{
-			this.apptDatePicker.Enabled = true;
+			try
+			{
+				this.apptDatePicker.Enabled = true;
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		private void apptDatePicker_OnValueChanged(object sender, EventArgs e)
 		{
-			this.loadAvailableDoctorDateTimes();
-			this.timeComboBox.Enabled = true;
+			try
+			{
+				this.loadAvailableDoctorDateTimes();
+				this.timeComboBox.Enabled = true;
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
 		}
 
 		#endregion
