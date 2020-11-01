@@ -37,14 +37,14 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.apptDataGrid = new System.Windows.Forms.DataGridView();
-			this.manageButton = new System.Windows.Forms.Button();
-			this.createButton = new System.Windows.Forms.Button();
-			this.editButton = new System.Windows.Forms.Button();
-			this.removeButton = new System.Windows.Forms.Button();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.manageButton = new System.Windows.Forms.Button();
+			this.createButton = new System.Windows.Forms.Button();
+			this.editButton = new System.Windows.Forms.Button();
+			this.removeButton = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.apptDataGrid)).BeginInit();
 			this.SuspendLayout();
@@ -134,6 +134,39 @@
 			this.apptDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.apptDataGrid.Size = new System.Drawing.Size(708, 432);
 			this.apptDataGrid.TabIndex = 36;
+			this.apptDataGrid.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.appointmentsDataGrid_OnChange);
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+			this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
+			this.dataGridViewTextBoxColumn1.Width = 50;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.HeaderText = "Date";
+			this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
+			this.dataGridViewTextBoxColumn2.Width = 200;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.HeaderText = "Doctor";
+			this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.ReadOnly = true;
+			this.dataGridViewTextBoxColumn3.Width = 140;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.dataGridViewTextBoxColumn4.HeaderText = "Reason";
+			this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.ReadOnly = true;
 			// 
 			// manageButton
 			// 
@@ -186,38 +219,6 @@
 			this.removeButton.Text = "Remove";
 			this.removeButton.UseVisualStyleBackColor = false;
 			this.removeButton.Click += new System.EventHandler(this.removeButton_OnClick);
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-			this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			this.dataGridViewTextBoxColumn1.Width = 50;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.HeaderText = "Date";
-			this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			this.dataGridViewTextBoxColumn2.Width = 200;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.HeaderText = "Doctor";
-			this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			this.dataGridViewTextBoxColumn3.Width = 140;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.dataGridViewTextBoxColumn4.HeaderText = "Reason";
-			this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
 			// 
 			// PatientAppointmentsControl
 			// 

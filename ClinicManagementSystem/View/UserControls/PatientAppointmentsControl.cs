@@ -125,9 +125,13 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
+		private void appointmentsDataGrid_OnChange(object sender, DataGridViewRowStateChangedEventArgs e)
+		{
+			this.initializeControls();
+		}
+
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
 		{
-
 			this.loadAppointmentGrid();
 		}
 
@@ -169,6 +173,14 @@ namespace ClinicManagementSystem.View.UserControls
 				AppointmentDAL.RemovePatientAppointment(this.SelectedAppointment.ID);
 				this.appointments.Remove(this.SelectedAppointment);
 				this.refreshAppointmentGrid();
+			}
+		}
+
+		private void initializeControls()
+		{
+			if (this.apptDataGrid.SelectedRows.Count > 0)
+			{
+				this.editButton.Enabled = !this.SelectedAppointment.IsPastDate;
 			}
 		}
 
