@@ -131,6 +131,7 @@
     <Compile Include="DB\Util\Security.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\RoutineCheck.cs" />
+    <Compile Include="Model\Settings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DateTimeExtensions.cs" />

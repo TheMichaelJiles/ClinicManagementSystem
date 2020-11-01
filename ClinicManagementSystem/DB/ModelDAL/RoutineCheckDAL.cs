@@ -110,9 +110,9 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				{
 					routineCheck.Nurse.ID = DbDefault.GetInt(reader, nurseIDOrdinal);
 					routineCheck.Nurse.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
-					routineCheck.Nurse.Bio.LastName = DbDefault.GetString(reader, fnameOrdinal);
-					routineCheck.BloodPressureSystolic = Int32.Parse(DbDefault.GetString(reader, bloodPressureSystolicOrdinal));
-					routineCheck.BloodPressureDiastolic = Int32.Parse(DbDefault.GetString(reader, bloodPressureDiastolicOrdinal));
+					routineCheck.Nurse.Bio.LastName = DbDefault.GetString(reader, lnameOrdinal);
+					routineCheck.BloodPressureSystolic = DbDefault.GetInt(reader, bloodPressureSystolicOrdinal);
+					routineCheck.BloodPressureDiastolic = DbDefault.GetInt(reader, bloodPressureDiastolicOrdinal);
 					routineCheck.BodyTemp = DbDefault.GetDouble(reader, bodyTempOrdinal);
 					routineCheck.Pulse = DbDefault.GetInt(reader, pulseOrdinal);
 					routineCheck.Weight = DbDefault.GetDouble(reader, weightOrdinal);

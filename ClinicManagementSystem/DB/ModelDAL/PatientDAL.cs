@@ -20,7 +20,6 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		private const string GetNurseQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip)";
 		private const string EditPatientQuery = "CALL UpdatePatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
-		private const string GetMaxPatientID = "SELECT patientID FROM Patient ORDER BY patientID DESC LIMIT 1";
 		private const string SearchPatientQuery = "Call SelectPatientsByNameDOB(@fname, @lname, @DOB)";
 
 		#endregion

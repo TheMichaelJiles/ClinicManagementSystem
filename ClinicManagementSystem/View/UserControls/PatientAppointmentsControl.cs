@@ -47,12 +47,11 @@ namespace ClinicManagementSystem.View.UserControls
 
 		#region Public Methods
 
-		public void AddAppointment(Appointment appointment)
+		public void RefreshAppointmentGrid()
 		{
 			try
 			{
-				this.appointments.Add(appointment);
-				this.refreshAppointmentGrid();
+				this.loadAppointmentGrid();
 			}
 			catch (Exception err)
 			{

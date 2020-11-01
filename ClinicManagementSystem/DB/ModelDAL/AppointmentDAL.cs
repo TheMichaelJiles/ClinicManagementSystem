@@ -75,7 +75,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
-		public static void InsertAppointment(ref Appointment appt)
+		public static void InsertAppointment(Appointment appt)
         {
 			var connection = DbConnection.GetConnection();
 

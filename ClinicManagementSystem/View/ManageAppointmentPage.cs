@@ -19,22 +19,12 @@ namespace ClinicManagementSystem.View
 		#region Members
 
 		private PatientAppointmentsControl AppointmentControl;
-		private RoutineCheck routineCheck;
 
 		#endregion
 
 		#region Properties
 
-		public RoutineCheck RoutineCheck 
-		{
-			get => this.routineCheck;
-			set
-			{
-				this.routineCheck = value;
-				this.initializeRoutineCheckControls();
-			}
-		}
-
+		public RoutineCheck RoutineCheck { get; private set; }
 		public Appointment Appointment => AppointmentControl.SelectedAppointment;
 
 		#endregion
@@ -103,6 +93,7 @@ namespace ClinicManagementSystem.View
 			{
 				var routineCheckPage = new RoutineCheckPage(this);
 				routineCheckPage.ShowDialog();
+				this.initializeControls();
 			}
 			catch (Exception err)
 			{
@@ -116,6 +107,7 @@ namespace ClinicManagementSystem.View
 			{
 				var routineCheckPage = new RoutineCheckPage(this) { IsEditing = true };
 				routineCheckPage.ShowDialog();
+				this.initializeControls();
 			}
 			catch (Exception err)
 			{
@@ -164,18 +156,18 @@ namespace ClinicManagementSystem.View
 
 		private void initializeRoutineCheckControls()
 		{
-			this.routineFinishedCheckBox.Checked = this.routineCheck.IsFinished;
-			this.byNurseLabel.Text = $"by Nurse {this.routineCheck.Nurse.Bio.FullName}";
-			this.byNurseLabel.Visible = this.routineCheck.IsFinished;
+			this.routineFinishedCheckBox.Checked = this.RoutineCheck.IsFinished;
+			this.byNurseLabel.Text = $"by Nurse {this.RoutineCheck.Nurse.Bio.FullName}";
+			this.byNurseLabel.Visible = this.RoutineCheck.IsFinished;
 
-			this.startCheckButton.Enabled = !this.routineCheck.IsFinished;
-			this.editCheckButton.Enabled = this.routineCheck.IsFinished;
+			this.startCheckButton.Enabled = !this.RoutineCheck.IsFinished;
+			this.editCheckButton.Enabled = this.RoutineCheck.IsFinished;
 		}
 
 		private void loadData()
 		{
-			this.routineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentControl.SelectedAppointment.ID);
-			this.routineCheck.Appointment = this.AppointmentControl.SelectedAppointment;
+			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentControl.SelectedAppointment.ID);
+			this.RoutineCheck.Appointment = this.AppointmentControl.SelectedAppointment;
 		}
 
 		#endregion

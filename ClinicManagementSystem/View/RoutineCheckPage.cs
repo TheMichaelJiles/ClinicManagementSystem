@@ -32,18 +32,18 @@ namespace ClinicManagementSystem.View
             {
 				if (this.areEntryFieldsValid())
 				{
+					var routineCheck = this.buildRoutineCheck();
+
 					if (this.IsEditing)
 					{
-						this.ManageApptPage.RoutineCheck = this.buildRoutineCheck();
-						RoutineCheckDAL.UpdateRoutineCheck(this.ManageApptPage.RoutineCheck);
-						this.showRoutineCheckSavedMessage(this.ManageApptPage.RoutineCheck);
+						RoutineCheckDAL.UpdateRoutineCheck(routineCheck);
+						this.showRoutineCheckSavedMessage(routineCheck);
 						this.Close();
 					}
 					else
 					{
-						this.ManageApptPage.RoutineCheck = this.buildRoutineCheck();
-						RoutineCheckDAL.InsertNewRoutineCheck(this.ManageApptPage.RoutineCheck);
-						this.showRoutineCheckSavedMessage(this.ManageApptPage.RoutineCheck);
+						RoutineCheckDAL.InsertNewRoutineCheck(routineCheck);
+						this.showRoutineCheckSavedMessage(routineCheck);
 						this.Close();
 					}
 				}
@@ -114,16 +114,17 @@ namespace ClinicManagementSystem.View
 
 		private RoutineCheck buildRoutineCheck()
         {
-			var check = new RoutineCheck();
-
-			check.Appointment = this.ManageApptPage.Appointment;
-			check.Nurse = LoginPage.Nurse;
+			var check = new RoutineCheck
+			{
+				Appointment = this.ManageApptPage.Appointment
+			};
+			check.Nurse.ID = Settings.CurrentUser.ID;
 			check.BloodPressureSystolic = Convert.ToInt32(this.systolicNumberUpDown.Value);
 			check.BloodPressureDiastolic = Convert.ToInt32(this.diastolicNumberUpDown.Value);
 			check.Pulse = Convert.ToInt32(this.pulseNumberUpDown.Value);
 			check.BodyTemp = Convert.ToDouble(this.bodyTempNumberUpDown.Value);
 			check.Weight = Convert.ToDouble(this.weightNumberUpDown.Value);
-			check.Symptoms = this.symptomsTextArea.Text;
+			check.Symptoms = this.symptomsTextArea.Text.ToString();
 
             return check;
         }

@@ -81,8 +81,8 @@ namespace ClinicManagementSystem.View
 				else if (true) // verify all fields are valid; 
 				{
 					var appt = this.buildAppointment();
-					AppointmentDAL.InsertAppointment(ref appt);
-					this.AppointmentControl.AddAppointment(appt);
+					AppointmentDAL.InsertAppointment(appt);
+					this.AppointmentControl.RefreshAppointmentGrid();
 					this.Close();
 				}
 			}

@@ -11,7 +11,8 @@ namespace ClinicManagementSystem.DB
 {
 	public class NurseDAL
 	{
-		private const string GetNurseQuery = "CALL GetNurse(@username)";
+		private const string GetNurseByUsernameQuery = "CALL GetNurseByUsername(@username)";
+		private const string GetNurseByIDQuery = "CALL GetNurseByID(@nurseID)";
 		private const string InsertNurseCommand = "CALL InsertNurse(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @username, @password)";
 
 		public static bool InsertNurse(Nurse nurse, string password)
@@ -51,10 +52,30 @@ namespace ClinicManagementSystem.DB
 			{
 				connection.Open();
 
-				using (MySqlCommand cmd = new MySqlCommand(GetNurseQuery, connection))
+				using (MySqlCommand cmd = new MySqlCommand(GetNurseByUsernameQuery, connection))
 				{
 					cmd.Parameters.Add("@username", MySqlDbType.VarChar);
 					cmd.Parameters["@username"].Value = username;
+					setupNurse(nurse, cmd);
+				}
+			}
+
+			return nurse;
+		}
+
+		public static Nurse GetNurse(int nurseID)
+		{
+			var nurse = new Nurse();
+			var connection = DbConnection.GetConnection();
+
+			using (connection)
+			{
+				connection.Open();
+
+				using (MySqlCommand cmd = new MySqlCommand(GetNurseByIDQuery, connection))
+				{
+					cmd.Parameters.Add("@nurseID", MySqlDbType.VarChar);
+					cmd.Parameters["@nurseID"].Value = nurseID;
 					setupNurse(nurse, cmd);
 				}
 			}

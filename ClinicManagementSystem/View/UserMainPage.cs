@@ -25,7 +25,6 @@ namespace ClinicManagementSystem.View
 		#region Properties
 
 		public LoginPage LoginForm;
-		public Nurse CurrentUser { get; set; }
 		public Patient CurrentPatient
 		{
 			get => this.currentPatient;
@@ -223,7 +222,7 @@ namespace ClinicManagementSystem.View
 
 		private void setupStatusStrip()
 		{
-			this.currentUserToolStripStatusLbl.Text = $"User: {this.CurrentUser.Username} - {this.CurrentUser.Bio.FirstName} {this.CurrentUser.Bio.LastName}";
+			this.currentUserToolStripStatusLbl.Text = $"User: {Settings.CurrentUser.Username} - {Settings.CurrentUser.Bio.FirstName} {Settings.CurrentUser.Bio.LastName}";
 		}
 
 		#endregion
