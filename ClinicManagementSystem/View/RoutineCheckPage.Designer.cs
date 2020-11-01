@@ -29,6 +29,8 @@
 		{
             this.pageTitleLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.diastolicTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.systolicTextBox = new System.Windows.Forms.MaskedTextBox();
             this.weightTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pulseTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -42,8 +44,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.systolicTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.diastolicTextBox = new System.Windows.Forms.MaskedTextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(859, 312);
             this.panel2.TabIndex = 1;
+            // 
+            // diastolicTextBox
+            // 
+            this.diastolicTextBox.BackColor = System.Drawing.Color.SlateGray;
+            this.diastolicTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diastolicTextBox.Location = new System.Drawing.Point(330, 54);
+            this.diastolicTextBox.Mask = "###";
+            this.diastolicTextBox.Name = "diastolicTextBox";
+            this.diastolicTextBox.Size = new System.Drawing.Size(198, 27);
+            this.diastolicTextBox.TabIndex = 36;
+            // 
+            // systolicTextBox
+            // 
+            this.systolicTextBox.BackColor = System.Drawing.Color.SlateGray;
+            this.systolicTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.systolicTextBox.Location = new System.Drawing.Point(23, 54);
+            this.systolicTextBox.Mask = "###";
+            this.systolicTextBox.Name = "systolicTextBox";
+            this.systolicTextBox.Size = new System.Drawing.Size(198, 27);
+            this.systolicTextBox.TabIndex = 35;
             // 
             // weightTextBox
             // 
@@ -211,26 +231,7 @@
             this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
-            // 
-            // systolicTextBox
-            // 
-            this.systolicTextBox.BackColor = System.Drawing.Color.SlateGray;
-            this.systolicTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.systolicTextBox.Location = new System.Drawing.Point(23, 54);
-            this.systolicTextBox.Mask = "###";
-            this.systolicTextBox.Name = "systolicTextBox";
-            this.systolicTextBox.Size = new System.Drawing.Size(198, 27);
-            this.systolicTextBox.TabIndex = 35;
-            // 
-            // diastolicTextBox
-            // 
-            this.diastolicTextBox.BackColor = System.Drawing.Color.SlateGray;
-            this.diastolicTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diastolicTextBox.Location = new System.Drawing.Point(330, 54);
-            this.diastolicTextBox.Mask = "###";
-            this.diastolicTextBox.Name = "diastolicTextBox";
-            this.diastolicTextBox.Size = new System.Drawing.Size(198, 27);
-            this.diastolicTextBox.TabIndex = 36;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // RoutineCheckPage
             // 
@@ -245,6 +246,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RoutineCheckPage";
             this.Text = "Appointment";
+            this.Load += new System.EventHandler(this.onLoad);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

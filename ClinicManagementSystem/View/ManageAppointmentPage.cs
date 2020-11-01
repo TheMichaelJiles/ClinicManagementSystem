@@ -57,13 +57,13 @@ namespace ClinicManagementSystem.View
 
 		private void startButton_OnClick(object sender, EventArgs e)
 		{
-			var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment);
+			var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = false };
 			routineCheckPage.ShowDialog();
 		}
 
 		private void editCheckButton_OnClick(object sender, EventArgs e)
 		{
-			var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment);
+			var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = true };
 			routineCheckPage.ShowDialog();
 		}
 

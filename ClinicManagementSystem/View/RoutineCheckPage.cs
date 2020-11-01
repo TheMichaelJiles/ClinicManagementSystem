@@ -7,13 +7,14 @@ namespace ClinicManagementSystem.View
 {
 	public partial class RoutineCheckPage : Form
 	{
-		private Appointment appt;
+		private Appointment SelectedAppointment;
+		public bool IsEditing { get; set; }
 		#region Constructor
 		 
 		public RoutineCheckPage(Appointment currentAppointment)
 		{
 			InitializeComponent();
-			this.appt = currentAppointment;
+			this.SelectedAppointment = currentAppointment;
 		}
 
         #endregion
@@ -22,11 +23,31 @@ namespace ClinicManagementSystem.View
         {
 			if (this.areEntryFieldsValid())
             {
-				var check = this.buildRoutineCheck();
-				RoutineCheckDAL.InsertNewRoutineCheck(check);
-				this.showRoutineCheckSavedMessage(check);
-				this.resetFields();
+				if (this.IsEditing)
+                {
+					var check = this.buildRoutineCheck();
+					RoutineCheckDAL.UpdateRoutineCheck(check);
+					this.showRoutineCheckSavedMessage(check);
+					this.Close();
+                } 
+				else
+                {
+					var check = this.buildRoutineCheck();
+					RoutineCheckDAL.InsertNewRoutineCheck(check);
+					this.showRoutineCheckSavedMessage(check);
+					this.Close();
+				}
 			}
+        }
+
+		private void populateInfoFields()
+        {
+			var check = RoutineCheckDAL.GetAppointmentRoutineCheck(this.SelectedAppointment.ID);
+			this.systolicTextBox.Text = Convert.ToString(check.BloodPressureSystolic);
+			this.diastolicTextBox.Text = Convert.ToString(check.BloodPressureDiastolic);
+			this.bodyTempTextBox.Text = Convert.ToString(check.BodyTemp);
+			this.pulseTextBox.Text = Convert.ToString(check.Pulse);
+			this.symptomsTextArea.Text = check.Symptoms;
         }
 
 		private void resetFields()
@@ -90,7 +111,7 @@ namespace ClinicManagementSystem.View
 		private RoutineCheck buildRoutineCheck()
         {
 			var check = new RoutineCheck();
-			check.Appointment = this.appt;
+			check.Appointment = this.SelectedAppointment;
 			check.Nurse = LoginPage.Nurse;
 			check.BloodPressureSystolic = Int32.Parse(this.systolicTextBox.Text);
 			check.BloodPressureDiastolic = Int32.Parse(this.diastolicTextBox.Text);
@@ -101,5 +122,17 @@ namespace ClinicManagementSystem.View
             return check;
         }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+			this.Close();
+        }
+
+        private void onLoad(object sender, EventArgs e)
+        {
+			if (this.IsEditing)
+			{
+				this.populateInfoFields();
+			}
+		}
     }
 }
