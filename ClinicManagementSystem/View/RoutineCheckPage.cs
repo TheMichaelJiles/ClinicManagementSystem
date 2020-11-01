@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ClinicManagementSystem.Model;
 using ClinicManagementSystem.DB.ModelDAL;
+using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View
 {
@@ -21,23 +22,29 @@ namespace ClinicManagementSystem.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-			if (this.areEntryFieldsValid())
+			try
             {
-				if (this.IsEditing)
-                {
-					var check = this.buildRoutineCheck();
-					RoutineCheckDAL.UpdateRoutineCheck(check);
-					this.showRoutineCheckSavedMessage(check);
-					this.Close();
-                } 
-				else
-                {
-					var check = this.buildRoutineCheck();
-					RoutineCheckDAL.InsertNewRoutineCheck(check);
-					this.showRoutineCheckSavedMessage(check);
-					this.Close();
+				if (this.areEntryFieldsValid())
+				{
+					if (this.IsEditing)
+					{
+						var check = this.buildRoutineCheck();
+						RoutineCheckDAL.UpdateRoutineCheck(check);
+						this.showRoutineCheckSavedMessage(check);
+						this.Close();
+					}
+					else
+					{
+						var check = this.buildRoutineCheck();
+						RoutineCheckDAL.InsertNewRoutineCheck(check);
+						this.showRoutineCheckSavedMessage(check);
+						this.Close();
+					}
 				}
-			}
+			} catch (Exception err)
+            {
+				ExceptionMessage.ShowError(err);
+            }
         }
 
 		private void populateInfoFields()
@@ -48,16 +55,6 @@ namespace ClinicManagementSystem.View
 			this.bodyTempTextBox.Text = Convert.ToString(check.BodyTemp);
 			this.pulseTextBox.Text = Convert.ToString(check.Pulse);
 			this.symptomsTextArea.Text = check.Symptoms;
-        }
-
-		private void resetFields()
-        {
-			this.systolicTextBox.Clear();
-			this.diastolicTextBox.Clear();
-			this.pulseTextBox.Clear();
-			this.bodyTempTextBox.Clear();
-			this.symptomsTextArea.Clear();
-			this.weightTextBox.Clear();
         }
 
 		private void showRoutineCheckSavedMessage(RoutineCheck check)

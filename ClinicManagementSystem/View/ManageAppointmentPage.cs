@@ -85,7 +85,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment);
+				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = false };
 				routineCheckPage.ShowDialog();
 			}
 			catch (Exception err)
@@ -98,7 +98,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment);
+				var routineCheckPage = new RoutineCheckPage(this.AppointmentControl.SelectedAppointment) { IsEditing = true };
 				routineCheckPage.ShowDialog();
 			}
 			catch (Exception err)
