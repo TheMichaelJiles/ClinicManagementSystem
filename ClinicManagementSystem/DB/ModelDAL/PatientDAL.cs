@@ -15,10 +15,17 @@ namespace ClinicManagementSystem.DB.ModelDAL
 {
 	public class PatientDAL
 	{
+
+		#region Constants
+
 		private const string GetNurseQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
-		private const string SearchPatientQuery = "CALL SelectPatientsByNameDOB(@fname, @lname, @DOB)";
 		private const string EditPatientQuery = "CALL UpdatePatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
 		private const string GetMaxPatientID = "SELECT patientID FROM Patient ORDER BY patientID DESC LIMIT 1";
+		private const string SearchPatientQuery = "Call SelectPatientsByNameDOB(@fname, @lname, @DOB)";
+
+		#endregion
+
+		#region Public Methods
 
 		public static void InsertNewPatient(Patient patient)
 		{
@@ -93,6 +100,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
             }
         }
 
+		#endregion
+
+		#region Private Helpers
+
 		private static IList<Patient> buildPatientList(MySqlCommand cmd)
         {
 			IList<Patient> patients = new List<Patient>();
@@ -146,5 +157,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				return $"P{++patientID}";
 			}
 		}
+
+		#endregion
 	}
 }

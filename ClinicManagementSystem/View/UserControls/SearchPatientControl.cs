@@ -48,6 +48,7 @@ namespace ClinicManagementSystem.View.UserControls
 		private void searchPatientButton_OnClick(object sender, EventArgs e)
 		{
 			this.loadPatientGrid();
+			this.resetSearchFields();
 		}
 
 		private void patientDataGrid_OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -79,6 +80,13 @@ namespace ClinicManagementSystem.View.UserControls
 
 				this.patientDataGrid.Rows.Add(newRow);
 			}
+		}
+
+		private void resetSearchFields()
+		{
+			this.fnameTextBox.Clear();
+			this.lnameTextBox.Clear();
+			this.dobDatePicker.ResetText();
 		}
 
 		private void setMainPageCurrentPatient()
