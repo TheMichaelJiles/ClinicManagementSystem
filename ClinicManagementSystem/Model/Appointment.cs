@@ -14,7 +14,7 @@ namespace ClinicManagementSystem.Model
 		public Doctor Doctor { get; set; } = new Doctor();
 		public int ID { get; set; }
 		public string Reasons { get; set; }
-		public bool IsPastDate => this.Date >= DateTime.Now;
+		public bool IsPastDate => this.Date <= DateTime.Now;
 
 	}
 }

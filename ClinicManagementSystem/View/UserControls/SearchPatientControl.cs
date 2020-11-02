@@ -110,7 +110,7 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void setMainPageCurrentPatient()
 		{
-            if (this.patients != null)
+            if (this.patients.Count > 0)
             {
                 this.MainPage.CurrentPatient = this.SelectedPatient;
 				this.MainPage.ClearControlPanel();
