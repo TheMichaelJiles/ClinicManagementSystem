@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using ClinicManagementSystem.DB;
 using MySql.Data.MySqlClient;
 
@@ -23,6 +24,7 @@ namespace ClinicManagementSystem.Model
         {
             var connection = DbConnection.GetConnection();
             int count;
+            var hashedPassword = HashPassword(username, password);
 
             using (connection)
             {
@@ -34,13 +36,31 @@ namespace ClinicManagementSystem.Model
                     cmd.Parameters.Add("@password", MySqlDbType.VarChar);
 
                     cmd.Parameters["@username"].Value = username;
-                    cmd.Parameters["@password"].Value = password;
+                    cmd.Parameters["@password"].Value = hashedPassword;
 
                     count = Convert.ToInt32(cmd.ExecuteScalar());
                 }
             }
 
             return count > 0;
+        }
+
+
+        public static string HashPassword(string username, string password)
+        {
+            byte[] hashCode;
+            using (HashAlgorithm hashAlg = SHA256.Create())
+            {
+                hashCode = hashAlg.ComputeHash(Encoding.UTF8.GetBytes(username + password));
+            }
+
+            var builder = new StringBuilder();
+            foreach (var currByte in hashCode)
+            {
+                builder.Append(currByte.ToString());
+            }
+
+            return builder.ToString();
         }
     }
 }

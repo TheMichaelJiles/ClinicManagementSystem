@@ -30,7 +30,7 @@ namespace ClinicManagementSystem.View.UserControls
 				if (this.areEntryFieldsValid())
 				{
 					var nurse = this.buildNurse();
-					NurseDAL.InsertNurse(nurse, this.passwordTextBox.Text);
+					NurseDAL.InsertNurse(nurse, Security.HashPassword(nurse.Username, this.passwordTextBox.Text));
 					this.resetFields();
 					this.showNurseRegisteredMessage(nurse);
 				}
