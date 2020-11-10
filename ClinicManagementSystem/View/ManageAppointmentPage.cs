@@ -76,6 +76,17 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		private void manageLabTest_OnClick(object sender, EventArgs e)
+		{
+			try
+			{
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
+		}
+
 		private void removeTestButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -171,6 +182,5 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
-
 	}
 }
