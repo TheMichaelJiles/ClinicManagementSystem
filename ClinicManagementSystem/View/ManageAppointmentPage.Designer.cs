@@ -28,11 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pageTitleLabel = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -99,19 +99,19 @@
 			// labTestsDataGrid
 			// 
 			this.labTestsDataGrid.AllowUserToAddRows = false;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labTestsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labTestsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
 			this.labTestsDataGrid.BackgroundColor = System.Drawing.Color.SlateGray;
 			this.labTestsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.NullValue = null;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.labTestsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle7.NullValue = null;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.labTestsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this.labTestsDataGrid.ColumnHeadersHeight = 28;
 			this.labTestsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.labTestsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -119,28 +119,28 @@
             this.dateColumn,
             this.abnormalityColumn,
             this.resultsColumn});
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.labTestsDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.labTestsDataGrid.DefaultCellStyle = dataGridViewCellStyle8;
 			this.labTestsDataGrid.Location = new System.Drawing.Point(0, 14);
 			this.labTestsDataGrid.Name = "labTestsDataGrid";
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.labTestsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.labTestsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this.labTestsDataGrid.RowHeadersVisible = false;
 			this.labTestsDataGrid.RowHeadersWidth = 50;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
-			this.labTestsDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			this.labTestsDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
 			this.labTestsDataGrid.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			this.labTestsDataGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labTestsDataGrid.RowTemplate.Height = 50;
@@ -247,7 +247,7 @@
 			this.byNurseLabel.AutoSize = true;
 			this.byNurseLabel.Enabled = false;
 			this.byNurseLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.byNurseLabel.Location = new System.Drawing.Point(112, 30);
+			this.byNurseLabel.Location = new System.Drawing.Point(112, 29);
 			this.byNurseLabel.Name = "byNurseLabel";
 			this.byNurseLabel.Size = new System.Drawing.Size(128, 25);
 			this.byNurseLabel.TabIndex = 40;
@@ -308,7 +308,7 @@
 			this.initialDiagnosisTextArea.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.initialDiagnosisTextArea.Location = new System.Drawing.Point(15, 47);
 			this.initialDiagnosisTextArea.Name = "initialDiagnosisTextArea";
-			this.initialDiagnosisTextArea.Size = new System.Drawing.Size(475, 185);
+			this.initialDiagnosisTextArea.Size = new System.Drawing.Size(475, 102);
 			this.initialDiagnosisTextArea.TabIndex = 10;
 			this.initialDiagnosisTextArea.Text = "";
 			// 
@@ -331,7 +331,7 @@
 			this.panel3.Controls.Add(this.initialDiagnosisTextArea);
 			this.panel3.Location = new System.Drawing.Point(22, 481);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(997, 250);
+			this.panel3.Size = new System.Drawing.Size(997, 167);
 			this.panel3.TabIndex = 9;
 			// 
 			// label5
@@ -350,7 +350,7 @@
 			this.finalDiagnosisTextArea.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.finalDiagnosisTextArea.Location = new System.Drawing.Point(504, 47);
 			this.finalDiagnosisTextArea.Name = "finalDiagnosisTextArea";
-			this.finalDiagnosisTextArea.Size = new System.Drawing.Size(475, 185);
+			this.finalDiagnosisTextArea.Size = new System.Drawing.Size(475, 102);
 			this.finalDiagnosisTextArea.TabIndex = 11;
 			this.finalDiagnosisTextArea.Text = "";
 			// 
@@ -359,7 +359,7 @@
 			this.saveAppointmentButton.BackColor = System.Drawing.Color.SteelBlue;
 			this.saveAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.saveAppointmentButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.saveAppointmentButton.Location = new System.Drawing.Point(288, 743);
+			this.saveAppointmentButton.Location = new System.Drawing.Point(288, 663);
 			this.saveAppointmentButton.Name = "saveAppointmentButton";
 			this.saveAppointmentButton.Size = new System.Drawing.Size(245, 36);
 			this.saveAppointmentButton.TabIndex = 12;
@@ -372,7 +372,7 @@
 			this.cancelButton.BackColor = System.Drawing.Color.SteelBlue;
 			this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.cancelButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cancelButton.Location = new System.Drawing.Point(22, 743);
+			this.cancelButton.Location = new System.Drawing.Point(22, 663);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(245, 36);
 			this.cancelButton.TabIndex = 13;
@@ -384,7 +384,7 @@
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.ClientSize = new System.Drawing.Size(1041, 792);
+			this.ClientSize = new System.Drawing.Size(1041, 716);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.saveAppointmentButton);
 			this.Controls.Add(this.label4);
