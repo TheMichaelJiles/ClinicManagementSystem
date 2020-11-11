@@ -18,7 +18,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Constants
 
-		private const string GetNurseQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip)";
+		private const string InsertPatientQuery = "CALL InsertPatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip)";
 		private const string EditPatientQuery = "CALL UpdatePatient(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @patientID)";
 		private const string SearchPatientQuery = "Call SelectPatientsByNameDOB(@fname, @lname, @DOB)";
 
@@ -34,7 +34,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			{
 				connection.Open();
 
-				using (MySqlCommand cmd = new MySqlCommand(GetNurseQuery, connection))
+				using (MySqlCommand cmd = new MySqlCommand(InsertPatientQuery, connection))
 				{
 					cmd.Parameters.AddWithValue("@fname", patient.Bio.FirstName);
 					cmd.Parameters.AddWithValue("@lname", patient.Bio.LastName);

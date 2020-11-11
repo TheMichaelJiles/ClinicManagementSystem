@@ -26,6 +26,8 @@ namespace ClinicManagementSystem.View
 
 		public RoutineCheck RoutineCheck { get; private set; }
 		public Appointment Appointment => AppointmentsControl.SelectedAppointment;
+        public LabTest SelectedLabTest => this.LabTests.Count > 0 ? this.LabTests[this.labTestsDataGrid.SelectedRows[0].Index] : null;
+        public IList<LabTest> LabTests { get; private set; }
 
 		#endregion
 
@@ -60,6 +62,7 @@ namespace ClinicManagementSystem.View
 			{
 				var labTestPage = new LabTestPage(this);
 				labTestPage.ShowDialog();
+				this.refreshLabTestsGrid();
 			}
 			catch (Exception err)
 			{
@@ -71,12 +74,16 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var labTestPage = new LabTestPage(this)
-				{
-					IsEditingTest = true
-				};
-				labTestPage.ShowDialog();
-			}
+                if (this.SelectedLabTest != null)
+                {
+                    var labTestPage = new LabTestPage(this)
+                    {
+                        IsEditingTest = true
+                    };
+                    labTestPage.ShowDialog();
+					this.refreshLabTestsGrid();
+				}
+            }
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
@@ -87,12 +94,16 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var labTestPage = new LabTestPage(this)
-				{
-					IsManagingTest = true
-				};
-				labTestPage.ShowDialog();
-			}
+                if (this.SelectedLabTest != null)
+                {
+                    var labTestPage = new LabTestPage(this)
+                    {
+                        IsManagingTest = true
+                    };
+                    labTestPage.ShowDialog();
+					this.refreshLabTestsGrid();
+				}
+            }
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
@@ -103,7 +114,10 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-
+                if (this.SelectedLabTest != null)
+                {
+					this.promptRemoveLabTest();
+                }
 			}
 			catch (Exception err)
 			{
@@ -166,6 +180,17 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
+        private void promptRemoveLabTest()
+        {
+            var message = $"Are you sure you want to remove Lab Test {this.SelectedLabTest.TestType.Code} - {this.SelectedLabTest.TestType.Name}?";
+
+            if (MessageBox.Show(message, "Delete Lab Test", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+            {
+                LabTestDAL.RemoveLabTest(this.Appointment.ID, this.SelectedLabTest.TestType.Code);
+                this.refreshLabTestsGrid();
+            }
+        }
+
 		private void initializeControls()
 		{
 			this.autofillData();
@@ -192,7 +217,29 @@ namespace ClinicManagementSystem.View
 		{
 			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
 			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
-		}
+
+            this.refreshLabTestsGrid();
+        }
+
+        private void refreshLabTestsGrid()
+        {
+            this.LabTests = LabTestDAL.GetAllLabTests(this.Appointment.ID);
+			this.labTestsDataGrid.Rows.Clear();
+
+            foreach (var labTest in this.LabTests)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+
+                newRow.CreateCells(this.labTestsDataGrid);
+
+                newRow.Cells[0].Value = labTest.IsFinished;
+                newRow.Cells[1].Value = $"{labTest.TestType.Code} - {labTest.TestType.Name}";
+                newRow.Cells[2].Value = labTest.Date;
+                newRow.Cells[3].Value = labTest.Results;
+
+                this.labTestsDataGrid.Rows.Add(newRow);
+            }
+        }
 
 		#endregion
 	}
