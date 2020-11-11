@@ -18,14 +18,14 @@ namespace ClinicManagementSystem.View
 	{
 		#region Members
 
-		private PatientAppointmentsControl AppointmentControl;
+		private PatientAppointmentsControl AppointmentsControl;
 
 		#endregion
 
 		#region Properties
 
 		public RoutineCheck RoutineCheck { get; private set; }
-		public Appointment Appointment => AppointmentControl.SelectedAppointment;
+		public Appointment Appointment => AppointmentsControl.SelectedAppointment;
 
 		#endregion
 
@@ -35,7 +35,7 @@ namespace ClinicManagementSystem.View
 		{
 			InitializeComponent();
 
-			this.AppointmentControl = appointmentControl;
+			this.AppointmentsControl = appointmentControl;
 		}
 
 		#endregion
@@ -58,6 +58,8 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
+				var labTestPage = new LabTestPage(this);
+				labTestPage.ShowDialog();
 			}
 			catch (Exception err)
 			{
@@ -69,6 +71,11 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
+				var labTestPage = new LabTestPage(this)
+				{
+					IsEditingTest = true
+				};
+				labTestPage.ShowDialog();
 			}
 			catch (Exception err)
 			{
@@ -80,6 +87,11 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
+				var labTestPage = new LabTestPage(this)
+				{
+					IsManagingTest = true
+				};
+				labTestPage.ShowDialog();
 			}
 			catch (Exception err)
 			{
@@ -91,6 +103,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
+
 			}
 			catch (Exception err)
 			{
@@ -177,8 +190,8 @@ namespace ClinicManagementSystem.View
 
 		private void loadData()
 		{
-			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentControl.SelectedAppointment.ID);
-			this.RoutineCheck.Appointment = this.AppointmentControl.SelectedAppointment;
+			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
+			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
 		}
 
 		#endregion

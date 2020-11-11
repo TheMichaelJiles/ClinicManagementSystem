@@ -40,12 +40,12 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.resultsTextArea = new System.Windows.Forms.RichTextBox();
 			this.step2Panel = new System.Windows.Forms.Panel();
+			this.routineFinishedCheckBox = new System.Windows.Forms.CheckBox();
+			this.testDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.testDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.label6 = new System.Windows.Forms.Label();
 			this.step3Panel = new System.Windows.Forms.Panel();
-			this.routineFinishedCheckBox = new System.Windows.Forms.CheckBox();
 			this.step1Panel.SuspendLayout();
 			this.step2Panel.SuspendLayout();
 			this.step3Panel.SuspendLayout();
@@ -80,7 +80,7 @@
 			this.testTypesComboBox.FormattingEnabled = true;
 			this.testTypesComboBox.Location = new System.Drawing.Point(22, 46);
 			this.testTypesComboBox.Name = "testTypesComboBox";
-			this.testTypesComboBox.Size = new System.Drawing.Size(195, 26);
+			this.testTypesComboBox.Size = new System.Drawing.Size(314, 26);
 			this.testTypesComboBox.TabIndex = 25;
 			// 
 			// label1
@@ -112,7 +112,6 @@
 			this.abnormalityTextArea.Size = new System.Drawing.Size(693, 62);
 			this.abnormalityTextArea.TabIndex = 7;
 			this.abnormalityTextArea.Text = "";
-			this.abnormalityTextArea.TextChanged += new System.EventHandler(this.symptomsTextArea_TextChanged);
 			// 
 			// label13
 			// 
@@ -183,6 +182,28 @@
 			this.step2Panel.Size = new System.Drawing.Size(744, 123);
 			this.step2Panel.TabIndex = 30;
 			// 
+			// routineFinishedCheckBox
+			// 
+			this.routineFinishedCheckBox.AutoSize = true;
+			this.routineFinishedCheckBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.routineFinishedCheckBox.Location = new System.Drawing.Point(22, 23);
+			this.routineFinishedCheckBox.Name = "routineFinishedCheckBox";
+			this.routineFinishedCheckBox.Size = new System.Drawing.Size(95, 22);
+			this.routineFinishedCheckBox.TabIndex = 39;
+			this.routineFinishedCheckBox.Text = "Finished";
+			this.routineFinishedCheckBox.UseVisualStyleBackColor = true;
+			this.routineFinishedCheckBox.CheckedChanged += new System.EventHandler(this.finishedTest_OnCheckChanged);
+			// 
+			// testDatePicker
+			// 
+			this.testDatePicker.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.testDatePicker.Enabled = false;
+			this.testDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.testDatePicker.Location = new System.Drawing.Point(22, 78);
+			this.testDatePicker.Name = "testDatePicker";
+			this.testDatePicker.Size = new System.Drawing.Size(314, 27);
+			this.testDatePicker.TabIndex = 33;
+			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
@@ -203,15 +224,6 @@
 			this.label4.TabIndex = 31;
 			this.label4.Text = "Step 2";
 			// 
-			// testDatePicker
-			// 
-			this.testDatePicker.CalendarFont = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.testDatePicker.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.testDatePicker.Location = new System.Drawing.Point(22, 78);
-			this.testDatePicker.Name = "testDatePicker";
-			this.testDatePicker.Size = new System.Drawing.Size(314, 27);
-			this.testDatePicker.TabIndex = 33;
-			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
@@ -231,18 +243,6 @@
 			this.step3Panel.Name = "step3Panel";
 			this.step3Panel.Size = new System.Drawing.Size(744, 120);
 			this.step3Panel.TabIndex = 34;
-			// 
-			// routineFinishedCheckBox
-			// 
-			this.routineFinishedCheckBox.AutoSize = true;
-			this.routineFinishedCheckBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.routineFinishedCheckBox.Location = new System.Drawing.Point(22, 23);
-			this.routineFinishedCheckBox.Name = "routineFinishedCheckBox";
-			this.routineFinishedCheckBox.Size = new System.Drawing.Size(95, 22);
-			this.routineFinishedCheckBox.TabIndex = 39;
-			this.routineFinishedCheckBox.Text = "Finished";
-			this.routineFinishedCheckBox.UseVisualStyleBackColor = true;
-			this.routineFinishedCheckBox.CheckedChanged += new System.EventHandler(this.finishedTest_OnCheckChanged);
 			// 
 			// LabTestPage
 			// 
