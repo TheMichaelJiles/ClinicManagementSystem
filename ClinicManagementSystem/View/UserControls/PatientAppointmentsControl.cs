@@ -109,14 +109,14 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
-		private void manageButton_OnClick(object sender, EventArgs e)
+		private void viewButton_OnClick(object sender, EventArgs e)
 		{
 			try
 			{
 				if (this.SelectedAppointment != null)
 				{
-					var manageApptFrm = new ManageAppointmentPage(this);
-					manageApptFrm.ShowDialog();
+					var managerAppointmentPage = new ManageAppointmentPage(this);
+					managerAppointmentPage.ShowDialog();
 				}
 			}
 			catch (Exception err)

@@ -36,8 +36,12 @@
             this.pageTitleLabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.manageButton = new System.Windows.Forms.Button();
+            this.viewButton = new System.Windows.Forms.Button();
             this.labTestsDataGrid = new System.Windows.Forms.DataGridView();
+            this.finishedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.testTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
@@ -55,10 +59,6 @@
             this.finalDiagnosisTextArea = new System.Windows.Forms.RichTextBox();
             this.saveAppointmentButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.finishedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.testTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGrid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,7 +88,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.manageButton);
+            this.panel2.Controls.Add(this.viewButton);
             this.panel2.Controls.Add(this.labTestsDataGrid);
             this.panel2.Controls.Add(this.orderButton);
             this.panel2.Controls.Add(this.editButton);
@@ -98,18 +98,18 @@
             this.panel2.Size = new System.Drawing.Size(997, 227);
             this.panel2.TabIndex = 4;
             // 
-            // manageButton
+            // viewButton
             // 
-            this.manageButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.manageButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.manageButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageButton.Location = new System.Drawing.Point(844, 119);
-            this.manageButton.Name = "manageButton";
-            this.manageButton.Size = new System.Drawing.Size(152, 36);
-            this.manageButton.TabIndex = 9;
-            this.manageButton.Text = "Manage";
-            this.manageButton.UseVisualStyleBackColor = false;
-            this.manageButton.Click += new System.EventHandler(this.manageLabTest_OnClick);
+            this.viewButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.viewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.viewButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewButton.Location = new System.Drawing.Point(844, 119);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(152, 36);
+            this.viewButton.TabIndex = 9;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = false;
+            this.viewButton.Click += new System.EventHandler(this.viewLabTest_OnClick);
             // 
             // labTestsDataGrid
             // 
@@ -163,6 +163,39 @@
             this.labTestsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.labTestsDataGrid.Size = new System.Drawing.Size(845, 211);
             this.labTestsDataGrid.TabIndex = 5;
+            // 
+            // finishedColumn
+            // 
+            this.finishedColumn.HeaderText = "Finished";
+            this.finishedColumn.Name = "finishedColumn";
+            this.finishedColumn.ReadOnly = true;
+            this.finishedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.finishedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.finishedColumn.Width = 80;
+            // 
+            // testTypeColumn
+            // 
+            this.testTypeColumn.HeaderText = "Test Type";
+            this.testTypeColumn.MinimumWidth = 6;
+            this.testTypeColumn.Name = "testTypeColumn";
+            this.testTypeColumn.ReadOnly = true;
+            this.testTypeColumn.Width = 200;
+            // 
+            // dateColumn
+            // 
+            this.dateColumn.HeaderText = "Date";
+            this.dateColumn.MinimumWidth = 6;
+            this.dateColumn.Name = "dateColumn";
+            this.dateColumn.ReadOnly = true;
+            this.dateColumn.Width = 200;
+            // 
+            // resultsColumn
+            // 
+            this.resultsColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.resultsColumn.HeaderText = "Results";
+            this.resultsColumn.MinimumWidth = 6;
+            this.resultsColumn.Name = "resultsColumn";
+            this.resultsColumn.ReadOnly = true;
             // 
             // orderButton
             // 
@@ -363,39 +396,6 @@
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_OnClick);
             // 
-            // finishedColumn
-            // 
-            this.finishedColumn.HeaderText = "Finished";
-            this.finishedColumn.Name = "finishedColumn";
-            this.finishedColumn.ReadOnly = true;
-            this.finishedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.finishedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.finishedColumn.Width = 80;
-            // 
-            // testTypeColumn
-            // 
-            this.testTypeColumn.HeaderText = "Test Type";
-            this.testTypeColumn.MinimumWidth = 6;
-            this.testTypeColumn.Name = "testTypeColumn";
-            this.testTypeColumn.ReadOnly = true;
-            this.testTypeColumn.Width = 200;
-            // 
-            // dateColumn
-            // 
-            this.dateColumn.HeaderText = "Date";
-            this.dateColumn.MinimumWidth = 6;
-            this.dateColumn.Name = "dateColumn";
-            this.dateColumn.ReadOnly = true;
-            this.dateColumn.Width = 200;
-            // 
-            // resultsColumn
-            // 
-            this.resultsColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.resultsColumn.HeaderText = "Results";
-            this.resultsColumn.MinimumWidth = 6;
-            this.resultsColumn.Name = "resultsColumn";
-            this.resultsColumn.ReadOnly = true;
-            // 
             // ManageAppointmentPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -448,7 +448,7 @@
 		private System.Windows.Forms.RichTextBox finalDiagnosisTextArea;
 		private System.Windows.Forms.Button saveAppointmentButton;
 		private System.Windows.Forms.Button cancelButton;
-		private System.Windows.Forms.Button manageButton;
+		private System.Windows.Forms.Button viewButton;
         private System.Windows.Forms.DataGridViewCheckBoxColumn finishedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn testTypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateColumn;

@@ -90,7 +90,7 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
-		private void manageLabTest_OnClick(object sender, EventArgs e)
+		private void viewLabTest_OnClick(object sender, EventArgs e)
 		{
 			try
 			{

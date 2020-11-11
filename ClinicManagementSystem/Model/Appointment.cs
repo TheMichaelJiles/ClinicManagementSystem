@@ -15,6 +15,7 @@ namespace ClinicManagementSystem.Model
 		public int ID { get; set; }
 		public string Reasons { get; set; }
 		public bool IsPastDate => this.Date <= DateTime.Now;
+		public bool IsFinalized => this
 
 	}
 }
