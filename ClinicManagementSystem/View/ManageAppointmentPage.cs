@@ -143,6 +143,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
+				DiagnosisDAL.UpsertDiagnosis(buildDiagnosis());
 			}
 			catch (Exception err)
 			{
@@ -193,6 +194,16 @@ namespace ClinicManagementSystem.View
 			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
 			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
 		}
+
+		private Diagnosis buildDiagnosis()
+        {
+			return new Diagnosis
+			{
+				Appointment = this.Appointment,
+				InitialDiagnosis = this.initialDiagnosisTextArea.Text,
+				FinalDiagnosis = this.finalDiagnosisTextArea.Text
+			};
+        }
 
 		#endregion
 	}
