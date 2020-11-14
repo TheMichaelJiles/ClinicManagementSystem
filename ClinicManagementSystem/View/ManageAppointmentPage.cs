@@ -49,6 +49,10 @@ namespace ClinicManagementSystem.View
 			try
 			{
 				this.initializeControls();
+				if (this.Appointment.Date < DateTime.Today || this.finalDiagnosisTextArea.Text.Length > 0)
+                {
+					this.disableControls();
+                }
 			}
 			catch (Exception err)
 			{
@@ -157,7 +161,22 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				DiagnosisDAL.UpsertDiagnosis(buildDiagnosis());
+				if (this.finalDiagnosisTextArea.Text.Length != 0)
+                {
+					var saveFinalDiagnosisConfirmationDialog = MessageBox.Show("Once you enter a final diagnosis, this appointment will not be able to be edited again. Would you like to continue?", "Final Diagnosis Entered", MessageBoxButtons.YesNo);
+					if (saveFinalDiagnosisConfirmationDialog == DialogResult.Yes)
+                    {
+						DiagnosisDAL.UpsertDiagnosis(buildDiagnosis());
+						MessageBox.Show("Diagnosis details for this appointment have been saved");
+						this.Close();
+                    } 
+                } 
+				else
+                {
+					DiagnosisDAL.UpsertDiagnosis(buildDiagnosis());
+					MessageBox.Show("Diagnosis details for this appointment have been saved");
+					this.Close();
+				}
 			}
 			catch (Exception err)
 			{
@@ -197,6 +216,18 @@ namespace ClinicManagementSystem.View
 			this.autofillData();
 		}
 
+		private void disableControls()
+        {
+			this.startCheckButton.Enabled = false;
+			this.saveAppointmentButton.Hide();
+			this.orderButton.Enabled = false;
+			this.editButton.Enabled = false;
+			this.viewButton.Enabled = false;
+			this.removeButton.Enabled = false;
+			this.initialDiagnosisTextArea.Enabled = false;
+			this.finalDiagnosisTextArea.Enabled = false;
+        }
+
 		private void autofillData()
 		{
 			this.loadData();
@@ -220,6 +251,16 @@ namespace ClinicManagementSystem.View
 			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
 
             this.refreshLabTestsGrid();
+			this.loadDiagnosis();
+        }
+
+		private void loadDiagnosis()
+        {
+			Diagnosis diagnosis = DiagnosisDAL.GetDiagnosis(this.Appointment.ID);
+			diagnosis.Appointment = this.Appointment;
+
+			this.initialDiagnosisTextArea.Text = diagnosis.InitialDiagnosis;
+			this.finalDiagnosisTextArea.Text = diagnosis.FinalDiagnosis;
         }
 
         private void refreshLabTestsGrid()
