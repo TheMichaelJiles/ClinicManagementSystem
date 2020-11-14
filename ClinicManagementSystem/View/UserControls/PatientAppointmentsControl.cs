@@ -180,7 +180,8 @@ namespace ClinicManagementSystem.View.UserControls
 		{
 			if (this.apptDataGrid.SelectedRows.Count > 0)
 			{
-				this.editButton.Enabled = !this.SelectedAppointment.IsPastDate;
+				Diagnosis diagnosis = DiagnosisDAL.GetDiagnosis(this.SelectedAppointment.ID);
+				this.editButton.Enabled = !this.SelectedAppointment.IsPastDate && diagnosis.FinalDiagnosis.Length == 0;
 			}
 		}
 
