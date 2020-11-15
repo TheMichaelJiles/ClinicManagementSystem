@@ -31,7 +31,7 @@ namespace ClinicManagementSystem.View.UserControls
 			set => this.MainPage.CurrentPatient = value;
 		}
 
-		public Appointment SelectedAppointment => this.appointments.Count > 0 ? this.appointments[this.apptDataGrid.SelectedRows[0].Index] : null;
+		public Appointment SelectedAppointment => this.apptDataGrid.SelectedRows.Count > 0 ? this.appointments[this.apptDataGrid.SelectedRows[0].Index] : null;
 
 		#endregion
 
@@ -105,7 +105,6 @@ namespace ClinicManagementSystem.View.UserControls
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
-				// TODO show appointment had issue being removed
 			}
 		}
 
@@ -117,6 +116,7 @@ namespace ClinicManagementSystem.View.UserControls
 				{
 					var managerAppointmentPage = new ManageAppointmentPage(this);
 					managerAppointmentPage.ShowDialog();
+					this.refreshControls();
 				}
 			}
 			catch (Exception err)
@@ -127,7 +127,7 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private void appointmentsDataGrid_OnChange(object sender, DataGridViewRowStateChangedEventArgs e)
 		{
-			this.initializeControls();
+			this.refreshControls();
 		}
 
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
@@ -176,12 +176,12 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
-		private void initializeControls()
+		private void refreshControls()
 		{
-			if (this.apptDataGrid.SelectedRows.Count > 0)
+			if (this.SelectedAppointment != null)
 			{
-				Diagnosis diagnosis = DiagnosisDAL.GetDiagnosis(this.SelectedAppointment.ID);
-				this.editButton.Enabled = !this.SelectedAppointment.IsPastDate && diagnosis.FinalDiagnosis.Length == 0;
+				this.editButton.Enabled = this.SelectedAppointment.IsEditable;
+				this.removeButton.Enabled = !this.SelectedAppointment.IsFinalized;
 			}
 		}
 

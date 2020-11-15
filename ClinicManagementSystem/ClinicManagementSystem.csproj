@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\ModelDAL\AppointmentDAL.cs" />
+    <Compile Include="DB\ModelDAL\DiagnosisDAL.cs" />
     <Compile Include="DB\ModelDAL\DoctorDAL.cs" />
     <Compile Include="DB\ModelDAL\LabTestDAL.cs" />
     <Compile Include="DB\ModelDAL\PatientDAL.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Bio.cs" />
     <Compile Include="DB\Util\DbConnection.cs" />
+    <Compile Include="Model\Diagnosis.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\LabTest.cs" />
     <Compile Include="Model\Nurse.cs" />

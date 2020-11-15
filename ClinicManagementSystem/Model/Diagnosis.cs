@@ -7,13 +7,10 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.Model
 {
-    class Diagnosis
+    public class Diagnosis
     {
-        public Appointment Appointment { get; set; }
-
+        public int AppointmentID { get; set; }
         public string InitialDiagnosis { get; set; }
-
         public string FinalDiagnosis { get; set; }
-
     }
 }

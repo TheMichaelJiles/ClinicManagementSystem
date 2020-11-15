@@ -17,7 +17,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		private const string GetPatientAppointmentsQuery = "CALL GetPatientAppointments(@patientID)";
 		private const string GetDoctorAppointmentTimesQuery = "CALL GetDoctorAppointmentTimes(@doctorID, @date)";
 		private const string RemoveAppointment = "DELETE FROM Appointment WHERE apptID = @apptID";
-		private const string InsertAppointmentProcedure = "CALL InsertAppointment(@datetime, @reasons, @patientID, @doctorID)";
+		private const string InsertAppointmentProcedure = "CALL InsertAppointment(@apptDate, @reasons, @patientID, @doctorID)";
 		private const string UpdateAppointmentProcedure = "CALL UpdateAppointment(@n_apptID, @datetime, @reasons, @patientID, @doctorID)";
 
 		#endregion
@@ -85,7 +85,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 				using (MySqlCommand cmd = new MySqlCommand(InsertAppointmentProcedure, connection))
 				{
-					cmd.Parameters.AddWithValue("@datetime", appt.Date);
+					cmd.Parameters.AddWithValue("@apptDate", appt.Date);
 					cmd.Parameters.AddWithValue("@reasons", appt.Reasons);
 					cmd.Parameters.AddWithValue("@patientID", appt.PatientID);
 					cmd.Parameters.AddWithValue("@doctorID", appt.Doctor.ID);
@@ -132,6 +132,8 @@ namespace ClinicManagementSystem.DB.ModelDAL
 				int doctorIDOrdinal = reader.GetOrdinal("doctorID");
 				int fnameOrdinal = reader.GetOrdinal("fname");
 				int lnameOrdinal = reader.GetOrdinal("lname");
+				int initialOrdinal = reader.GetOrdinal("initialDiagnosis");
+				int finalOrdinal = reader.GetOrdinal("finalDiagnosis");
 
 				while (reader.Read())
 				{
@@ -143,6 +145,8 @@ namespace ClinicManagementSystem.DB.ModelDAL
 					appointment.Doctor.ID = DbDefault.GetInt(reader, doctorIDOrdinal);
 					appointment.Doctor.Bio.FirstName = DbDefault.GetString(reader, fnameOrdinal);
 					appointment.Doctor.Bio.LastName = DbDefault.GetString(reader, lnameOrdinal);
+					appointment.Diagnosis.InitialDiagnosis = DbDefault.GetString(reader, initialOrdinal);
+					appointment.Diagnosis.FinalDiagnosis = DbDefault.GetString(reader, finalOrdinal);
 
 					appointments.Add(appointment);
 				}

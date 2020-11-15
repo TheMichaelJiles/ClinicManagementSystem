@@ -129,7 +129,26 @@ namespace ClinicManagementSystem.View
             return check;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+		private void checkToDisableControls()
+		{
+			if (this.ManageApptPage.Appointment.IsFinalized)
+			{
+				this.disableControls();
+			}
+		}
+
+		private void disableControls()
+		{
+			this.systolicNumberUpDown.Enabled = false;
+			this.diastolicNumberUpDown.Enabled = false;
+			this.bodyTempNumberUpDown.Enabled = false;
+			this.pulseNumberUpDown.Enabled = false;
+			this.weightNumberUpDown.Enabled = false;
+			this.symptomsTextArea.ReadOnly = true;
+			this.saveButton.Hide();
+		}
+
+		private void cancelButton_Click(object sender, EventArgs e)
         {
 			this.Close();
         }
@@ -139,6 +158,7 @@ namespace ClinicManagementSystem.View
 			if (this.IsEditing)
 			{
 				this.populateInfoFields();
+				this.checkToDisableControls();
 			}
 		}
     }

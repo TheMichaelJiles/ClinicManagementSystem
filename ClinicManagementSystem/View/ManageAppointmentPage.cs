@@ -26,7 +26,7 @@ namespace ClinicManagementSystem.View
 
 		public RoutineCheck RoutineCheck { get; private set; }
 		public Appointment Appointment => AppointmentsControl.SelectedAppointment;
-        public LabTest SelectedLabTest => this.LabTests.Count > 0 ? this.LabTests[this.labTestsDataGrid.SelectedRows[0].Index] : null;
+        public LabTest SelectedLabTest => this.labTestsDataGrid.SelectedRows.Count > 0 ? this.LabTests[this.labTestsDataGrid.SelectedRows[0].Index] : null;
         public IList<LabTest> LabTests { get; private set; }
 
 		#endregion
@@ -49,10 +49,6 @@ namespace ClinicManagementSystem.View
 			try
 			{
 				this.initializeControls();
-				if (this.Appointment.Date < DateTime.Today || this.finalDiagnosisTextArea.Text.Length > 0)
-                {
-					this.disableControls();
-                }
 			}
 			catch (Exception err)
 			{
@@ -64,7 +60,11 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				var labTestPage = new LabTestPage(this);
+				this.labTestsDataGrid.ClearSelection();
+				var labTestPage = new LabTestPage(this)
+				{
+					IsOrderingTest = true
+				};
 				labTestPage.ShowDialog();
 				this.refreshLabTestsGrid();
 			}
@@ -149,7 +149,7 @@ namespace ClinicManagementSystem.View
 			{
 				var routineCheckPage = new RoutineCheckPage(this) { IsEditing = true };
 				routineCheckPage.ShowDialog();
-				this.initializeControls();
+				this.loadRoutineCheck();
 			}
 			catch (Exception err)
 			{
@@ -161,21 +161,13 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				if (this.finalDiagnosisTextArea.Text.Length != 0)
+				if (!string.IsNullOrEmpty(this.finalDiagnosisTextArea.Text))
                 {
-					var saveFinalDiagnosisConfirmationDialog = MessageBox.Show("Once you enter a final diagnosis, this appointment will not be able to be edited again. Would you like to continue?", "Final Diagnosis Entered", MessageBoxButtons.YesNo);
-					if (saveFinalDiagnosisConfirmationDialog == DialogResult.Yes)
-                    {
-						DiagnosisDAL.UpsertDiagnosis(buildDiagnosis());
-						MessageBox.Show("Diagnosis details for this appointment have been saved");
-						this.Close();
-                    } 
+					this.showFinalDiagnosisWarning();
                 } 
 				else
                 {
-					DiagnosisDAL.UpsertDiagnosis(buildDiagnosis());
-					MessageBox.Show("Diagnosis details for this appointment have been saved");
-					this.Close();
+					this.showDiagnosisSaved();
 				}
 			}
 			catch (Exception err)
@@ -193,6 +185,18 @@ namespace ClinicManagementSystem.View
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
+			} 
+		}
+
+		private void labTestDataGrid_OnChange(object sender, DataGridViewRowStateChangedEventArgs e)
+		{
+			try
+			{
+				this.refreshControls();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
 			}
 		}
 
@@ -200,7 +204,7 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
-        private void promptRemoveLabTest()
+		private void promptRemoveLabTest()
         {
             var message = $"Are you sure you want to remove Lab Test {this.SelectedLabTest.TestType.Code} - {this.SelectedLabTest.TestType.Name}?";
 
@@ -211,9 +215,50 @@ namespace ClinicManagementSystem.View
             }
         }
 
+		private void showDiagnosisSaved()
+		{
+			this.updateDiagnosis();
+			MessageBox.Show("Diagnosis details for this appointment have been saved.");
+			this.Close();
+		}
+
+		private void showFinalDiagnosisWarning()
+		{
+			var message = "Once you enter a final diagnosis, this appointment will not be able to be edited again. Would you like to continue?";
+
+			if (MessageBox.Show(message, "Final Diagnosis Entered", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				this.updateDiagnosis();
+				MessageBox.Show("The appointment has been saved");
+				this.Close();
+			}
+		}
+
+		private void updateDiagnosis()
+		{
+			var diagnosis = buildDiagnosis();
+			this.Appointment.Diagnosis = diagnosis;
+			DiagnosisDAL.UpsertDiagnosis(diagnosis);
+		}
+
 		private void initializeControls()
 		{
 			this.autofillData();
+			this.refreshControls();
+		}
+
+		private void refreshControls()
+		{
+			if (this.Appointment.IsFinalized)
+			{
+				this.disableControls();
+				this.editCheckButton.Text = "View";
+			}
+			else if (this.SelectedLabTest != null)
+			{
+				this.editButton.Enabled = !this.SelectedLabTest.IsFinished;
+				this.removeButton.Enabled = !this.SelectedLabTest.IsFinished;
+			}
 		}
 
 		private void disableControls()
@@ -222,17 +267,16 @@ namespace ClinicManagementSystem.View
 			this.saveAppointmentButton.Hide();
 			this.orderButton.Enabled = false;
 			this.editButton.Enabled = false;
-			this.viewButton.Enabled = false;
 			this.removeButton.Enabled = false;
-			this.initialDiagnosisTextArea.Enabled = false;
-			this.finalDiagnosisTextArea.Enabled = false;
+			this.initialDiagnosisTextArea.ReadOnly = true;
+			this.finalDiagnosisTextArea.ReadOnly = true;
         }
 
 		private void autofillData()
 		{
 			this.loadData();
-
-			this.initializeRoutineCheckControls();
+			this.loadRoutineCheck();
+			this.setDiagnosis();
 		}
 
 		private void initializeRoutineCheckControls()
@@ -245,23 +289,26 @@ namespace ClinicManagementSystem.View
 			this.editCheckButton.Enabled = this.RoutineCheck.IsFinished;
 		}
 
+		private void setDiagnosis()
+		{
+			this.initialDiagnosisTextArea.Text = this.Appointment.Diagnosis.InitialDiagnosis;
+			this.finalDiagnosisTextArea.Text = this.Appointment.Diagnosis.FinalDiagnosis;
+		}
+
 		private void loadData()
 		{
 			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
 			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
 
             this.refreshLabTestsGrid();
-			this.loadDiagnosis();
         }
 
-		private void loadDiagnosis()
-        {
-			Diagnosis diagnosis = DiagnosisDAL.GetDiagnosis(this.Appointment.ID);
-			diagnosis.Appointment = this.Appointment;
-
-			this.initialDiagnosisTextArea.Text = diagnosis.InitialDiagnosis;
-			this.finalDiagnosisTextArea.Text = diagnosis.FinalDiagnosis;
-        }
+		private void loadRoutineCheck()
+		{
+			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
+			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
+			this.initializeRoutineCheckControls();
+		}
 
         private void refreshLabTestsGrid()
         {
@@ -276,7 +323,7 @@ namespace ClinicManagementSystem.View
 
                 newRow.Cells[0].Value = labTest.IsFinished;
                 newRow.Cells[1].Value = $"{labTest.TestType.Code} - {labTest.TestType.Name}";
-                newRow.Cells[2].Value = labTest.Date;
+                newRow.Cells[2].Value = labTest.Date == default ? "" : labTest.Date.ToString();
                 newRow.Cells[3].Value = labTest.Results;
 
                 this.labTestsDataGrid.Rows.Add(newRow);
@@ -287,7 +334,7 @@ namespace ClinicManagementSystem.View
         {
 			return new Diagnosis
 			{
-				Appointment = this.Appointment,
+				AppointmentID = this.Appointment.ID,
 				InitialDiagnosis = this.initialDiagnosisTextArea.Text,
 				FinalDiagnosis = this.finalDiagnosisTextArea.Text
 			};

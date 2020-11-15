@@ -26,11 +26,9 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
-		public bool IsEditingAppointment { get; set; }
-
+		public bool IsEditingAppointment { get; set; } 
 		private Doctor SelectedDoctor => this.doctors[this.doctorComboBox.SelectedIndex];
-
-		private Patient SelectedPatient;
+		private Patient SelectedPatient => this.AppointmentControl.CurrentPatient;
 		private DateTime SelectedTime => this.availableTimes[this.timeComboBox.SelectedIndex];
 
 		#endregion
@@ -43,15 +41,10 @@ namespace ClinicManagementSystem.View
 
 			this.AppointmentControl = appointmentControl;
 			this.availableTimes = new List<DateTime>();
-			this.SelectedPatient = appointmentControl.CurrentPatient;
-			if (this.IsEditingAppointment)
-            {
-				this.appointmentButton.Text = "Save Appointment";
-				this.populateInfoFields();
-            }
 		}
 
 		#endregion
+
 
 		#region Events
 
@@ -78,7 +71,7 @@ namespace ClinicManagementSystem.View
 					AppointmentDAL.UpdateAppointment(appt);
 					this.Close();
 				}
-				else if (true) // verify all fields are valid; 
+				else //TODO verify all fields are valid; 
 				{
 					var appt = this.buildAppointment();
 					AppointmentDAL.InsertAppointment(appt);
@@ -129,12 +122,14 @@ namespace ClinicManagementSystem.View
 			this.timeComboBox.SelectedValue = this.AppointmentControl.SelectedAppointment.Date.TimeOfDay;
 			this.reasonsTextBox.Text = this.AppointmentControl.SelectedAppointment.Reasons;
         }
+
 		private void initializeControls()
 		{
 			if (this.IsEditingAppointment)
 			{
 				this.appointmentButton.Text = "Save Appointment";
 				this.autofillAppointmentData();
+				//this.populateInfoFields();
 			}
 			else
 			{

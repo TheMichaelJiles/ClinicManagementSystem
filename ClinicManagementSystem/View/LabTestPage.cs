@@ -27,6 +27,7 @@ namespace ClinicManagementSystem.View
 
 		public bool IsEditingTest { get; set; }
 		public bool IsManagingTest { get; set; }
+        public bool IsOrderingTest { get; set; }
 		public TestType SelectedTestType => this.testTypes[this.testTypesComboBox.SelectedIndex];
 
 		#endregion
@@ -49,7 +50,7 @@ namespace ClinicManagementSystem.View
             try
             {
 				this.loadTestTypes();
-                this.setControls();
+                this.initializeControls();
 			}
             catch (Exception err)
             {
@@ -74,7 +75,10 @@ namespace ClinicManagementSystem.View
 		{
             try
             {
-                this.handleSave();
+                if (this.validateSave())
+                {
+                    this.handleSave();
+                }
             }
             catch (Exception err)
             {
@@ -106,7 +110,7 @@ namespace ClinicManagementSystem.View
             }
             else if (this.IsManagingTest)
             {
-                LabTestDAL.EditLabTest(this.buildLabTest());
+                this.handleManageSave();
             }
             else
             {
@@ -116,13 +120,30 @@ namespace ClinicManagementSystem.View
 			this.Close();
         }
 
+        private bool validateSave()
+        {
+            if (this.testTypesComboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("You must have a Test Type selected to save.", "Select Test Type", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private LabTest buildLabTest()
         {
             var labTest = new LabTest();
 
+            if (this.finishedCheckBox.Checked)
+            {
+                labTest.Date = this.testDatePicker.Value;
+            }
+
             labTest.AppointmentID = this.appointmentPage.Appointment.ID;
             labTest.TestType = this.SelectedTestType;
-            labTest.Date = this.testDatePicker.Value;
             labTest.Results = this.resultsTextArea.Text;
             labTest.Abnormality = this.abnormalityTextArea.Text;
 
@@ -139,21 +160,35 @@ namespace ClinicManagementSystem.View
         {
             var allTestTypes = TestTypeDAL.GetAllTestTypes();
 
+            if (this.appointmentPage.SelectedLabTest != null)
+            {
+                this.testTypes.Add(this.appointmentPage.SelectedLabTest.TestType);
+            }
+
             foreach (var testType in allTestTypes)
             {
                 var hasTestOrderedAlready = this.appointmentPage.LabTests.Any(labTest => labTest.TestType.Code == testType.Code);
-                var matchesSelectedLabTest = this.appointmentPage.SelectedLabTest != null ? testType.Code == this.appointmentPage.SelectedLabTest.TestType.Code : false;
 
-                if (!hasTestOrderedAlready || (matchesSelectedLabTest && this.IsEditingTest || this.IsManagingTest))
+                if (!hasTestOrderedAlready)
                 {
                     this.testTypes.Add(testType);
                 }
             }
         }
 
-		private void setControls()
+		private void initializeControls()
 		{
-			if (this.IsEditingTest)
+            if (this.IsOrderingTest)
+            {
+                this.toggleStep1Panel(true);
+                this.toggleStep2Panel(false);
+            }
+            else if (this.appointmentPage.Appointment.IsFinalized || this.appointmentPage.SelectedLabTest.IsFinished)
+            {
+                this.autofillData();
+                this.disableControls();
+            }
+			else if (this.IsEditingTest)
 			{
 				this.autofillData();
                 this.toggleStep1Panel(true);
@@ -167,10 +202,16 @@ namespace ClinicManagementSystem.View
             }
 			else
 			{
-				this.toggleStep1Panel(true);
-				this.toggleStep2Panel(false);
+				
             }
 		}
+
+        private void disableControls()
+        {
+            this.toggleStep1Panel(false);
+            this.toggleStep2Panel(false);
+            this.saveButton.Hide();
+        }
 
         private void updateTestType()
         {
@@ -181,13 +222,37 @@ namespace ClinicManagementSystem.View
             }
         }
 
+        private void handleManageSave()
+        {
+            if (this.finishedCheckBox.Checked)
+            {
+                this.showFinalResultsWarning();
+            }
+            else
+            {
+                LabTestDAL.EditLabTest(this.buildLabTest());
+            }
+        }
+
+        private void showFinalResultsWarning()
+        {
+            var message = "Once you check finished, this lab test will not be able to be edited again. Would you like to continue?";
+
+            if (MessageBox.Show(message, "Finished Lab Test", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                LabTestDAL.EditLabTest(this.buildLabTest());
+                MessageBox.Show("Lab Test results have been saved");
+                this.Close();
+            }
+        }
+
         private void autofillData()
         {
 			this.setComboBoxTestType();
             this.finishedCheckBox.Checked = this.appointmentPage.SelectedLabTest.IsFinished;
             this.resultsTextArea.Text = this.appointmentPage.SelectedLabTest.Results;
             this.abnormalityTextArea.Text = this.appointmentPage.SelectedLabTest.Abnormality;
-            this.testDatePicker.Value = this.appointmentPage.SelectedLabTest.Date;
+            this.testDatePicker.Value = this.appointmentPage.SelectedLabTest.Date == default ? DateTime.Now : this.appointmentPage.SelectedLabTest.Date;
         }
 
         private void setComboBoxTestType()
@@ -203,18 +268,14 @@ namespace ClinicManagementSystem.View
 
 		private void toggleStep1Panel(bool condition)
         {
-            foreach (Control step1PanelControl in this.step1Panel.Controls)
-            {
-                step1PanelControl.Enabled = condition;
-            }
+            this.testTypesComboBox.Enabled = condition;
         }
 
         private void toggleStep2Panel(bool condition)
         {
-            foreach (Control step2PanelControl in this.step2Panel.Controls)
-            {
-                step2PanelControl.Enabled = condition;
-            }
+            this.finishedCheckBox.Enabled = condition;
+            this.resultsTextArea.ReadOnly = !condition;
+            this.abnormalityTextArea.ReadOnly = !condition;
         }
 
         #endregion

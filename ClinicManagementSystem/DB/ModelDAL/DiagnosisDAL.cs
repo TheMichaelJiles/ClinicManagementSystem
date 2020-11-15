@@ -23,7 +23,7 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 				using (var cmd = new MySqlCommand(UpsertDiagnosisQueryString, connection))
 				{
-					cmd.Parameters.AddWithValue("@apptID", diagnosis.Appointment.ID);
+					cmd.Parameters.AddWithValue("@apptID", diagnosis.AppointmentID);
 					cmd.Parameters.AddWithValue("@initialDiagnosis", diagnosis.InitialDiagnosis);
 					cmd.Parameters.AddWithValue("@finalDiagnosis", diagnosis.FinalDiagnosis);
 					cmd.ExecuteNonQuery();

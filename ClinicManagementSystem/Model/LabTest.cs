@@ -14,6 +14,6 @@ namespace ClinicManagementSystem.Model
 		public string Results { get; set; }
 		public string Abnormality { get; set; }
 		public DateTime Date { get; set; }
-        public bool IsFinished => !string.IsNullOrEmpty(Results);
+		public bool IsFinished => Date <= DateTime.Now && Date != default;//!string.IsNullOrEmpty(Results);
     }
 }
