@@ -135,7 +135,7 @@ namespace ClinicManagementSystem.View
 			{
 				var routineCheckPage = new RoutineCheckPage(this);
 				routineCheckPage.ShowDialog();
-				this.initializeControls();
+				this.loadRoutineCheck();
 			}
 			catch (Exception err)
 			{
