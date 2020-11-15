@@ -64,25 +64,14 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
-				if (this.IsEditingAppointment)
+				if (this.isValidAppointment())
 				{
-					var appt = this.buildAppointment();
-					appt.ID = this.AppointmentControl.SelectedAppointment.ID;
-					AppointmentDAL.UpdateAppointment(appt);
-					this.Close();
-				}
-				else //TODO verify all fields are valid; 
-				{
-					var appt = this.buildAppointment();
-					AppointmentDAL.InsertAppointment(appt);
-					this.AppointmentControl.RefreshAppointmentGrid();
-					this.Close();
+					this.handleSaveAppointment();
 				}
 			}
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
-				// duplicate appointment exist in DB on InsertAppointment
 			}
 		}
 
@@ -115,25 +104,35 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
-		private void populateInfoFields()
-        {
-			this.doctorComboBox.SelectedValue = this.AppointmentControl.SelectedAppointment.Doctor.Bio.FirstName;
-			this.apptDatePicker.Value = this.AppointmentControl.SelectedAppointment.Date;
-			this.timeComboBox.SelectedValue = this.AppointmentControl.SelectedAppointment.Date.TimeOfDay;
-			this.reasonsTextBox.Text = this.AppointmentControl.SelectedAppointment.Reasons;
-        }
-
 		private void initializeControls()
 		{
 			if (this.IsEditingAppointment)
 			{
 				this.appointmentButton.Text = "Save Appointment";
 				this.autofillAppointmentData();
-				//this.populateInfoFields();
 			}
 			else
 			{
 				this.loadDoctors();
+			}
+		}
+
+		private void handleSaveAppointment()
+		{
+			if (this.IsEditingAppointment)
+			{
+				var appt = this.buildAppointment();
+				appt.ID = this.AppointmentControl.SelectedAppointment.ID;
+				AppointmentDAL.UpdateAppointment(appt);
+				MessageBox.Show("The appointment has been updated.", "Updated Appointment", MessageBoxButtons.OKCancel);
+				this.Close();
+			}
+			else
+			{
+				var appt = this.buildAppointment();
+				AppointmentDAL.InsertAppointment(appt);
+				MessageBox.Show("The appointment has been created.", "New Appointment", MessageBoxButtons.OKCancel);
+				this.Close();
 			}
 		}
 
@@ -213,6 +212,31 @@ namespace ClinicManagementSystem.View
 			appointment.Date = this.apptDatePicker.Value.ChangeTime(this.SelectedTime.Hour, this.SelectedTime.Minute, 0, 0);
 
 			return appointment;
+		}
+
+		private bool isValidAppointment()
+		{
+			var isValidDate = this.apptDatePicker.Value > DateTime.Now;
+			var hasDoctorChoosen = this.doctorComboBox.SelectedIndex > -1;
+			var hasTimeChoosen = this.timeComboBox.SelectedIndex > -1;
+
+			var message = "";
+
+			if (!isValidDate)
+				message += "You must choose a future date." + Environment.NewLine;
+
+			if (!hasDoctorChoosen)
+				message += "You must choose a doctor." + Environment.NewLine;
+
+			if (!hasTimeChoosen)
+				message += "You must choose a time." + Environment.NewLine;
+
+			if (!isValidDate || !hasDoctorChoosen || !hasTimeChoosen)
+			{
+				MessageBox.Show(message, "Invalid Appointment", MessageBoxButtons.OKCancel);
+			}
+
+			return isValidDate && hasDoctorChoosen && hasTimeChoosen;
 		}
 
 		#endregion

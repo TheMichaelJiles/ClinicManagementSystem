@@ -218,7 +218,7 @@ namespace ClinicManagementSystem.View
 		private void showDiagnosisSaved()
 		{
 			this.updateDiagnosis();
-			MessageBox.Show("Diagnosis details for this appointment have been saved.");
+			MessageBox.Show("Diagnosis details for this appointment have been saved.", "Appointment Saved", MessageBoxButtons.OKCancel);
 			this.Close();
 		}
 

@@ -69,6 +69,7 @@ namespace ClinicManagementSystem.View.UserControls
 			{
 				var patientApptFrm = new AppointmentInfoPage(this);
 				patientApptFrm.ShowDialog();
+				this.loadAppointmentGrid();
 			}
 			catch (Exception err)
 			{

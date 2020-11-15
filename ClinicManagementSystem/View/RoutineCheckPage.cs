@@ -66,7 +66,7 @@ namespace ClinicManagementSystem.View
 
 		private void showRoutineCheckSavedMessage(RoutineCheck check)
         {
-			var msg = $"A routine check for {check.Appointment.PatientID} on {check.Appointment.Date} has been saved";
+			var msg = $"The routine check has been saved.";
 			MessageBox.Show(msg, "Routine Check Saved", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
 

@@ -409,6 +409,7 @@
 			this.Controls.Add(this.pageTitleLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "ManageAppointmentPage";
+			this.ShowInTaskbar = false;
 			this.Text = "Appointment";
 			this.Load += new System.EventHandler(this.manageFrm_OnLoad);
 			this.panel2.ResumeLayout(false);
