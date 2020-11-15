@@ -268,6 +268,7 @@ namespace ClinicManagementSystem.View
 			this.orderButton.Enabled = false;
 			this.editButton.Enabled = false;
 			this.removeButton.Enabled = false;
+			this.viewButton.Enabled = this.LabTests.Count > 0;
 			this.initialDiagnosisTextArea.ReadOnly = true;
 			this.finalDiagnosisTextArea.ReadOnly = true;
         }
