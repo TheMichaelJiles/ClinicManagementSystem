@@ -16,5 +16,10 @@ namespace ClinicManagementSystem.View.UserControls
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void runReportButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

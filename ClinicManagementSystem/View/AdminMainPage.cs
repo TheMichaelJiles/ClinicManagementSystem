@@ -86,6 +86,7 @@ namespace ClinicManagementSystem.View
 			{
 				this.highlightSelectedMenuItem(this.adminQueryMenuItem);
 				this.controlPanel.Controls.Clear();
+				this.controlPanel.Controls.Add(new AdminQueryPage());
 			}
 			catch (Exception err)
 			{
