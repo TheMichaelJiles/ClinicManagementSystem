@@ -70,6 +70,7 @@ namespace ClinicManagementSystem.View
 		{
 			try
 			{
+				this.highlightSelectedMenuItem(this.registerUserMenuItem);
 				this.controlPanel.Controls.Clear();
 				this.controlPanel.Controls.Add(new RegisterUserControl());
 			}
@@ -79,27 +80,18 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
-		private void editUserMenuItem_OnClick(object sender, EventArgs e)
+		private void queryDbMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
 			{
+				this.highlightSelectedMenuItem(this.adminQueryMenuItem);
+				this.controlPanel.Controls.Clear();
 			}
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
 			}
 		}
-
-		private void editPatientMenuItem_OnClick(object sender, EventArgs e)
-		{
-			try
-			{
-			}
-			catch (Exception err)
-			{
-				ExceptionMessage.ShowError(err);
-			}
-		} 
 
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
@@ -124,6 +116,14 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
+		private void highlightSelectedMenuItem(ToolStripMenuItem selectedMenuItem)
+		{
+			foreach (ToolStripItem menuItem in this.navigationMenuStrip.Items)
+			{
+				menuItem.BackColor = menuItem == selectedMenuItem ? SystemColors.ActiveCaption : Color.Transparent;
+			}
+		}
+
 		private void showLoginPage()
 		{
 			this.LoginForm.Redisplay();
@@ -140,5 +140,6 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
+
 	}
 }

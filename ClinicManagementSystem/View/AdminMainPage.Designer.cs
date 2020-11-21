@@ -33,7 +33,7 @@
 			this.currentUserToolStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.navigationMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.registerUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.editUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.adminQueryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logoutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.topMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +72,7 @@
 			this.navigationMenuStrip.Dock = System.Windows.Forms.DockStyle.Right;
 			this.navigationMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerUserMenuItem,
-            this.editUserMenuItem,
+            this.adminQueryMenuItem,
             this.logoutMenuItem});
 			this.navigationMenuStrip.Location = new System.Drawing.Point(910, 24);
 			this.navigationMenuStrip.Name = "navigationMenuStrip";
@@ -91,16 +91,16 @@
 			this.registerUserMenuItem.Text = "Register User";
 			this.registerUserMenuItem.Click += new System.EventHandler(this.registerNewUserMenuItem_OnClick);
 			// 
-			// editUserMenuItem
+			// adminQueryMenuItem
 			// 
-			this.editUserMenuItem.AutoSize = false;
-			this.editUserMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.editUserMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editUserMenuItem.Image")));
-			this.editUserMenuItem.Name = "editUserMenuItem";
-			this.editUserMenuItem.Size = new System.Drawing.Size(217, 45);
-			this.editUserMenuItem.Text = "Edit User       ";
-			this.editUserMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.editUserMenuItem.Click += new System.EventHandler(this.editUserMenuItem_OnClick);
+			this.adminQueryMenuItem.AutoSize = false;
+			this.adminQueryMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.adminQueryMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("adminQueryMenuItem.Image")));
+			this.adminQueryMenuItem.Name = "adminQueryMenuItem";
+			this.adminQueryMenuItem.Size = new System.Drawing.Size(217, 45);
+			this.adminQueryMenuItem.Text = "Query DB      ";
+			this.adminQueryMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.adminQueryMenuItem.Click += new System.EventHandler(this.queryDbMenuItem_OnClick);
 			// 
 			// logoutMenuItem
 			// 
@@ -161,7 +161,6 @@
 			// controlPanel
 			// 
 			this.controlPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.controlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.controlPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.controlPanel.Location = new System.Drawing.Point(0, 24);
 			this.controlPanel.Name = "controlPanel";
@@ -208,7 +207,7 @@
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
 		public System.Windows.Forms.Panel controlPanel;
-		private System.Windows.Forms.ToolStripMenuItem editUserMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem adminQueryMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem logoutMenuItem;
 	}
 }
