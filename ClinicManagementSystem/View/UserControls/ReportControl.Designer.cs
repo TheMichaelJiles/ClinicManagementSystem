@@ -32,10 +32,10 @@
 			this.beginningDatePicker = new System.Windows.Forms.DateTimePicker();
 			this.label6 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.label13 = new System.Windows.Forms.Label();
-			this.runReportButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.endDatePicker = new System.Windows.Forms.DateTimePicker();
+			this.label13 = new System.Windows.Forms.Label();
+			this.runVisitReportButton = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -56,7 +56,7 @@
 			this.beginningDatePicker.Location = new System.Drawing.Point(22, 45);
 			this.beginningDatePicker.Name = "beginningDatePicker";
 			this.beginningDatePicker.Size = new System.Drawing.Size(319, 27);
-			this.beginningDatePicker.TabIndex = 5;
+			this.beginningDatePicker.TabIndex = 2;
 			// 
 			// label6
 			// 
@@ -78,29 +78,7 @@
 			this.panel2.Location = new System.Drawing.Point(25, 86);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(859, 94);
-			this.panel2.TabIndex = 23;
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(43, 71);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(166, 25);
-			this.label13.TabIndex = 24;
-			this.label13.Text = "Enter Date Range";
-			// 
-			// runReportButton
-			// 
-			this.runReportButton.BackColor = System.Drawing.Color.SteelBlue;
-			this.runReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.runReportButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.runReportButton.Location = new System.Drawing.Point(25, 192);
-			this.runReportButton.Name = "runReportButton";
-			this.runReportButton.Size = new System.Drawing.Size(218, 36);
-			this.runReportButton.TabIndex = 11;
-			this.runReportButton.Text = "Run Report";
-			this.runReportButton.UseVisualStyleBackColor = false;
+			this.panel2.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -119,13 +97,36 @@
 			this.endDatePicker.Location = new System.Drawing.Point(397, 45);
 			this.endDatePicker.Name = "endDatePicker";
 			this.endDatePicker.Size = new System.Drawing.Size(319, 27);
-			this.endDatePicker.TabIndex = 11;
+			this.endDatePicker.TabIndex = 3;
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label13.Location = new System.Drawing.Point(43, 71);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(166, 25);
+			this.label13.TabIndex = 24;
+			this.label13.Text = "Enter Date Range";
+			// 
+			// runVisitReportButton
+			// 
+			this.runVisitReportButton.BackColor = System.Drawing.Color.SteelBlue;
+			this.runVisitReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.runVisitReportButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.runVisitReportButton.Location = new System.Drawing.Point(25, 192);
+			this.runVisitReportButton.Name = "runVisitReportButton";
+			this.runVisitReportButton.Size = new System.Drawing.Size(259, 36);
+			this.runVisitReportButton.TabIndex = 4;
+			this.runVisitReportButton.Text = "View Visit Breakdown";
+			this.runVisitReportButton.UseVisualStyleBackColor = false;
+			this.runVisitReportButton.Click += new System.EventHandler(this.runVisitReport_OnClick);
 			// 
 			// ReportControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.Controls.Add(this.runReportButton);
+			this.Controls.Add(this.runVisitReportButton);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.pageTitleLabel);
@@ -145,7 +146,7 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Button runReportButton;
+		private System.Windows.Forms.Button runVisitReportButton;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DateTimePicker endDatePicker;
 	}

@@ -37,6 +37,7 @@
 			this.viewPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.registerPatientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.apptMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.logoutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.topMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,6 @@
 			this.controlPanel = new System.Windows.Forms.Panel();
 			this.patientStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.currentPatientStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
-			this.reportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.navigationMenuStrip.SuspendLayout();
 			this.topMenuStrip.SuspendLayout();
@@ -149,11 +149,21 @@
 			this.apptMenuItem.Text = "Appointments   ";
 			this.apptMenuItem.Click += new System.EventHandler(this.apptButton_OnClick);
 			// 
+			// reportMenuItem
+			// 
+			this.reportMenuItem.AutoSize = false;
+			this.reportMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.reportMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reportMenuItem.Image")));
+			this.reportMenuItem.Name = "reportMenuItem";
+			this.reportMenuItem.Size = new System.Drawing.Size(220, 45);
+			this.reportMenuItem.Text = "Run Report   ";
+			this.reportMenuItem.Click += new System.EventHandler(this.runReportMenuItem_OnClick);
+			// 
 			// logoutMenuItem
 			// 
 			this.logoutMenuItem.AutoSize = false;
 			this.logoutMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 294, 0, 0);
+			this.logoutMenuItem.Margin = new System.Windows.Forms.Padding(0, 249, 0, 0);
 			this.logoutMenuItem.Name = "logoutMenuItem";
 			this.logoutMenuItem.Size = new System.Drawing.Size(220, 45);
 			this.logoutMenuItem.Text = "Logout";
@@ -231,16 +241,6 @@
 			this.currentPatientStripStatusLbl.Name = "currentPatientStripStatusLbl";
 			this.currentPatientStripStatusLbl.Size = new System.Drawing.Size(110, 17);
 			this.currentPatientStripStatusLbl.Text = "Current Patient: ";
-			// 
-			// reportMenuItem
-			// 
-			this.reportMenuItem.AutoSize = false;
-			this.reportMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.reportMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reportMenuItem.Image")));
-			this.reportMenuItem.Name = "reportMenuItem";
-			this.reportMenuItem.Size = new System.Drawing.Size(213, 45);
-			this.reportMenuItem.Text = "Run Report    ";
-			this.reportMenuItem.Click += new System.EventHandler(this.runReportMenuItem_OnClick);
 			// 
 			// UserMainPage
 			// 

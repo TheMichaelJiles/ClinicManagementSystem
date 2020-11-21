@@ -63,7 +63,7 @@
 			this.doctorComboBox.Location = new System.Drawing.Point(22, 45);
 			this.doctorComboBox.Name = "doctorComboBox";
 			this.doctorComboBox.Size = new System.Drawing.Size(195, 26);
-			this.doctorComboBox.TabIndex = 4;
+			this.doctorComboBox.TabIndex = 1;
 			this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_OnSelectionChange);
 			// 
 			// label5
@@ -84,7 +84,7 @@
 			this.apptDatePicker.Location = new System.Drawing.Point(261, 44);
 			this.apptDatePicker.Name = "apptDatePicker";
 			this.apptDatePicker.Size = new System.Drawing.Size(319, 27);
-			this.apptDatePicker.TabIndex = 5;
+			this.apptDatePicker.TabIndex = 2;
 			this.apptDatePicker.ValueChanged += new System.EventHandler(this.apptDatePicker_OnValueChanged);
 			// 
 			// label6
@@ -124,7 +124,7 @@
 			this.timeComboBox.Location = new System.Drawing.Point(623, 45);
 			this.timeComboBox.Name = "timeComboBox";
 			this.timeComboBox.Size = new System.Drawing.Size(195, 26);
-			this.timeComboBox.TabIndex = 17;
+			this.timeComboBox.TabIndex = 3;
 			// 
 			// label2
 			// 
@@ -143,7 +143,7 @@
 			this.reasonsTextBox.Location = new System.Drawing.Point(22, 111);
 			this.reasonsTextBox.Name = "reasonsTextBox";
 			this.reasonsTextBox.Size = new System.Drawing.Size(796, 96);
-			this.reasonsTextBox.TabIndex = 13;
+			this.reasonsTextBox.TabIndex = 4;
 			this.reasonsTextBox.Text = "";
 			// 
 			// label1
@@ -174,7 +174,7 @@
 			this.appointmentButton.Location = new System.Drawing.Point(24, 340);
 			this.appointmentButton.Name = "appointmentButton";
 			this.appointmentButton.Size = new System.Drawing.Size(218, 36);
-			this.appointmentButton.TabIndex = 11;
+			this.appointmentButton.TabIndex = 5;
 			this.appointmentButton.Text = "Create Appointment";
 			this.appointmentButton.UseVisualStyleBackColor = false;
 			this.appointmentButton.Click += new System.EventHandler(this.appointmentButton_OnClick);

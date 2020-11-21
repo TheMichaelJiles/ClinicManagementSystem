@@ -18,26 +18,27 @@ namespace ClinicManagementSystem.View
 	{
 		#region Members
 
-		private PatientAppointmentsControl AppointmentsControl;
+		private readonly Appointment appointment;
 
 		#endregion
 
 		#region Properties
 
+		public bool ReadOnly { get; set; }
 		public RoutineCheck RoutineCheck { get; private set; }
-		public Appointment Appointment => AppointmentsControl.SelectedAppointment;
         public LabTest SelectedLabTest => this.labTestsDataGrid.SelectedRows.Count > 0 ? this.LabTests[this.labTestsDataGrid.SelectedRows[0].Index] : null;
         public IList<LabTest> LabTests { get; private set; }
+		public Appointment Appointment => this.appointment;
 
 		#endregion
 
 		#region Constructor
 
-		public ManageAppointmentPage(PatientAppointmentsControl appointmentControl)
+		public ManageAppointmentPage(Appointment appointment)
 		{
 			InitializeComponent();
 
-			this.AppointmentsControl = appointmentControl;
+			this.appointment = appointment;
 		}
 
 		#endregion
@@ -210,7 +211,7 @@ namespace ClinicManagementSystem.View
 
             if (MessageBox.Show(message, "Delete Lab Test", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
             {
-                LabTestDAL.RemoveLabTest(this.Appointment.ID, this.SelectedLabTest.TestType.Code);
+                LabTestDAL.RemoveLabTest(this.appointment.ID, this.SelectedLabTest.TestType.Code);
                 this.refreshLabTestsGrid();
             }
         }
@@ -237,7 +238,7 @@ namespace ClinicManagementSystem.View
 		private void updateDiagnosis()
 		{
 			var diagnosis = buildDiagnosis();
-			this.Appointment.Diagnosis = diagnosis;
+			this.appointment.Diagnosis = diagnosis;
 			DiagnosisDAL.UpsertDiagnosis(diagnosis);
 		}
 
@@ -249,7 +250,7 @@ namespace ClinicManagementSystem.View
 
 		private void refreshControls()
 		{
-			if (this.Appointment.IsFinalized)
+			if (this.appointment.IsFinalized || this.ReadOnly)
 			{
 				this.disableControls();
 				this.editCheckButton.Text = "View";
@@ -292,28 +293,28 @@ namespace ClinicManagementSystem.View
 
 		private void setDiagnosis()
 		{
-			this.initialDiagnosisTextArea.Text = this.Appointment.Diagnosis.InitialDiagnosis;
-			this.finalDiagnosisTextArea.Text = this.Appointment.Diagnosis.FinalDiagnosis;
+			this.initialDiagnosisTextArea.Text = this.appointment.Diagnosis.InitialDiagnosis;
+			this.finalDiagnosisTextArea.Text = this.appointment.Diagnosis.FinalDiagnosis;
 		}
 
 		private void loadData()
 		{
-			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
-			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
+			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.appointment.ID);
+			this.RoutineCheck.Appointment = this.appointment;
 
             this.refreshLabTestsGrid();
         }
 
 		private void loadRoutineCheck()
 		{
-			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.AppointmentsControl.SelectedAppointment.ID);
-			this.RoutineCheck.Appointment = this.AppointmentsControl.SelectedAppointment;
+			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.appointment.ID);
+			this.RoutineCheck.Appointment = this.appointment;
 			this.initializeRoutineCheckControls();
 		}
 
         private void refreshLabTestsGrid()
         {
-            this.LabTests = LabTestDAL.GetAllLabTests(this.Appointment.ID);
+            this.LabTests = LabTestDAL.GetAllLabTests(this.appointment.ID);
 			this.labTestsDataGrid.Rows.Clear();
 
             foreach (var labTest in this.LabTests)
@@ -335,7 +336,7 @@ namespace ClinicManagementSystem.View
         {
 			return new Diagnosis
 			{
-				AppointmentID = this.Appointment.ID,
+				AppointmentID = this.appointment.ID,
 				InitialDiagnosis = this.initialDiagnosisTextArea.Text,
 				FinalDiagnosis = this.finalDiagnosisTextArea.Text
 			};

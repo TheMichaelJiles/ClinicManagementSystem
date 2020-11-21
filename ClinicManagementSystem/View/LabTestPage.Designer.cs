@@ -78,7 +78,7 @@
 			this.testTypesComboBox.Location = new System.Drawing.Point(22, 46);
 			this.testTypesComboBox.Name = "testTypesComboBox";
 			this.testTypesComboBox.Size = new System.Drawing.Size(314, 26);
-			this.testTypesComboBox.TabIndex = 25;
+			this.testTypesComboBox.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -107,7 +107,7 @@
 			this.abnormalityTextArea.Location = new System.Drawing.Point(22, 139);
 			this.abnormalityTextArea.Name = "abnormalityTextArea";
 			this.abnormalityTextArea.Size = new System.Drawing.Size(693, 62);
-			this.abnormalityTextArea.TabIndex = 7;
+			this.abnormalityTextArea.TabIndex = 4;
 			this.abnormalityTextArea.Text = "";
 			// 
 			// label13
@@ -128,7 +128,7 @@
 			this.saveButton.Location = new System.Drawing.Point(260, 427);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(218, 36);
-			this.saveButton.TabIndex = 8;
+			this.saveButton.TabIndex = 6;
 			this.saveButton.Text = "Save";
 			this.saveButton.UseVisualStyleBackColor = false;
 			this.saveButton.Click += new System.EventHandler(this.saveButton_OnClick);
@@ -141,7 +141,7 @@
 			this.cancelButton.Location = new System.Drawing.Point(25, 427);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(218, 36);
-			this.cancelButton.TabIndex = 9;
+			this.cancelButton.TabIndex = 5;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = false;
 			this.cancelButton.Click += new System.EventHandler(this.cancelButton_OnClick);
@@ -163,7 +163,7 @@
 			this.resultsTextArea.Location = new System.Drawing.Point(394, 44);
 			this.resultsTextArea.Name = "resultsTextArea";
 			this.resultsTextArea.Size = new System.Drawing.Size(321, 62);
-			this.resultsTextArea.TabIndex = 30;
+			this.resultsTextArea.TabIndex = 3;
 			this.resultsTextArea.Text = "";
 			// 
 			// step2Panel
@@ -188,7 +188,7 @@
 			this.finishedCheckBox.Location = new System.Drawing.Point(22, 23);
 			this.finishedCheckBox.Name = "finishedCheckBox";
 			this.finishedCheckBox.Size = new System.Drawing.Size(95, 22);
-			this.finishedCheckBox.TabIndex = 39;
+			this.finishedCheckBox.TabIndex = 2;
 			this.finishedCheckBox.Text = "Finished";
 			this.finishedCheckBox.UseVisualStyleBackColor = true;
 			this.finishedCheckBox.CheckedChanged += new System.EventHandler(this.finishedTest_OnCheckChanged);

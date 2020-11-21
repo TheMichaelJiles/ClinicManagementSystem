@@ -173,6 +173,12 @@
     <Compile Include="View\ManageAppointmentPage.Designer.cs">
       <DependentUpon>ManageAppointmentPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VisitBreakdownPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VisitBreakdownPage.Designer.cs">
+      <DependentUpon>VisitBreakdownPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RoutineCheckPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ManageAppointmentPage.resx">
       <DependentUpon>ManageAppointmentPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VisitBreakdownPage.resx">
+      <DependentUpon>VisitBreakdownPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RoutineCheckPage.resx">
       <DependentUpon>RoutineCheckPage.cs</DependentUpon>

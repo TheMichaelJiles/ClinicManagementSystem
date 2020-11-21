@@ -207,7 +207,7 @@ namespace ClinicManagementSystem.View
 
 			appointment.Doctor.ID = this.SelectedDoctor.ID;
 			appointment.Doctor.Bio = this.SelectedDoctor.Bio;
-			appointment.PatientID = this.SelectedPatient.ID;
+			appointment.Patient.ID = this.SelectedPatient.ID;
 			appointment.Reasons = this.reasonsTextBox.Text;
 			appointment.Date = this.apptDatePicker.Value.ChangeTime(this.SelectedTime.Hour, this.SelectedTime.Minute, 0, 0);
 

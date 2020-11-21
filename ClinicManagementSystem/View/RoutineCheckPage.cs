@@ -131,7 +131,7 @@ namespace ClinicManagementSystem.View
 
 		private void checkToDisableControls()
 		{
-			if (this.ManageApptPage.Appointment.IsFinalized)
+			if (this.ManageApptPage.Appointment.IsFinalized || this.ManageApptPage.ReadOnly)
 			{
 				this.disableControls();
 			}
