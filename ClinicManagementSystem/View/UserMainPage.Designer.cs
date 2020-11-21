@@ -47,6 +47,7 @@
 			this.controlPanel = new System.Windows.Forms.Panel();
 			this.patientStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.currentPatientStripStatusLbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.reportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.navigationMenuStrip.SuspendLayout();
 			this.topMenuStrip.SuspendLayout();
@@ -83,6 +84,7 @@
             this.viewPatientMenuItem,
             this.registerPatientMenuItem,
             this.apptMenuItem,
+            this.reportMenuItem,
             this.logoutMenuItem});
 			this.navigationMenuStrip.Location = new System.Drawing.Point(910, 24);
 			this.navigationMenuStrip.Name = "navigationMenuStrip";
@@ -230,6 +232,16 @@
 			this.currentPatientStripStatusLbl.Size = new System.Drawing.Size(110, 17);
 			this.currentPatientStripStatusLbl.Text = "Current Patient: ";
 			// 
+			// reportMenuItem
+			// 
+			this.reportMenuItem.AutoSize = false;
+			this.reportMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.reportMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reportMenuItem.Image")));
+			this.reportMenuItem.Name = "reportMenuItem";
+			this.reportMenuItem.Size = new System.Drawing.Size(213, 45);
+			this.reportMenuItem.Text = "Run Report    ";
+			this.reportMenuItem.Click += new System.EventHandler(this.runReportMenuItem_OnClick);
+			// 
 			// UserMainPage
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -280,5 +292,6 @@
 		private System.Windows.Forms.ToolStripMenuItem apptMenuItem;
 		private System.Windows.Forms.ToolStripStatusLabel currentPatientStripStatusLbl;
 		private System.Windows.Forms.ToolStripMenuItem homeMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem reportMenuItem;
 	}
 }

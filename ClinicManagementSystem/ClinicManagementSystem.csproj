@@ -191,6 +191,12 @@
     <Compile Include="View\UserControls\RegisterUserControl.Designer.cs">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\ReportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ReportControl.Designer.cs">
+      <DependentUpon>ReportControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\SearchPatientControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\RegisterUserControl.resx">
       <DependentUpon>RegisterUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\ReportControl.resx">
+      <DependentUpon>ReportControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\SearchPatientControl.resx">
       <DependentUpon>SearchPatientControl.cs</DependentUpon>

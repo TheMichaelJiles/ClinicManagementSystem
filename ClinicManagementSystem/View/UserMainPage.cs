@@ -145,6 +145,20 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		private void runReportMenuItem_OnClick(object sender, EventArgs e)
+		{
+			try
+			{
+				this.highlightSelectedMenuItem(this.reportMenuItem);
+				this.controlPanel.Controls.Clear();
+				this.controlPanel.Controls.Add(new ReportControl());
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
+		}
+
 		private void apptButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -226,5 +240,6 @@ namespace ClinicManagementSystem.View
 		}
 
 		#endregion
+
 	}
 }
