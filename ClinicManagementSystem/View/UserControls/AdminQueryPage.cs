@@ -35,6 +35,7 @@ namespace ClinicManagementSystem.View.UserControls
                         var dt = new DataTable();
                         dt.Load(results);
                         this.resultsDataGrid.DataSource = dt;
+                        MessageBox.Show("Your SQL statement executed successfully", "Success!", MessageBoxButtons.OK);
                     }
                 }
             } catch (Exception err)

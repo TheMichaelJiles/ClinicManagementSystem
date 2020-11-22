@@ -55,6 +55,7 @@
             this.resultsDataGrid.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.resultsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.resultsDataGrid.BackgroundColor = System.Drawing.Color.SlateGray;
             this.resultsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
