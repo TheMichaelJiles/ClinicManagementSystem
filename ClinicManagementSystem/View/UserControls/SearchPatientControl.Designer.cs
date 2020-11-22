@@ -28,11 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -87,7 +87,7 @@
 			this.panel2.Location = new System.Drawing.Point(22, 81);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(860, 84);
-			this.panel2.TabIndex = 27;
+			this.panel2.TabIndex = 1;
 			// 
 			// lnameTextBox
 			// 
@@ -96,7 +96,7 @@
 			this.lnameTextBox.Location = new System.Drawing.Point(268, 41);
 			this.lnameTextBox.Name = "lnameTextBox";
 			this.lnameTextBox.Size = new System.Drawing.Size(204, 27);
-			this.lnameTextBox.TabIndex = 2;
+			this.lnameTextBox.TabIndex = 3;
 			this.lnameTextBox.TextChanged += new System.EventHandler(this.lnameTextBox_OnChange);
 			// 
 			// fnameTextBox
@@ -106,7 +106,7 @@
 			this.fnameTextBox.Location = new System.Drawing.Point(19, 41);
 			this.fnameTextBox.Name = "fnameTextBox";
 			this.fnameTextBox.Size = new System.Drawing.Size(204, 27);
-			this.fnameTextBox.TabIndex = 1;
+			this.fnameTextBox.TabIndex = 2;
 			this.fnameTextBox.TextChanged += new System.EventHandler(this.fnameTextBox_OnChange);
 			// 
 			// label4
@@ -146,7 +146,7 @@
 			this.dobDatePicker.Location = new System.Drawing.Point(516, 41);
 			this.dobDatePicker.Name = "dobDatePicker";
 			this.dobDatePicker.Size = new System.Drawing.Size(314, 27);
-			this.dobDatePicker.TabIndex = 5;
+			this.dobDatePicker.TabIndex = 4;
 			this.dobDatePicker.ValueChanged += new System.EventHandler(this.dobDatePicker_OnChange);
 			// 
 			// selectPatientButton
@@ -157,7 +157,7 @@
 			this.selectPatientButton.Location = new System.Drawing.Point(22, 503);
 			this.selectPatientButton.Name = "selectPatientButton";
 			this.selectPatientButton.Size = new System.Drawing.Size(218, 36);
-			this.selectPatientButton.TabIndex = 35;
+			this.selectPatientButton.TabIndex = 7;
 			this.selectPatientButton.Text = "Select Patient";
 			this.selectPatientButton.UseVisualStyleBackColor = false;
 			this.selectPatientButton.Click += new System.EventHandler(this.selectPatientButton_OnClick);
@@ -165,19 +165,19 @@
 			// patientDataGrid
 			// 
 			this.patientDataGrid.AllowUserToAddRows = false;
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.patientDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.patientDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.patientDataGrid.BackgroundColor = System.Drawing.Color.SlateGray;
 			this.patientDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle7.NullValue = null;
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.patientDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle2.NullValue = null;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.patientDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.patientDataGrid.ColumnHeadersHeight = 25;
 			this.patientDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.patientDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -187,36 +187,36 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.patientDataGrid.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.patientDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
 			this.patientDataGrid.Location = new System.Drawing.Point(22, 232);
 			this.patientDataGrid.Name = "patientDataGrid";
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.patientDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.patientDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.patientDataGrid.RowHeadersVisible = false;
 			this.patientDataGrid.RowHeadersWidth = 50;
 			this.patientDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
-			this.patientDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+			this.patientDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.patientDataGrid.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			this.patientDataGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.patientDataGrid.RowTemplate.Height = 80;
 			this.patientDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.patientDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.patientDataGrid.Size = new System.Drawing.Size(860, 264);
-			this.patientDataGrid.TabIndex = 36;
+			this.patientDataGrid.TabIndex = 6;
 			this.patientDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientDataGrid_OnCellDoubleClick);
 			// 
 			// dataGridViewTextBoxColumn1
@@ -269,7 +269,7 @@
 			this.clearCriteriaButton.Location = new System.Drawing.Point(22, 173);
 			this.clearCriteriaButton.Name = "clearCriteriaButton";
 			this.clearCriteriaButton.Size = new System.Drawing.Size(156, 36);
-			this.clearCriteriaButton.TabIndex = 32;
+			this.clearCriteriaButton.TabIndex = 5;
 			this.clearCriteriaButton.Text = "Clear";
 			this.clearCriteriaButton.UseVisualStyleBackColor = false;
 			this.clearCriteriaButton.Click += new System.EventHandler(this.clearButton_OnClick);

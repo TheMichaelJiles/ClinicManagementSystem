@@ -76,7 +76,7 @@
 			this.fnameTextBox.Location = new System.Drawing.Point(19, 63);
 			this.fnameTextBox.Name = "fnameTextBox";
 			this.fnameTextBox.Size = new System.Drawing.Size(268, 27);
-			this.fnameTextBox.TabIndex = 1;
+			this.fnameTextBox.TabIndex = 2;
 			// 
 			// label2
 			// 
@@ -105,7 +105,7 @@
 			this.lnameTextBox.Location = new System.Drawing.Point(332, 63);
 			this.lnameTextBox.Name = "lnameTextBox";
 			this.lnameTextBox.Size = new System.Drawing.Size(268, 27);
-			this.lnameTextBox.TabIndex = 2;
+			this.lnameTextBox.TabIndex = 3;
 			// 
 			// label4
 			// 
@@ -130,7 +130,7 @@
 			this.genderComboBox.Location = new System.Drawing.Point(268, 125);
 			this.genderComboBox.Name = "genderComboBox";
 			this.genderComboBox.Size = new System.Drawing.Size(91, 26);
-			this.genderComboBox.TabIndex = 4;
+			this.genderComboBox.TabIndex = 5;
 			// 
 			// label5
 			// 
@@ -149,7 +149,7 @@
 			this.dateOfBirthDatePicker.Location = new System.Drawing.Point(409, 123);
 			this.dateOfBirthDatePicker.Name = "dateOfBirthDatePicker";
 			this.dateOfBirthDatePicker.Size = new System.Drawing.Size(319, 27);
-			this.dateOfBirthDatePicker.TabIndex = 5;
+			this.dateOfBirthDatePicker.TabIndex = 6;
 			this.dateOfBirthDatePicker.ValueChanged += new System.EventHandler(this.dateOfBirth_OnValueChanged);
 			// 
 			// label6
@@ -179,7 +179,7 @@
 			this.addressOneTextBox.Location = new System.Drawing.Point(22, 63);
 			this.addressOneTextBox.Name = "addressOneTextBox";
 			this.addressOneTextBox.Size = new System.Drawing.Size(319, 27);
-			this.addressOneTextBox.TabIndex = 6;
+			this.addressOneTextBox.TabIndex = 8;
 			// 
 			// label8
 			// 
@@ -198,7 +198,7 @@
 			this.addressTwoTextBox.Location = new System.Drawing.Point(387, 63);
 			this.addressTwoTextBox.Name = "addressTwoTextBox";
 			this.addressTwoTextBox.Size = new System.Drawing.Size(319, 27);
-			this.addressTwoTextBox.TabIndex = 7;
+			this.addressTwoTextBox.TabIndex = 9;
 			// 
 			// label9
 			// 
@@ -217,7 +217,7 @@
 			this.cityTextBox.Location = new System.Drawing.Point(22, 127);
 			this.cityTextBox.Name = "cityTextBox";
 			this.cityTextBox.Size = new System.Drawing.Size(198, 27);
-			this.cityTextBox.TabIndex = 8;
+			this.cityTextBox.TabIndex = 10;
 			// 
 			// label10
 			// 
@@ -255,7 +255,7 @@
 			this.panel1.Location = new System.Drawing.Point(25, 291);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(859, 175);
-			this.panel1.TabIndex = 21;
+			this.panel1.TabIndex = 7;
 			// 
 			// zipTextBox
 			// 
@@ -265,7 +265,7 @@
 			this.zipTextBox.Mask = "00000";
 			this.zipTextBox.Name = "zipTextBox";
 			this.zipTextBox.Size = new System.Drawing.Size(167, 27);
-			this.zipTextBox.TabIndex = 10;
+			this.zipTextBox.TabIndex = 12;
 			// 
 			// stateComboBox
 			// 
@@ -327,7 +327,7 @@
 			this.stateComboBox.Location = new System.Drawing.Point(268, 127);
 			this.stateComboBox.Name = "stateComboBox";
 			this.stateComboBox.Size = new System.Drawing.Size(91, 26);
-			this.stateComboBox.TabIndex = 9;
+			this.stateComboBox.TabIndex = 11;
 			// 
 			// label12
 			// 
@@ -355,7 +355,7 @@
 			this.panel2.Location = new System.Drawing.Point(25, 86);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(859, 175);
-			this.panel2.TabIndex = 23;
+			this.panel2.TabIndex = 1;
 			// 
 			// phoneNumberTextBox
 			// 
@@ -365,7 +365,7 @@
 			this.phoneNumberTextBox.Mask = "000-000-0000";
 			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
 			this.phoneNumberTextBox.Size = new System.Drawing.Size(198, 27);
-			this.phoneNumberTextBox.TabIndex = 3;
+			this.phoneNumberTextBox.TabIndex = 4;
 			// 
 			// label13
 			// 
@@ -385,7 +385,7 @@
 			this.registerPatientButton.Location = new System.Drawing.Point(25, 502);
 			this.registerPatientButton.Name = "registerPatientButton";
 			this.registerPatientButton.Size = new System.Drawing.Size(218, 36);
-			this.registerPatientButton.TabIndex = 11;
+			this.registerPatientButton.TabIndex = 13;
 			this.registerPatientButton.Text = "Register Patient";
 			this.registerPatientButton.UseVisualStyleBackColor = false;
 			this.registerPatientButton.Click += new System.EventHandler(this.registerPatientButton_OnClick);
@@ -398,7 +398,7 @@
 			this.saveButton.Location = new System.Drawing.Point(270, 502);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(218, 36);
-			this.saveButton.TabIndex = 12;
+			this.saveButton.TabIndex = 14;
 			this.saveButton.Text = "Save Patient";
 			this.saveButton.UseVisualStyleBackColor = false;
 			this.saveButton.Click += new System.EventHandler(this.saveButton_OnClick);

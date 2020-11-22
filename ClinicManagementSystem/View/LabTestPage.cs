@@ -183,7 +183,7 @@ namespace ClinicManagementSystem.View
                 this.toggleStep1Panel(true);
                 this.toggleStep2Panel(false);
             }
-            else if (this.appointmentPage.Appointment.IsFinalized || this.appointmentPage.SelectedLabTest.IsFinished)
+            else if (this.appointmentPage.Appointment.IsFinalized || this.appointmentPage.SelectedLabTest.IsFinished || this.appointmentPage.ReadOnly)
             {
                 this.autofillData();
                 this.disableControls();

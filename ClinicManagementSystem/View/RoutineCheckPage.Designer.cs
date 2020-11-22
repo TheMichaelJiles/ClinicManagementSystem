@@ -94,7 +94,7 @@
             0});
 			this.diastolicNumberUpDown.Name = "diastolicNumberUpDown";
 			this.diastolicNumberUpDown.Size = new System.Drawing.Size(198, 27);
-			this.diastolicNumberUpDown.TabIndex = 41;
+			this.diastolicNumberUpDown.TabIndex = 2;
 			// 
 			// systolicNumberUpDown
 			// 
@@ -108,7 +108,7 @@
             0});
 			this.systolicNumberUpDown.Name = "systolicNumberUpDown";
 			this.systolicNumberUpDown.Size = new System.Drawing.Size(198, 27);
-			this.systolicNumberUpDown.TabIndex = 40;
+			this.systolicNumberUpDown.TabIndex = 1;
 			// 
 			// bodyTempNumberUpDown
 			// 
@@ -123,7 +123,7 @@
             0});
 			this.bodyTempNumberUpDown.Name = "bodyTempNumberUpDown";
 			this.bodyTempNumberUpDown.Size = new System.Drawing.Size(198, 27);
-			this.bodyTempNumberUpDown.TabIndex = 39;
+			this.bodyTempNumberUpDown.TabIndex = 3;
 			// 
 			// pulseNumberUpDown
 			// 
@@ -137,7 +137,7 @@
             0});
 			this.pulseNumberUpDown.Name = "pulseNumberUpDown";
 			this.pulseNumberUpDown.Size = new System.Drawing.Size(198, 27);
-			this.pulseNumberUpDown.TabIndex = 38;
+			this.pulseNumberUpDown.TabIndex = 4;
 			// 
 			// weightNumberUpDown
 			// 
@@ -152,7 +152,7 @@
             0});
 			this.weightNumberUpDown.Name = "weightNumberUpDown";
 			this.weightNumberUpDown.Size = new System.Drawing.Size(198, 27);
-			this.weightNumberUpDown.TabIndex = 37;
+			this.weightNumberUpDown.TabIndex = 5;
 			// 
 			// label6
 			// 
@@ -221,7 +221,7 @@
 			this.symptomsTextArea.Location = new System.Drawing.Point(19, 195);
 			this.symptomsTextArea.Name = "symptomsTextArea";
 			this.symptomsTextArea.Size = new System.Drawing.Size(796, 96);
-			this.symptomsTextArea.TabIndex = 7;
+			this.symptomsTextArea.TabIndex = 6;
 			this.symptomsTextArea.Text = "";
 			// 
 			// label13
@@ -242,7 +242,7 @@
 			this.saveButton.Location = new System.Drawing.Point(260, 408);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(218, 36);
-			this.saveButton.TabIndex = 8;
+			this.saveButton.TabIndex = 7;
 			this.saveButton.Text = "Save";
 			this.saveButton.UseVisualStyleBackColor = false;
 			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -255,7 +255,7 @@
 			this.cancelButton.Location = new System.Drawing.Point(25, 408);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(218, 36);
-			this.cancelButton.TabIndex = 9;
+			this.cancelButton.TabIndex = 8;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = false;
 			this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);

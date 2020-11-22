@@ -115,7 +115,7 @@ namespace ClinicManagementSystem.View.UserControls
 			{
 				if (this.SelectedAppointment != null)
 				{
-					var managerAppointmentPage = new ManageAppointmentPage(this);
+					var managerAppointmentPage = new ManageAppointmentPage(this.SelectedAppointment);
 					managerAppointmentPage.ShowDialog();
 					this.refreshControls();
 				}
