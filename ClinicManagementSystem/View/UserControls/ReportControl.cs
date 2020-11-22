@@ -20,6 +20,36 @@ namespace ClinicManagementSystem.View.UserControls
 		{
 			InitializeComponent();
 		}
-        #endregion
-    }
+
+		#endregion
+
+		#region Events
+
+		private void runVisitReport_OnClick(object sender, EventArgs e)
+		{
+			try
+			{
+				this.showVisitBreakdownPage();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
+		}
+
+		#endregion
+
+		#region Private Helpers
+
+		private void showVisitBreakdownPage()
+		{
+			var beginDate = this.beginningDatePicker.Value.ChangeTime(0, 0, 0, 0);
+			var endDate = this.endDatePicker.Value.ChangeTime(23, 59, 59, 0);
+
+			var visitBreakdownFrm = new VisitBreakdownPage(beginDate, endDate);
+			visitBreakdownFrm.ShowDialog();
+		}
+
+		#endregion
+	}
 }
