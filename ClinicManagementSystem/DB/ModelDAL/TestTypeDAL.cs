@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
+	/// <summary>
+	/// Class responsible for executing queries on the TestType table
+	/// </summary>
 	public class TestTypeDAL
 	{
 
@@ -19,6 +22,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Methods
 
+		/// <summary>
+		/// Gets all the test types
+		/// </summary>
+		/// <returns>All test types in the database</returns>
 		public static IList<TestType> GetAllTestTypes()
 		{
 			var connection = DbConnection.GetConnection();

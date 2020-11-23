@@ -7,10 +7,18 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Util
 {
-	public static class StringHelper
+    /// <summary>
+    /// Helper class for string formatting
+    /// </summary>
+    public static class StringHelper
 	{
 
-		public static int LeaveOnlyNumbers(this string stringValue)
+        /// <summary>
+        /// Leaves only numbers in the passed in string
+        /// </summary>
+        /// <param name="stringValue">The string value to be formatted.</param>
+        /// <returns>The string with all non-number characters removed</returns>
+        public static int LeaveOnlyNumbers(this string stringValue)
 		{
 			return Convert.ToInt32(Regex.Replace(stringValue, "[^0-9]", ""));
 		}

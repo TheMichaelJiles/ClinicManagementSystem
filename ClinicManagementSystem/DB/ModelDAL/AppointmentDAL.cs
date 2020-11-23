@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
+	/// <summary>
+	/// Class that handles queries for the appointment table
+	/// </summary>
 	public class AppointmentDAL
 	{
 		#region Constants
@@ -130,6 +133,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Updates the specified appointment with the information from the inputs
+		/// </summary>
+		/// <param name="appt">The appointment to be updated</param>
 		public static void UpdateAppointment(Appointment appt)
         {
 			var connection = DbConnection.GetConnection();

@@ -7,11 +7,16 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.Util
 {
-	public class ExceptionMessage
+    /// <summary>
+    /// Class that handles error messages
+    /// </summary>
+    public class ExceptionMessage
 	{
-		#region Public Methods
+        #region Public Methods
 
-		public static void ShowError(Exception err)
+        /// <summary>Shows the error.</summary>
+        /// <param name="err">The error to be shown.</param>
+        public static void ShowError(Exception err)
 		{
 			MessageBox.Show(err.Message, "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 		}

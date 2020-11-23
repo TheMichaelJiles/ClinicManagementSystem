@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Model
 {
-	public class Patient
+    /// <summary>
+    /// The patient dataclass
+    /// </summary>
+    public class Patient
 	{
 
-		#region Properties
+        #region Properties
 
-		public int ID { get; set; }
-		public Bio Bio { get; set; } = new Bio();
+        /// <summary>Gets or sets the identifier.</summary>
+        /// <value>The identifier.</value>
+        public int ID { get; set; }
+
+        /// <summary>Gets or sets the bio.</summary>
+        /// <value>The bio.</value>
+        public Bio Bio { get; set; } = new Bio();
 
 		#endregion
 	}

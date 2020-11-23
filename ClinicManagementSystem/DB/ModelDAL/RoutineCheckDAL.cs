@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
+	/// <summary>
+	/// Class responsible for executing queries on the RoutineCheck table
+	/// </summary>
 	public class RoutineCheckDAL
 	{
         #region Constants
@@ -20,6 +23,11 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Methods
 
+		/// <summary>
+		/// Gets a routine check with the passed in appointment ID
+		/// </summary>
+		/// <param name="apptID">The appointmentID of the routine check to be retrieved</param>
+		/// <returns>The routine check with the passed in appointment ID</returns>
 		public static RoutineCheck GetAppointmentRoutineCheck(int apptID)
 		{
 			var connection = DbConnection.GetConnection();
@@ -37,6 +45,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Inserts a new routine check into the the database
+		/// </summary>
+		/// <param name="check">The routine check to be inserted</param>
 		public static void InsertNewRoutineCheck(RoutineCheck check)
 		{
 			var connection = DbConnection.GetConnection();
@@ -61,6 +73,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Updates a routine check with the same ID as the passed in check
+		/// </summary>
+		/// <param name="check">The routine check to be updated</param>
 		public static void UpdateRoutineCheck(RoutineCheck check)
 		{
 			var connection = DbConnection.GetConnection();

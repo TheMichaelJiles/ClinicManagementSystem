@@ -9,6 +9,9 @@ using MySql.Data.MySqlClient;
 
 namespace ClinicManagementSystem.Model
 {
+    /// <summary>
+    /// Class that handles user authentication
+    /// </summary>
     public class Security
     {
 
@@ -45,7 +48,12 @@ namespace ClinicManagementSystem.Model
             return count > 0;
         }
 
-
+        /// <summary>
+        /// Hashes the passed in password
+        /// </summary>
+        /// <param name="username">The username of the password to be hashed</param>
+        /// <param name="password">The password to be hashed</param>
+        /// <returns></returns>
         public static string HashPassword(string username, string password)
         {
             byte[] hashCode;

@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Model
 {
-	public class TestType
+    /// <summary>
+    /// The testtype dataclass
+    /// </summary>
+    public class TestType
 	{
-		public int Code { get; set; }
-		public string Name { get; set; }
+        /// <summary>Gets or sets the code.</summary>
+        /// <value>The code.</value>
+        public int Code { get; set; }
+
+        /// <summary>Gets or sets the name.</summary>
+        /// <value>The name.</value>
+        public string Name { get; set; }
 	}
 }

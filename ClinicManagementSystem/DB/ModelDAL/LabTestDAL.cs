@@ -8,6 +8,9 @@ using MySql.Data.MySqlClient;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
+    /// <summary>
+    /// Class responsible for executing queries on the LabTest table
+    /// </summary>
 	public class LabTestDAL
 	{
 
@@ -22,6 +25,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
         #region Methods
 
+        /// <summary>
+        /// Inserts a new lab test into the database
+        /// </summary>
+        /// <param name="labTest">The lab test to be inserted</param>
         public static void InsertLabTest(LabTest labTest)
         {
             var connection = DbConnection.GetConnection();
@@ -43,6 +50,11 @@ namespace ClinicManagementSystem.DB.ModelDAL
             }
         }
 
+        /// <summary>
+        /// Removes a labtest from the database with the passed in apptID and testTypeCode
+        /// </summary>
+        /// <param name="apptID">The appointment ID of the labtest to be removed</param>
+        /// <param name="testTypeCode">The testTypeCode of the labtest to be removed</param>
         public static void RemoveLabTest(int apptID, int testTypeCode)
         {
             var connection = DbConnection.GetConnection();
@@ -60,6 +72,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
             }
         }
 
+        /// <summary>
+        /// Edits the passed in labtest
+        /// </summary>
+        /// <param name="labTest">The labtest to be edited</param>
         public static void EditLabTest(LabTest labTest)
         {
             var connection = DbConnection.GetConnection();
@@ -81,6 +97,11 @@ namespace ClinicManagementSystem.DB.ModelDAL
             }
         }
 
+        /// <summary>
+        /// Gets all lab tests from the database with a passed in apptID
+        /// </summary>
+        /// <param name="apptID">The appointment of the labtests to be retrieved</param>
+        /// <returns></returns>
         public static IList<LabTest> GetAllLabTests(int apptID)
         {
             var connection = DbConnection.GetConnection();

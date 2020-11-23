@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
+	/// <summary>
+	/// Class that is responsible for handling queries for the Doctor table
+	/// </summary>
 	public class DoctorDAL
 	{
 		#region Constants
@@ -17,6 +20,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 		#endregion
 
 		#region Methods
+		/// <summary>
+		/// Gets all doctors from the database
+		/// </summary>
+		/// <returns>All doctors in the database</returns>
 		
 		public static IList<Doctor> GetAllDoctors()
 		{

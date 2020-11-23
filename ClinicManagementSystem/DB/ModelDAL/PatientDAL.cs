@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
+	/// <summary>
+	/// Class responsible for executing queries on the Patient table
+	/// </summary>
 	public class PatientDAL
 	{
 
@@ -26,6 +29,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Public Methods
 
+		/// <summary>
+		/// Inserts a new patient in the database
+		/// </summary>
+		/// <param name="patient">The patient that will be inserted</param>
 		public static void InsertNewPatient(Patient patient)
 		{
 			var connection = DbConnection.GetConnection();
@@ -52,6 +59,13 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Searches for a patient with the passed in fname, lname, and dob
+		/// </summary>
+		/// <param name="fname">The first name of the patient being serached for</param>
+		/// <param name="lname">The last name of the patient being serached for</param>
+		/// <param name="dob">The dob of the patient being serached for</param>
+		/// <returns></returns>
 		public static IList<Patient> SearchForPatient(string fname, string lname, DateTime dob)
 		{
 			var connection = DbConnection.GetConnection();
@@ -71,6 +85,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		} 
 
+		/// <summary>
+		/// Edits a patient with passed in information
+		/// </summary>
+		/// <param name="patient">The new patient to replace the patient with the same id in the database</param>
 		public static void EditPatient(Patient patient)
         {
 			var connection = DbConnection.GetConnection();

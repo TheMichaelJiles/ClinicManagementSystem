@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.Model
 {
-	public class Settings
+    /// <summary>
+    /// The settings class
+    /// </summary>
+    public class Settings
 	{
-		public static Nurse CurrentUser { get; set; } 
+        /// <summary>Gets or sets the current user.</summary>
+        /// <value>The current user.</value>
+        public static Nurse CurrentUser { get; set; } 
 	}
 }

@@ -9,12 +9,21 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.DB
 {
+	/// <summary>
+	/// Class responsible for executing queries on the Nurse table
+	/// </summary>
 	public class NurseDAL
 	{
 		private const string GetNurseByUsernameQuery = "CALL GetNurseByUsername(@username)";
 		private const string GetNurseByIDQuery = "CALL GetNurseByID(@nurseID)";
 		private const string InsertNurseCommand = "CALL InsertNurse(@fname, @lname, @DOB, @phone, @gender, @address1, @address2, @city, @state, @zip, @username, @password)";
 
+		/// <summary>
+		/// Inserts a nurse with the passed in password
+		/// </summary>
+		/// <param name="nurse">The nurse to be inserted</param>
+		/// <param name="password">The password of the nurse to be inserted</param>
+		/// <returns>True or false based on whether or not the insert is successful</returns>
 		public static bool InsertNurse(Nurse nurse, string password)
 		{
 			var connection = DbConnection.GetConnection();
@@ -43,6 +52,11 @@ namespace ClinicManagementSystem.DB
 			return false;
 		}
 
+		/// <summary>
+		/// Gets a nurse from the database with the passed in username
+		/// </summary>
+		/// <param name="username">The username of the nurse to retrieve</param>
+		/// <returns>The Nurse with the passed in username</returns>
 		public static Nurse GetNurse(string username)
 		{
 			var nurse = new Nurse();
@@ -63,6 +77,11 @@ namespace ClinicManagementSystem.DB
 			return nurse;
 		}
 
+		/// <summary>
+		/// Gets a nurse based on a nurseID
+		/// </summary>
+		/// <param name="nurseID">The ID of the nurse to retrieve</param>
+		/// <returns>The nurse with the specified nurseID</returns>
 		public static Nurse GetNurse(int nurseID)
 		{
 			var nurse = new Nurse();
