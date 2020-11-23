@@ -34,6 +34,10 @@ namespace ClinicManagementSystem.View
 
 		#region Constructor
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="appointment"></param>
 		public ManageAppointmentPage(Appointment appointment)
 		{
 			InitializeComponent();
@@ -164,7 +168,7 @@ namespace ClinicManagementSystem.View
 			{
 				if (!string.IsNullOrEmpty(this.finalDiagnosisTextArea.Text))
                 {
-					this.showFinalDiagnosisWarning();
+					this.handleFinalSave();
                 } 
 				else
                 {
@@ -175,6 +179,20 @@ namespace ClinicManagementSystem.View
 			{
 				ExceptionMessage.ShowError(err);
 			}
+		}
+
+		private void handleFinalSave()
+		{
+			if (!this.LabTests.All(test => test.IsFinished))
+			{
+				this.showLabTestsWarningMessage();
+			}
+		}
+
+		private void showLabTestsWarningMessage()
+		{
+			var message = "You must finalize all lab tests before you enter your final diagnosis.";
+			MessageBox.Show(message, "Lab Tests Unfinished", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 		}
 
 		private void cancelButton_OnClick(object sender, EventArgs e)
@@ -219,7 +237,7 @@ namespace ClinicManagementSystem.View
 		private void showDiagnosisSaved()
 		{
 			this.updateDiagnosis();
-			MessageBox.Show("Diagnosis details for this appointment have been saved.", "Appointment Saved", MessageBoxButtons.OKCancel);
+			MessageBox.Show("The appointment details have been saved.", "Appointment Saved", MessageBoxButtons.OKCancel);
 			this.Close();
 		}
 
