@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// The visit breakdown page
+	/// </summary>
 	public partial class VisitBreakdownPage : Form
 	{
 
@@ -26,12 +29,20 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+		/// <summary>
+		/// The selected appointment in the grid
+		/// </summary>
 		public Appointment SelectedAppointment => this.visitsDataGrid.SelectedRows.Count > 0 ? this.appointments[this.visitsDataGrid.SelectedRows[0].Index] : null;
 
 		#endregion
 
 		#region Constructor
 
+		/// <summary>
+		/// The visit breakdown page
+		/// </summary>
+		/// <param name="beginDate">The begin date</param>
+		/// <param name="endDate">The end date</param>
 		public VisitBreakdownPage(DateTime beginDate, DateTime endDate)
 		{
 			InitializeComponent();
@@ -44,6 +55,9 @@ namespace ClinicManagementSystem.View
 
 		#region Events
 
+		/// <summary>
+		/// Shows the manage appt dialog
+		/// </summary>
 		private void viewButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -56,6 +70,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Closes the visit breakdown page
+		/// </summary>
 		private void cancelButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -68,6 +85,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Initializes controls
+		/// </summary>
 		private void visitBreakdownPage_OnLoad(object sender, EventArgs e)
 		{
 			try

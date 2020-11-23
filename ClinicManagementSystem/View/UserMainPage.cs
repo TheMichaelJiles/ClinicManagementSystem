@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// The User main page
+	/// </summary>
 	public partial class UserMainPage : Form
 	{
 		#region Members
@@ -24,7 +27,14 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+		/// <summary>
+		/// The parent login form
+		/// </summary>
 		public LoginPage LoginForm;
+
+		/// <summary>
+		/// The current selected patient
+		/// </summary>
 		public Patient CurrentPatient
 		{
 			get => this.currentPatient;
@@ -39,6 +49,9 @@ namespace ClinicManagementSystem.View
 
 		#region Construction
 
+		/// <summary>
+		/// The user main page constructor
+		/// </summary>
 		public UserMainPage()
 		{
 			InitializeComponent();
@@ -48,6 +61,9 @@ namespace ClinicManagementSystem.View
 
 		#region Public Methods
 
+		/// <summary>
+		/// Clears the main control panel
+		/// </summary>
 		public void ClearControlPanel()
 		{
 			this.controlPanel.Controls.Clear();
@@ -57,6 +73,9 @@ namespace ClinicManagementSystem.View
 
 		#region Events
 
+		/// <summary>
+		/// Initializes the controls
+		/// </summary>
 		private void mainPage_OnLoad(object sender, EventArgs e)
 		{
 			try
@@ -70,6 +89,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Closes the application
+		/// </summary>
 		private void mainPage_OnClose(object sender, FormClosingEventArgs e)
 		{
 			try
@@ -85,6 +107,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows the register patient control
+		/// </summary>
 		private void registerNewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -99,19 +124,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
-		private void homeMenuItem_OnClick(object sender, EventArgs e)
-		{
-			try
-			{
-				this.highlightSelectedMenuItem(this.homeMenuItem);
-				this.controlPanel.Controls.Clear();
-			}
-			catch (Exception err)
-			{
-				ExceptionMessage.ShowError(err);
-			}
-		}
-
+		/// <summary>
+		/// Shows the search patient control
+		/// </summary>
 		private void searchPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -124,6 +139,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows the view patient info control
+		/// </summary>
 		private void viewPatientMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -145,6 +163,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows the run reprot control
+		/// </summary>
 		private void runReportMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -159,6 +180,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows the appointments control
+		/// </summary>
 		private void apptButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -180,6 +204,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Prompts for user logout, reshows login page
+		/// </summary>
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try

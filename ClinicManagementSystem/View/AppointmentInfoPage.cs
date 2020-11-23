@@ -14,6 +14,9 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// The Appointment info page
+	/// </summary>
 	public partial class AppointmentInfoPage : Form
 	{
 		#region Members
@@ -26,9 +29,24 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+		/// <summary>
+		/// True if editing selected appointment
+		/// </summary>
 		public bool IsEditingAppointment { get; set; } 
+
+		/// <summary>
+		/// The selected doctor in combo box
+		/// </summary>
 		private Doctor SelectedDoctor => this.doctors[this.doctorComboBox.SelectedIndex];
+
+		/// <summary>
+		/// The selected patient in combo box
+		/// </summary>
 		private Patient SelectedPatient => this.AppointmentControl.CurrentPatient;
+
+		/// <summary>
+		/// The selected time in combo box
+		/// </summary>
 		private DateTime SelectedTime => this.availableTimes[this.timeComboBox.SelectedIndex];
 
 		#endregion
@@ -48,6 +66,9 @@ namespace ClinicManagementSystem.View
 
 		#region Events
 
+		/// <summary>
+		/// Initializes controls
+		/// </summary>
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
 		{
 			try
@@ -60,6 +81,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Saves appointment
+		/// </summary>
 		private void appointmentButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -75,6 +99,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Updates app date picker
+		/// </summary>
 		private void doctorComboBox_OnSelectionChange(object sender, EventArgs e)
 		{
 			try
@@ -87,6 +114,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Loads available times
+		/// </summary>
 		private void apptDatePicker_OnValueChanged(object sender, EventArgs e)
 		{
 			try

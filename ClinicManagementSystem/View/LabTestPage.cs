@@ -13,6 +13,9 @@ using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View
 {
+    /// <summary>
+    /// The lab test info page
+    /// </summary>
 	public partial class LabTestPage : Form
 	{
 
@@ -25,9 +28,24 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+        /// <summary>
+        /// True if editing the selected lab test
+        /// </summary>
 		public bool IsEditingTest { get; set; }
+
+        /// <summary>
+        /// True if Managing the lab test
+        /// </summary>
 		public bool IsManagingTest { get; set; }
+
+        /// <summary>
+        /// True if new test order
+        /// </summary>
         public bool IsOrderingTest { get; set; }
+
+        /// <summary>
+        /// The selected test type
+        /// </summary>
 		public TestType SelectedTestType => this.testTypes[this.testTypesComboBox.SelectedIndex];
 
 		#endregion
@@ -41,11 +59,14 @@ namespace ClinicManagementSystem.View
             this.testTypes = new List<TestType>();
         }
 
-		#endregion
+        #endregion
 
-		#region Events
+        #region Events
 
-		private void labTestPage_OnLoad(object sender, EventArgs e)
+        /// <summary>
+        /// Initializes controls
+        /// </summary>
+        private void labTestPage_OnLoad(object sender, EventArgs e)
 		{
             try
             {
@@ -58,6 +79,9 @@ namespace ClinicManagementSystem.View
             }
         }
 
+        /// <summary>
+        /// Updates the test date picker
+        /// </summary>    
 		private void finishedTest_OnCheckChanged(object sender, EventArgs e)
 		{
             try
@@ -71,7 +95,10 @@ namespace ClinicManagementSystem.View
             }
 		}
 
-		private void saveButton_OnClick(object sender, EventArgs e)
+        /// <summary>
+        /// Saves the lab test
+        /// </summary>
+        private void saveButton_OnClick(object sender, EventArgs e)
 		{
             try
             {
@@ -86,6 +113,9 @@ namespace ClinicManagementSystem.View
             }
 		}
 
+        /// <summary>
+        /// Closes lab test dialog
+        /// </summary>
 		private void cancelButton_OnClick(object sender, EventArgs e)
 		{
             try

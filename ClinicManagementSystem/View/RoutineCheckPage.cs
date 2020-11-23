@@ -6,27 +6,50 @@ using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// Routine check page
+	/// </summary>
 	public partial class RoutineCheckPage : Form
 	{
 		#region Members
 
-		private ManageAppointmentPage ManageApptPage;
+		private Appointment appointment;
+		private bool readOnly;
+
+		#endregion
+
+		#region Properties
+
+		/// <summary>
+		/// True if editing the routine check
+		/// </summary>
 		public bool IsEditing { get; set; }
 
 		#endregion
 
 		#region Constructor
 
-		public RoutineCheckPage(ManageAppointmentPage manageApptPage)
+		/// <summary>
+		/// Routine check page constructor, accepts the prev control 
+		/// </summary>
+		/// <param name="appointment">The appointment linked to the routine check</param>
+		/// <param name="readOnly">true if page is read only</param>
+		public RoutineCheckPage(Appointment appointment, bool readOnly)
 		{
 			InitializeComponent();
 
-			this.ManageApptPage = manageApptPage;
+			this.appointment = appointment;
+			this.readOnly = readOnly;
 		}
 
-        #endregion
+		#endregion
 
-        private void saveButton_Click(object sender, EventArgs e)
+		#region Events
+
+		/// <summary>
+		/// Saves the routine check if fields are valid
+		/// </summary>
+		private void saveButton_Click(object sender, EventArgs e)
         {
 			try
             {
@@ -53,9 +76,47 @@ namespace ClinicManagementSystem.View
             }
         }
 
+		/// <summary>
+		/// Closes the routine check dialog
+		/// </summary>
+		private void cancelButton_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				this.Close();
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
+		}
+
+		/// <summary>
+		/// Initializes controls
+		/// </summary>
+		private void onLoad(object sender, EventArgs e)
+		{
+			try
+			{
+				if (this.IsEditing)
+				{
+					this.populateInfoFields();
+					this.checkToDisableControls();
+				}
+			}
+			catch (Exception err)
+			{
+				ExceptionMessage.ShowError(err);
+			}
+		}
+
+		#endregion
+
+		#region Private Helpers
+
 		private void populateInfoFields()
         {
-			var check = this.ManageApptPage.RoutineCheck;
+			var check = this.appointment.RoutineCheck;
 			this.systolicNumberUpDown.Value = check.BloodPressureSystolic;
 			this.diastolicNumberUpDown.Value = check.BloodPressureDiastolic;
 			this.bodyTempNumberUpDown.Value = Convert.ToDecimal(check.BodyTemp);
@@ -116,7 +177,7 @@ namespace ClinicManagementSystem.View
         {
 			var check = new RoutineCheck
 			{
-				Appointment = this.ManageApptPage.Appointment
+				Appointment = this.appointment
 			};
 			check.Nurse.ID = Settings.CurrentUser.ID;
 			check.BloodPressureSystolic = Convert.ToInt32(this.systolicNumberUpDown.Value);
@@ -131,7 +192,7 @@ namespace ClinicManagementSystem.View
 
 		private void checkToDisableControls()
 		{
-			if (this.ManageApptPage.Appointment.IsFinalized || this.ManageApptPage.ReadOnly)
+			if (this.appointment.IsFinalized || this.readOnly)
 			{
 				this.disableControls();
 			}
@@ -148,18 +209,7 @@ namespace ClinicManagementSystem.View
 			this.saveButton.Hide();
 		}
 
-		private void cancelButton_Click(object sender, EventArgs e)
-        {
-			this.Close();
-        }
+		#endregion
 
-        private void onLoad(object sender, EventArgs e)
-        {
-			if (this.IsEditing)
-			{
-				this.populateInfoFields();
-				this.checkToDisableControls();
-			}
-		}
-    }
+	}
 }

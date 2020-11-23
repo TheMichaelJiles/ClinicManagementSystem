@@ -13,6 +13,10 @@ using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View
 {
+	
+	/// <summary>
+	/// The patient info control
+	/// </summary>
 	public partial class PatientInfoControl : UserControl
 	{
 		#region Members
@@ -24,8 +28,14 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+		/// <summary>
+		/// True if viewing current selected patient info
+		/// </summary>
 		public bool IsViewingPatient { get; set; }
 
+		/// <summary>
+		/// The current selected patient from main page
+		/// </summary>
 		private Patient currentPatient
 		{
 			get => this.MainPage.CurrentPatient;
@@ -36,6 +46,10 @@ namespace ClinicManagementSystem.View
 
 		#region Construction
 
+		/// <summary>
+		/// Patient info control constructor
+		/// </summary>
+		/// <param name="mainPage">The parent Main Page</param>
 		public PatientInfoControl(UserMainPage mainPage)
         {
             InitializeComponent();
@@ -47,6 +61,9 @@ namespace ClinicManagementSystem.View
 
 		#region Events
 
+		/// <summary>
+		/// Registers new patient in DB and shows confirmation dialog
+		/// </summary>
 		private void registerPatientButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -66,6 +83,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Enables the fields to editable
+		/// </summary>
 		private void editPatientButton_OnClick(object sender, EventArgs e)
         {
 			try
@@ -78,7 +98,10 @@ namespace ClinicManagementSystem.View
 			}
         }
 
-        private void saveButton_OnClick(object sender, EventArgs e)
+		/// <summary>
+		/// Updates patient in DB, shows saved confirmation
+		/// </summary>
+		private void saveButton_OnClick(object sender, EventArgs e)
         {
 			try
 			{
@@ -98,6 +121,9 @@ namespace ClinicManagementSystem.View
 			}
         }
 
+		/// <summary>
+		/// Sets date selected variable
+		/// </summary>
 		private void dateOfBirth_OnValueChanged(object sender, EventArgs e)
 		{
 			try
@@ -110,7 +136,10 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
-        private void patientInfo_OnLoad(object sender, EventArgs e)
+		/// <summary>
+		/// Initializes the controls
+		/// </summary>
+		private void patientInfo_OnLoad(object sender, EventArgs e)
         {
 			try
 			{

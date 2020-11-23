@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// Admin main page
+	/// </summary>
 	public partial class AdminMainPage : Form
 	{
 
@@ -24,12 +27,18 @@ namespace ClinicManagementSystem.View
 
 		#region Properties
 
+		/// <summary>
+		/// The LoginPage parent form
+		/// </summary>
 		public LoginPage LoginForm;
 
 		#endregion
 
 		#region Construction
 
+		/// <summary>
+		/// Admin main page constructor
+		/// </summary>
 		public AdminMainPage()
 		{
 			InitializeComponent();
@@ -39,6 +48,9 @@ namespace ClinicManagementSystem.View
 
 		#region Events
 
+		/// <summary>
+		/// Initializes controls
+		/// </summary>
 		private void adminPage_OnLoad(object sender, EventArgs e)
 		{
 			try
@@ -51,6 +63,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Exits app
+		/// </summary>
 		private void adminPage_OnClose(object sender, FormClosingEventArgs e)
 		{
 			try
@@ -66,6 +81,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Loads register user dialog
+		/// </summary>
 		private void registerNewUserMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -80,6 +98,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Loads query db dialog
+		/// </summary>
 		private void queryDbMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -94,6 +115,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Reshows login page
+		/// </summary>
 		private void logoutMenuItem_OnClick(object sender, EventArgs e)
 		{
 			try

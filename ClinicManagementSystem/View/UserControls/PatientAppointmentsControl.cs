@@ -13,6 +13,10 @@ using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View.UserControls
 {
+
+	/// <summary>
+	/// Patient appointments control
+	/// </summary>
 	public partial class PatientAppointmentsControl : UserControl
 	{
 
@@ -25,18 +29,28 @@ namespace ClinicManagementSystem.View.UserControls
 
 		#region Properties
 
+		/// <summary>
+		/// The currently selected patient in the main page
+		/// </summary>
 		public Patient CurrentPatient
 		{
 			get => this.MainPage.CurrentPatient;
 			set => this.MainPage.CurrentPatient = value;
 		}
 
+		/// <summary>
+		/// The currently selected appointment in the grid
+		/// </summary>
 		public Appointment SelectedAppointment => this.apptDataGrid.SelectedRows.Count > 0 ? this.appointments[this.apptDataGrid.SelectedRows[0].Index] : null;
 
 		#endregion
 
 		#region Constructor
 
+		/// <summary>
+		/// The patient appointment control
+		/// </summary>
+		/// <param name="mainPage">The parent Main Page</param>
 		public PatientAppointmentsControl(UserMainPage mainPage)
 		{
 			InitializeComponent();
@@ -45,24 +59,11 @@ namespace ClinicManagementSystem.View.UserControls
 
 		#endregion
 
-		#region Public Methods
-
-		public void RefreshAppointmentGrid()
-		{
-			try
-			{
-				this.loadAppointmentGrid();
-			}
-			catch (Exception err)
-			{
-				ExceptionMessage.ShowError(err);
-			}
-		}
-
-		#endregion
-
 		#region Events
 
+		/// <summary>
+		/// Shows patient info page and reloads appointment grid
+		/// </summary>
 		private void createButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -77,6 +78,9 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
+		/// <summary>
+		/// Shows the patient info page and reloads appointment grid
+		/// </summary>
 		private void editButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -94,6 +98,9 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
+		/// <summary>
+		/// Removes the selected appointment
+		/// </summary>
 		private void removeButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -109,6 +116,9 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
+		/// <summary>
+		/// Shows manage appointment page and refreshes controls
+		/// </summary>
 		private void viewButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -126,11 +136,17 @@ namespace ClinicManagementSystem.View.UserControls
 			}
 		}
 
+		/// <summary>
+		/// Updates the controls
+		/// </summary>
 		private void appointmentsDataGrid_OnChange(object sender, DataGridViewRowStateChangedEventArgs e)
 		{
 			this.refreshControls();
 		}
 
+		/// <summary>
+		/// Loads the appointment grid
+		/// </summary>
 		private void appointmentFrm_OnLoad(object sender, EventArgs e)
 		{
 			this.loadAppointmentGrid();

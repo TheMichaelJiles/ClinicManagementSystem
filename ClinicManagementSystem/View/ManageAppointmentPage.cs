@@ -14,41 +14,56 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// The appointment manage page
+	/// </summary>
 	public partial class ManageAppointmentPage : Form
 	{
-		#region Members
-
-		private readonly Appointment appointment;
-
-		#endregion
 
 		#region Properties
 
+		/// <summary>
+		/// True if the form is read only
+		/// </summary>
 		public bool ReadOnly { get; set; }
-		public RoutineCheck RoutineCheck { get; private set; }
+
+		/// <summary>
+		/// The selected lab test in the grid
+		/// </summary>
         public LabTest SelectedLabTest => this.labTestsDataGrid.SelectedRows.Count > 0 ? this.LabTests[this.labTestsDataGrid.SelectedRows[0].Index] : null;
+
+		/// <summary>
+		/// The list of lab tests
+		/// </summary>
         public IList<LabTest> LabTests { get; private set; }
-		public Appointment Appointment => this.appointment;
+
+		/// <summary>
+		/// The appointment being managed
+		/// </summary>
+		public Appointment Appointment { get; }
 
 		#endregion
 
 		#region Constructor
 
 		/// <summary>
-		/// 
+		/// The appointment manage constructor, accepts the appointment being managed
 		/// </summary>
-		/// <param name="appointment"></param>
+		/// <param name="appointment">The appointment to manage</param>
 		public ManageAppointmentPage(Appointment appointment)
 		{
 			InitializeComponent();
 
-			this.appointment = appointment;
+			this.Appointment = appointment;
 		}
 
 		#endregion
 
 		#region Events
 
+		/// <summary>
+		/// Initializes controls
+		/// </summary>
 		private void manageFrm_OnLoad(object sender, EventArgs e)
 		{
 			try
@@ -61,6 +76,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows lab tests dialog as order view
+		/// </summary>
 		private void orderTestButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -79,6 +97,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows lab test dialog as edit view
+		/// </summary>
 		private void editTestButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -99,6 +120,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows lab test dialog as manage view
+		/// </summary>
 		private void viewLabTest_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -119,6 +143,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Removes the selected lab test
+		/// </summary>
 		private void removeTestButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -134,11 +161,14 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows the routine check dialog
+		/// </summary>
 		private void startButton_OnClick(object sender, EventArgs e)
 		{
 			try
 			{
-				var routineCheckPage = new RoutineCheckPage(this);
+				var routineCheckPage = new RoutineCheckPage(this.Appointment, this.ReadOnly);
 				routineCheckPage.ShowDialog();
 				this.loadRoutineCheck();
 			}
@@ -148,11 +178,14 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Shows the routine check dialog as edit view
+		/// </summary>
 		private void editCheckButton_OnClick(object sender, EventArgs e)
 		{
 			try
 			{
-				var routineCheckPage = new RoutineCheckPage(this) { IsEditing = true };
+				var routineCheckPage = new RoutineCheckPage(this.Appointment, this.ReadOnly) { IsEditing = true };
 				routineCheckPage.ShowDialog();
 				this.loadRoutineCheck();
 			}
@@ -162,6 +195,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Saves the appointment details
+		/// </summary>
 		private void saveButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -181,20 +217,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
-		private void handleFinalSave()
-		{
-			if (!this.LabTests.All(test => test.IsFinished))
-			{
-				this.showLabTestsWarningMessage();
-			}
-		}
-
-		private void showLabTestsWarningMessage()
-		{
-			var message = "You must finalize all lab tests before you enter your final diagnosis.";
-			MessageBox.Show(message, "Lab Tests Unfinished", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-		}
-
+		/// <summary>
+		/// Closes the manage appt dialog
+		/// </summary>
 		private void cancelButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -207,6 +232,9 @@ namespace ClinicManagementSystem.View
 			} 
 		}
 
+		/// <summary>
+		/// Refreshes controls
+		/// </summary>
 		private void labTestDataGrid_OnChange(object sender, DataGridViewRowStateChangedEventArgs e)
 		{
 			try
@@ -223,13 +251,27 @@ namespace ClinicManagementSystem.View
 
 		#region Private Helpers
 
+		private void handleFinalSave()
+		{
+			if (!this.LabTests.All(test => test.IsFinished))
+			{
+				this.showLabTestsWarningMessage();
+			}
+		}
+
+		private void showLabTestsWarningMessage()
+		{
+			var message = "You must finalize all lab tests before you enter your final diagnosis.";
+			MessageBox.Show(message, "Lab Tests Unfinished", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+		}
+
 		private void promptRemoveLabTest()
         {
             var message = $"Are you sure you want to remove Lab Test {this.SelectedLabTest.TestType.Code} - {this.SelectedLabTest.TestType.Name}?";
 
             if (MessageBox.Show(message, "Delete Lab Test", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
             {
-                LabTestDAL.RemoveLabTest(this.appointment.ID, this.SelectedLabTest.TestType.Code);
+                LabTestDAL.RemoveLabTest(this.Appointment.ID, this.SelectedLabTest.TestType.Code);
                 this.refreshLabTestsGrid();
             }
         }
@@ -256,7 +298,7 @@ namespace ClinicManagementSystem.View
 		private void updateDiagnosis()
 		{
 			var diagnosis = buildDiagnosis();
-			this.appointment.Diagnosis = diagnosis;
+			this.Appointment.Diagnosis = diagnosis;
 			DiagnosisDAL.UpsertDiagnosis(diagnosis);
 		}
 
@@ -268,7 +310,7 @@ namespace ClinicManagementSystem.View
 
 		private void refreshControls()
 		{
-			if (this.appointment.IsFinalized || this.ReadOnly)
+			if (this.Appointment.IsFinalized || this.ReadOnly)
 			{
 				this.disableControls();
 				this.editCheckButton.Text = "View";
@@ -294,45 +336,37 @@ namespace ClinicManagementSystem.View
 
 		private void autofillData()
 		{
-			this.loadData();
 			this.loadRoutineCheck();
+			this.refreshLabTestsGrid();
 			this.setDiagnosis();
 		}
 
 		private void initializeRoutineCheckControls()
 		{
-			this.routineFinishedCheckBox.Checked = this.RoutineCheck.IsFinished;
-			this.byNurseLabel.Text = $"by Nurse {this.RoutineCheck.Nurse.Bio.FullName}";
-			this.byNurseLabel.Visible = this.RoutineCheck.IsFinished;
+			this.routineFinishedCheckBox.Checked = this.Appointment.RoutineCheck.IsFinished;
+			this.byNurseLabel.Text = $"by Nurse {this.Appointment.RoutineCheck.Nurse.Bio.FullName}";
+			this.byNurseLabel.Visible = this.Appointment.RoutineCheck.IsFinished;
 
-			this.startCheckButton.Enabled = !this.RoutineCheck.IsFinished;
-			this.editCheckButton.Enabled = this.RoutineCheck.IsFinished;
+			this.startCheckButton.Enabled = !this.Appointment.RoutineCheck.IsFinished;
+			this.editCheckButton.Enabled = this.Appointment.RoutineCheck.IsFinished;
 		}
 
 		private void setDiagnosis()
 		{
-			this.initialDiagnosisTextArea.Text = this.appointment.Diagnosis.InitialDiagnosis;
-			this.finalDiagnosisTextArea.Text = this.appointment.Diagnosis.FinalDiagnosis;
+			this.initialDiagnosisTextArea.Text = this.Appointment.Diagnosis.InitialDiagnosis;
+			this.finalDiagnosisTextArea.Text = this.Appointment.Diagnosis.FinalDiagnosis;
 		}
-
-		private void loadData()
-		{
-			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.appointment.ID);
-			this.RoutineCheck.Appointment = this.appointment;
-
-            this.refreshLabTestsGrid();
-        }
 
 		private void loadRoutineCheck()
 		{
-			this.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.appointment.ID);
-			this.RoutineCheck.Appointment = this.appointment;
+			this.Appointment.RoutineCheck = RoutineCheckDAL.GetAppointmentRoutineCheck(this.Appointment.ID);
+			this.Appointment.RoutineCheck.Appointment = this.Appointment;
 			this.initializeRoutineCheckControls();
 		}
 
         private void refreshLabTestsGrid()
         {
-            this.LabTests = LabTestDAL.GetAllLabTests(this.appointment.ID);
+            this.LabTests = LabTestDAL.GetAllLabTests(this.Appointment.ID);
 			this.labTestsDataGrid.Rows.Clear();
 
             foreach (var labTest in this.LabTests)
@@ -354,7 +388,7 @@ namespace ClinicManagementSystem.View
         {
 			return new Diagnosis
 			{
-				AppointmentID = this.appointment.ID,
+				AppointmentID = this.Appointment.ID,
 				InitialDiagnosis = this.initialDiagnosisTextArea.Text,
 				FinalDiagnosis = this.finalDiagnosisTextArea.Text
 			};

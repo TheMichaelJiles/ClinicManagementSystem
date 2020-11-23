@@ -13,16 +13,25 @@ using ClinicManagementSystem.Util;
 
 namespace ClinicManagementSystem.View.UserControls
 {
+	/// <summary>
+	/// Register user control
+	/// </summary>
 	public partial class RegisterUserControl : UserControl
 	{
 
 		bool hasDateBeenSelected;
 
+		/// <summary>
+		/// Register user control
+		/// </summary>
 		public RegisterUserControl()
 		{
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// Inserts new user in DB
+		/// </summary>
 		private void registerUserButton_Click(object sender, EventArgs e)
 		{
 			try
@@ -39,6 +48,14 @@ namespace ClinicManagementSystem.View.UserControls
 			{
 				ExceptionMessage.ShowError(err);
 			}
+		}
+
+		/// <summary>
+		/// Sets date selected variable
+		/// </summary>
+		private void dateOfBirthDatePicker_ValueChanged(object sender, EventArgs e)
+		{
+			this.hasDateBeenSelected = true;
 		}
 
 		private void resetFields()
@@ -67,7 +84,6 @@ namespace ClinicManagementSystem.View.UserControls
 
 		private bool areEntryFieldsValid()
 		{
-			// TODO do validation for zip, state, phone #
 			bool isValid = true;
 			var errorMsg = "";
 
@@ -154,9 +170,5 @@ namespace ClinicManagementSystem.View.UserControls
 			return nurse;
 		}
 
-        private void dateOfBirthDatePicker_ValueChanged(object sender, EventArgs e)
-        {
-			this.hasDateBeenSelected = true;
-        }
     }
 }

@@ -9,35 +9,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicManagementSystem.DB;
 using MySql.Data.MySqlClient;
+using ClinicManagementSystem.DB.ModelDAL;
 
 namespace ClinicManagementSystem.View.UserControls
 {
+    /// <summary>
+    /// The admin query page
+    /// </summary>
     public partial class AdminQueryPage : UserControl
     {
+
         public AdminQueryPage()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event for execute button click
+        /// </summary>
         private void executeButton_Click(object sender, EventArgs e)
         {
             try
             {
-                var connection = DbConnection.GetConnection();
+                var dt = DataTableDAL.ExecuteLoadDataTable(this.queryTextBox.Text);
+                this.resultsDataGrid.DataSource = dt;
+                MessageBox.Show("Your SQL statement executed successfully", "Success!", MessageBoxButtons.OK);
 
-                using (connection)
-                {
-                    connection.Open();
-
-                    using (MySqlCommand cmd = new MySqlCommand(this.queryTextBox.Text, connection))
-                    {
-                        var results = cmd.ExecuteReader();
-                        var dt = new DataTable();
-                        dt.Load(results);
-                        this.resultsDataGrid.DataSource = dt;
-                        MessageBox.Show("Your SQL statement executed successfully", "Success!", MessageBoxButtons.OK);
-                    }
-                }
             } catch (Exception err)
             {
                 Util.ExceptionMessage.ShowError(err);

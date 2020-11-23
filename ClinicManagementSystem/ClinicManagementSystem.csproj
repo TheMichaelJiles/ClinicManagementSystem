@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\ModelDAL\AppointmentDAL.cs" />
+    <Compile Include="DB\ModelDAL\DataTableDAL.cs" />
     <Compile Include="DB\ModelDAL\DiagnosisDAL.cs" />
     <Compile Include="DB\ModelDAL\DoctorDAL.cs" />
     <Compile Include="DB\ModelDAL\LabTestDAL.cs" />

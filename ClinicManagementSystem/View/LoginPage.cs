@@ -13,26 +13,47 @@ using System.Windows.Forms;
 
 namespace ClinicManagementSystem.View
 {
+	/// <summary>
+	/// The login page
+	/// </summary>
 	public partial class LoginPage : Form
 	{
 
 		#region Members
 
+		/// <summary>
+		/// True if admin login page is selected
+		/// </summary>
 		public bool IsAdminLoginPage { get; private set; }
 
 		#endregion
 
 		#region Properties
 
+		/// <summary>
+		/// The logged in nurse
+		/// </summary>
 		public Nurse Nurse { get; private set; } = new Nurse();
 
 		#endregion
 
+		#region Constructor
+
+		/// <summary>
+		/// Login page constructor
+		/// </summary>
 		public LoginPage()
 		{
 			InitializeComponent();
 		}
 
+		#endregion
+
+		#region Public methods
+
+		/// <summary>
+		/// Clears the login form and reshows it.
+		/// </summary>
 		public void Redisplay()
 		{
 			this.usernameTextBox.Clear();
@@ -40,8 +61,13 @@ namespace ClinicManagementSystem.View
 			this.Show();
 		}
 
+		#endregion
+
 		#region Events
 
+		/// <summary>
+		/// Authenticates and Handles user login
+		/// </summary>
 		private void loginButton_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -61,6 +87,9 @@ namespace ClinicManagementSystem.View
 			}
 		}
 
+		/// <summary>
+		/// Toggles login page to admin login 
+		/// </summary>
 		private void adminLabel_OnClick(object sender, EventArgs e)
 		{
 			try
@@ -136,7 +165,6 @@ namespace ClinicManagementSystem.View
 
 				this.titleLabel.Text = "User Login";
 				this.adminLoginLabel.Text = "Admin Login";
-				// TODO switch colors?
 			}
 			else
 			{
