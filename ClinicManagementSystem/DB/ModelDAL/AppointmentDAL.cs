@@ -1,12 +1,7 @@
 ﻿using ClinicManagementSystem.Model;
-using ClinicManagementSystem.Util;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClinicManagementSystem.DB.ModelDAL
 {
@@ -25,6 +20,11 @@ namespace ClinicManagementSystem.DB.ModelDAL
 
 		#region Methods
 
+		/// <summary>
+		/// Method that retrieves all appointments in the database with the matching patientID
+		/// </summary>
+		/// <param name="patientID">The patient ID</param>
+		/// <returns>A list of appointments with the passed in patientID</returns>
 		public static IList<Appointment> GetPatientAppointments(int patientID)
 		{
 			var connection = DbConnection.GetConnection();
@@ -42,6 +42,12 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Gets all appointments in the passed in date range
+		/// </summary>
+		/// <param name="beginDate">The start of the date range</param>
+		/// <param name="endDate">The end of the date range</param>
+		/// <returns>A list of appointments between the passed in date range</returns>
 		public static IList<Appointment> GetAppointmentsInDateRange(DateTime beginDate, DateTime endDate)
 		{
 			var connection = DbConnection.GetConnection();
@@ -60,6 +66,10 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Removes an appointment with the passed in appointment ID
+		/// </summary>
+		/// <param name="apptID">The appointment ID of the appointment to be removed</param>
 		public static void RemovePatientAppointment(int apptID)
 		{
 			var connection = DbConnection.GetConnection();
@@ -76,6 +86,12 @@ namespace ClinicManagementSystem.DB.ModelDAL
 			}
 		}
 
+		/// <summary>
+		/// Gets the appointment times for a certain doctor on a certain date
+		/// </summary>
+		/// <param name="doctorID"></param>
+		/// <param name="date"></param>
+		/// <returns></returns>
 		public static IList<DateTime> GetDoctorAppointmentTimes(int doctorID, DateTime date)
 		{
 			var connection = DbConnection.GetConnection();
