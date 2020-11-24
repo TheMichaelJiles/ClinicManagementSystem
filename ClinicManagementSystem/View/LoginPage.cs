@@ -141,7 +141,6 @@ namespace ClinicManagementSystem.View
 		private void handleLogin()
 		{
 			this.Nurse = NurseDAL.GetNurse(this.usernameTextBox.Text);
-			this.Hide();
 
 			if (this.IsAdminLoginPage & !this.Nurse.IsAdmin)
 			{
@@ -149,10 +148,12 @@ namespace ClinicManagementSystem.View
 			}
 			else if (this.IsAdminLoginPage & this.Nurse.IsAdmin)
 			{
+				this.Hide();
 				this.displayAdminMainPage();
 			}
 			else
 			{
+				this.Hide();
 				this.displayUserMainPage();
 			}
 		}

@@ -79,10 +79,10 @@
 			this.navigationMenuStrip.Dock = System.Windows.Forms.DockStyle.Right;
 			this.navigationMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchPatientMenuItem,
-            this.viewPatientMenuItem,
             this.registerPatientMenuItem,
-            this.apptMenuItem,
             this.reportMenuItem,
+            this.viewPatientMenuItem,
+            this.apptMenuItem,
             this.logoutMenuItem});
 			this.navigationMenuStrip.Location = new System.Drawing.Point(910, 24);
 			this.navigationMenuStrip.Name = "navigationMenuStrip";

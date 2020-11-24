@@ -257,6 +257,10 @@ namespace ClinicManagementSystem.View
 			{
 				this.showLabTestsWarningMessage();
 			}
+			else
+			{
+				this.showFinalDiagnosisWarning();
+			}
 		}
 
 		private void showLabTestsWarningMessage()

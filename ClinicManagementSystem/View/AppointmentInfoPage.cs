@@ -107,12 +107,14 @@ namespace ClinicManagementSystem.View
 			try
 			{
 				this.apptDatePicker.Enabled = true;
+				this.timeComboBox.Enabled = false;
 			}
 			catch (Exception err)
 			{
 				ExceptionMessage.ShowError(err);
 			}
 		}
+
 
 		/// <summary>
 		/// Loads available times
